@@ -17,7 +17,8 @@ logs/
 chroma_db/
 
 # Model files (uncomment if you want to exclude large model files from git)
-# models/*.gguf
+models/
+*.gguf
 
 # IDE
 .vscode/

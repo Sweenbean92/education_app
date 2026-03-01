@@ -1,0 +1,75 @@
+URL: https://www.geeksforgeeks.org/dsa/pairwise-swap-elements-of-a-given-linked-list
+Title: Pairwise Swap Elements of a given Linked List - GeeksforGeeks
+================================================================================
+
+
+[Expected Approach - 1] Using Recursion- O(n) Time and O(n) Space
+=================================================================
+
+
+
+[Expected Approach - 2] Using Iterative Method - O(n) Time and O(1) Space
+=========================================================================
+
+
+
+[Expected Approach - 3] By Changing Links - O(n) Time and O(1) Space
+====================================================================
+
+
+
+Explore
+=======
+
+
+Given a singly linked list, the task is to swap linked list elements pairwise.
+
+Input : 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> NULL Output : 2 -> 1 -> 4 -> 3 -> 6 -> 5 -> NULL Input : 1 -> 2 -> 3 -> 4 -> 5 -> NULL Output : 2 -> 1 -> 4 -> 3 -> 5 -> NULL
+
+Table of Content
+
+[Expected Approach - 1] Using Recursion- O(n) Time and O(n) Space
+
+[Expected Approach - 2] Using Iterative Method - O(n) Time and O(1) Space
+
+[Expected Approach - 3] By Changing Links - O(n) Time and O(1) Space
+
+The idea is to swap the data of the first two adjacent nodes, then recursively move to the next pair of nodes. In each recursive call, the data of the current node is swapped with its next node, and the function continues to do so until there are fewer than two nodes left in the list.
+
+Below is the implementation of the above approach:
+
+// C++ program to pairwise swap elements // in a given linked list #include <iostream> using namespace std; class Node { public: int data; Node* next; Node(int val) { data = val; next = nullptr; } }; // Recursive function to swap data of nodes in pairs void pairwiseSwap(Node* head) { // Base case: if the list is empty or has only // one node, no swap if (head == nullptr || head->next == nullptr) { return; } // Swap the data of the current node with the next node swap(head->data, head->next->data); // Recursion for the next pair pairwiseSwap(head->next->next); } void printList(Node* head) { Node* curr = head; while (curr != nullptr) { cout << curr->data << " "; curr = curr->next; } cout << endl; } int main() { // Creating the linked list: // 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> NULL Node* head = new Node(1); head->next = new Node(2); head->next->next = new Node(3); head->next->next->next = new Node(4); head->next->next->next->next = new Node(5); head->next->next->next->next->next = new Node(6); pairwiseSwap(head); printList(head); return 0; }
+
+// C program to pairwise swap elements // in a given linked list #include <stdio.h> #include <stdlib.h> struct Node { int data; struct Node* next; }; // Recursive function to swap data of nodes in pairs void pairwiseSwap(struct Node* head) { // Base case: if the list is empty or has // only one node, no swap if (head == NULL || head->next == NULL) { return; } // Swap the data of the current node with the next node int temp = head->data; head->data = head->next->data; head->next->data = temp; // Recursion for the next pair pairwiseSwap(head->next->next); } void printList(struct Node* head) { struct Node* curr = head; while (curr != NULL) { printf("%d ", curr->data); curr = curr->next; } printf("\n"); } struct Node* createNode(int val) { struct Node* newNode = (struct Node*)malloc(sizeof(struct Node)); newNode->data = val; newNode->next = NULL; return newNode; } int main() { // Creating the linked list: // 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> NULL struct Node* head = createNode(1); head->next = createNode(2); head->next->next = createNode(3); head->next->next->next = createNode(4); head->next->next->next->next = createNode(5); head->next->next->next->next->next = createNode(6); pairwiseSwap(head); printList(head); return 0; }
+
+// Java program to pairwise swap elements // in a given linked list class Node { int data; Node next; Node(int val) { data = val; next = null; } } class GfG { // Recursive function to swap data of nodes in pairs static void pairwiseSwap(Node head) { // Base case: if the list is empty or has // only one node, no swap if (head == null || head.next == null) { return; } // Swap the data of the current node with the next node int temp = head.data; head.data = head.next.data; head.next.data = temp; // Recursion for the next pair pairwiseSwap(head.next.next); } static void printList(Node head) { Node curr = head; while (curr != null) { System.out.print(curr.data + " "); curr = curr.next; } System.out.println(); } public static void main(String[] args) { // Creating the linked list: // 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> NULL Node head = new Node(1); head.next = new Node(2); head.next.next = new Node(3); head.next.next.next = new Node(4); head.next.next.next.next = new Node(5); head.next.next.next.next.next = new Node(6); pairwiseSwap(head); printList(head); } }
+
+# Python program to pairwise swap elements # in a given linked list class Node: def __init__(self, val): self.data = val self.next = None # Recursive function to swap data of nodes in pairs def pairwiseSwap(head): # Base case: if the list is empty or # has only one node, no swap if head is None or head.next is None: return # Swap the data of the current node with the next node head.data, head.next.data = head.next.data, head.data # Recursion for the next pair pairwiseSwap(head.next.next) def printList(head): curr = head while curr: print(curr.data, end=" ") curr = curr.next print() if __name__ == "__main__": # Creating the linked list: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> None head = Node(1) head.next = Node(2) head.next.next = Node(3) head.next.next.next = Node(4) head.next.next.next.next = Node(5) head.next.next.next.next.next = Node(6) pairwiseSwap(head) printList(head)
+
+// C# program to pairwise swap elements // in a given linked list using System; class Node { public int data; public Node next; public Node(int val) { data = val; next = null; } } class GfG { // Recursive function to swap data of nodes in pairs static void pairwiseSwap(Node head) { // Base case: if the list is empty or has // only one node, no swap if (head == null || head.next == null) { return; } // Swap the data of the current node with // the next node int temp = head.data; head.data = head.next.data; head.next.data = temp; // Recursion for the next pair pairwiseSwap(head.next.next); } static void printList(Node head) { Node curr = head; while (curr != null) { Console.Write(curr.data + " "); curr = curr.next; } Console.WriteLine(); } static void Main(string[] args) { // Creating the linked list: // 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> NULL Node head = new Node(1); head.next = new Node(2); head.next.next = new Node(3); head.next.next.next = new Node(4); head.next.next.next.next = new Node(5); head.next.next.next.next.next = new Node(6); pairwiseSwap(head); printList(head); } }
+
+// Javascript program to pairwise swap elements // in a given linked list class Node { constructor(val) { this.data = val; this.next = null; } } // Recursive function to swap data of nodes in pairs function pairwiseSwap(head) { // Base case: if the list is empty or // has only one node, no swap if (head === null || head.next === null) { return; } // Swap the data of the current node with the next node [head.data, head.next.data] = [head.next.data, head.data]; // Recursion for the next pair pairwiseSwap(head.next.next); } function printList(head) { let curr = head; while (curr !== null) { console.log(curr.data + " "); curr = curr.next; } console.log(); } // Creating the linked list: // 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> NULL let head = new Node(1); head.next = new Node(2); head.next.next = new Node(3); head.next.next.next = new Node(4); head.next.next.next.next = new Node(5); head.next.next.next.next.next = new Node(6); pairwiseSwap(head); printList(head);
+
+2 1 4 3 6 5
+
+Time complexity: O(n), where n is the number of nodes in the linked list.Auxiliary Space: O(n), recursive stack space.
+
+The idea is to traverse the linked list from head and swap the data between adjacent nodes in pairs. Starting from the head node, we swap the data of the current node with the next node, then move two steps forward to swap the next pair.
+
+// C++ program to pairwise swap elements // in a given linked list #include <iostream> using namespace std; class Node { public: int data; Node* next; Node(int val) { data = val; next = nullptr; } }; // Function to swap data of nodes in pairs void pairwiseSwap(Node* head) { Node* curr = head; // Traverse the list and swap data in pairs while (curr != nullptr && curr->next != nullptr) { // Swap data of current node and the next node swap(curr->data, curr->next->data); // Move to the next pair curr = curr->next->next; } } void printList(Node* head) { Node* curr = head; while (curr != nullptr) { cout << curr->data << " "; curr = curr->next; } } int main() { // Creating the linked list: // 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> NULL Node* head = new Node(1); head->next = new Node(2); head->next->next = new Node(3); head->next->next->next = new Node(4); head->next->next->next->next = new Node(5); head->next->next->next->next->next = new Node(6); pairwiseSwap(head); printList(head); return 0; }
+
+// C program to pairwise swap elements // in a given linked list #include <stdio.h> #include <stdlib.h> struct Node { int data; struct Node* next; }; // Function to swap data of nodes in pairs void pairwiseSwap(struct Node* head) { struct Node* curr = head; // Traverse the list and swap data in pairs while (curr != NULL && curr->next != NULL) { // Swap data of current node and the next node int temp = curr->data; curr->data = curr->next->data; curr->next->data = temp; // Move to the next pair curr = curr->next->next; } } void printList(struct Node* head) { struct Node* curr = head; while (curr != NULL) { printf("%d ", curr->data); curr = curr->next; } } struct Node* createNode(int val) { struct Node* newNode = (struct Node*)malloc(sizeof(struct Node)); newNode->data = val; newNode->next = NULL; return newNode; } int main() { // Creating the linked list: //1 -> 2 -> 3 -> 4 -> 5 -> 6 -> NULL struct Node* head = createNode(1); head->next = createNode(2); head->next->next = createNode(3); head->next->next->next = createNode(4); head->next->next->next->next = createNode(5); head->next->next->next->next->next = createNode(6); pairwiseSwap(head); printList(head); return 0; }
+
+// Java program to pairwise // swap elements of a linked list class Node { int data; Node next; Node(int val) { data = val; next = null; } } class GfG { // Function to swap data of nodes in pairs static void pairwiseSwap(Node head) { Node curr = head; // Traverse the list and swap data in pairs while (curr != null && curr.next != null) { // Swap data of current node and the next node int temp = curr.data; curr.data = curr.next.data; curr.next.data = temp; // Move to the next pair curr = curr.next.next; } } static void printList(Node head) { Node curr = head; while (curr != null) { System.out.print(curr.data + " "); curr = curr.next; } } public static void main(String[] args) { // Creating the linked list: // 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> null Node head = new Node(1); head.next = new Node(2); head.next.next = new Node(3); head.next.next.next = new Node(4); head.next.next.next.next = new Node(5); head.next.next.next.next.next = new Node(6); pairwiseSwap(head); printList(head); } }
+
+# Python program to swap the elements # of linked list pairwise class Node: def __init__(self, val): self.data = val self.next = None # Function to swap data of nodes in pairs def pairwiseSwap(head): curr = head # Traverse the list and swap data in pairs while curr is not None and curr.next is not None: # Swap data of current node and the next node curr.data, curr.next.data = curr.next.data, curr.data # Move to the next pair curr = curr.next.next def printList(head): curr = head while curr: print(curr.data, end=" ") curr = curr.next print() if __name__ == "__main__": # Creating the linked list: # 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> None head = Node(1) head.next = Node(2) head.next.next = Node(3) head.next.next.next = Node(4) head.next.next.next.next = Node(5) head.next.next.next.next.next = Node(6) pairwiseSwap(head) printList(head)
+
+// C# program to pairwise swap elements // of a linked list using System; class Node { public int data; public Node next; public Node(int val) { data = val; next = null; } } class GfG { // Function to swap data of nodes in pairs public static void pairwiseSwap(Node head) { Node curr = head; // Traverse the list and swap data in pairs while (curr != null && curr.next != null) { // Swap data of current node and the next node int temp = curr.data; curr.data = curr.next.data; curr.next.data = temp; // Move to the next pair curr = curr.next.next; } } static void printList(Node head) { Node curr = head; while (curr != null) { Console.Write(curr.data + " "); curr = curr.next; } Console.WriteLine(); } static void Main() { // Creating the linked list: // 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> null Node head = new Node(1); head.next = new Node(2); head.next.next = new Node(3); head.next.next.next = new Node(4); head.next.next.next.next = new Node(5); head.next.next.next.next.next = new Node(6); pairwiseSwap(head); printList(head); } }
+
+// JavaScript program to pairwise swap // elements of a linked list class Node { constructor(val) { this.data = val; this.next = null; } } // Function to swap data of nodes in pairs function pairwiseSwap(head) { let curr = head; // Traverse the list and swap data in pairs while (curr !== null && curr.next !== null) { // Swap data of current node and the next node [curr.data, curr.next.data] = [curr.next.data, curr.data]; // Move to the next pair curr = curr.next.next; } } function printList(head) { let curr = head; while (curr !== null) { console.log(curr.data); curr = curr.next; } } // Creating the linked list: // 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> null let head = new Node(1); head.next = new Node(2); head.next.next = new Node(3); head.next.next.next = new Node(4); head.next.next.next.next = new Node(5); head.next.next.next.next.next = new Node(6); pairwiseSwap(head); printList(head);
+
+Time complexity: O(n), where n is the number of nodes in the linked list.Auxiliary Space: O(1)
+
+The solution provided here swaps data of nodes. If the data contains many fields (for example a linked list of Student Objects), the swap operation will be costly. See the below article for a better solution that works well for all kind of linked lists
+
+Pairwise Swap Nodes by Changing Links

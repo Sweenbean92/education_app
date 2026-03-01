@@ -1,0 +1,32 @@
+URL: https://www.geeksforgeeks.org/dsa/mean-of-array-using-recursion
+Title: Mean of array using recursion - GeeksforGeeks
+================================================================================
+
+
+Explore
+=======
+
+
+Given an array of numbers, you are required to calculate the mean (average) using recursion.
+
+Note: The mean of an array is the sum of its elements divided by the number of elements in the array.
+
+Input: 1 2 3 4 5Output: 3Explanation: The sum of elements (15) divided by the number of elements (5) gives the mean: 3Input: 1 2 3Output: 2Explanation: The sum of elements (6) divided by the number of elements (3) gives the mean: 2
+
+The approach to finding the mean using recursion involves summing the elements of the array progressively. In each recursive call, the function calculates the sum of the first n-1 elements and adds the current element. It then divides the total sum by n to compute the mean. The base case is when there's only one element left, at which point that element is directly returned.
+
+The recursive formula for calculating the mean of an array is:
+
+#include <iostream> #include <vector> using namespace std; double findMean(const vector<int>& arr) { int n = arr.size(); if (n == 1) // Base case: when there is only one element return (double)arr[n-1]; else return ((double)(findMean(vector<int>(arr.begin(), arr.begin() + n-1)) * (n-1) + arr[n-1]) / n); } int main() { double mean = 0; vector<int> arr = {1, 2, 3, 4, 5}; cout << findMean(arr) << endl; return 0; }
+
+#include <stdio.h> #include <stdlib.h> double findMean(int* arr, int n) { if (n == 1) // Base case: when there is only one element return (double)arr[n-1]; else return ((double)(findMean(arr, n-1) * (n-1) + arr[n-1]) / n); } int main() { double mean = 0; int arr[] = {1, 2, 3, 4, 5}; int n = sizeof(arr) / sizeof(arr[0]); printf("%f\n", findMean(arr, n)); return 0; }
+
+import java.util.Arrays; class GfG { static double findMean(int[] arr) { int n = arr.length; if (n == 1) // Base case: when there is only one element return (double)arr[n-1]; else return ((findMean(Arrays.copyOf(arr, n-1)) * (n-1) + arr[n-1]) / n); } public static void main(String[] args) { int[] arr = {1, 2, 3, 4, 5}; System.out.println(findMean(arr)); } }
+
+def findMean(arr): n = len(arr) if n == 1: # Base case: when there is only one element return float(arr[n - 1]) else: return (findMean(arr[:n - 1]) * (n - 1) + arr[n - 1]) / n if __name__ == "__main__": arr = [1, 2, 3, 4, 5] mean = findMean(arr) print("Mean:", mean)
+
+using System; class GfG { static double findMean(int[] arr) { int n = arr.Length; if (n == 1) // Base case: when there is only one element return (double)arr[n-1]; else { // Create a subarray excluding the last element int[] subArray = new int[n - 1]; Array.Copy(arr, subArray, n - 1); // Recursive case: calculate mean of the subarray and add // the current element return (findMean(subArray) * (n - 1) + arr[n - 1]) / n; } } static void Main() { int[] arr = {1, 2, 3, 4, 5}; Console.WriteLine(findMean(arr)); } }
+
+function findMean(arr) { const n = arr.length; if (n === 1) // Base case: when there is only one element return arr[n-1]; else return (findMean(arr.slice(0, n-1)) * (n-1) + arr[n-1]) / n; } // Driver Code const arr = [1, 2, 3, 4, 5]; console.log(findMean(arr));
+
+Time Complexity: O(n)Auxiliary Space: O(n)

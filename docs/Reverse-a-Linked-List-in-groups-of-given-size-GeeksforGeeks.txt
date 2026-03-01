@@ -1,0 +1,50 @@
+URL: https://www.geeksforgeeks.org/dsa/reverse-a-linked-list-in-groups-of-given-size
+Title: Reverse a Linked List in groups of given size - GeeksforGeeks
+================================================================================
+
+
+[Expected Approach] Using Iterative Method – O(n) Time and O(1) Space:
+======================================================================
+
+
+
+[Alternate Approach - 1] Using Recursion – O(n) Time and O(n / k) Space:
+========================================================================
+
+
+
+[Alternate Approach - 2] Using Deque – O(n) Time and O(k) Space:
+================================================================
+
+
+
+[Alternate Approach - 3] Using Stack – O(n) Time and O(k) Space:
+================================================================
+
+
+
+Explore
+=======
+
+
+Given a Singly linked list containing n nodes. The task is to reverse every group of k nodes in the list. If the number of nodes is not a multiple of k then left-out nodes, in the end, should be considered as a group and must be reversed.
+
+Input: head: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> NULL, k = 2 Output: head: 2 -> 1 -> 4 -> 3 -> 6 -> 5 -> NULL Explanation : Linked List is reversed in a group of size k = 2. Input: head: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> NULL, k = 4 Output: head: 4 -> 3 -> 2 -> 1 -> 6 -> 5 -> NULLExplanation : Linked List is reversed in a group of size k = 4.
+
+Table of Content
+
+[Expected Approach] Using Iterative Method – O(n) Time and O(1) Space
+
+[Alternate Approach - 1] Using Recursion – O(n) Time and O(n / k) Space
+
+[Alternate Approach - 2] Using Deque – O(n) Time and O(k) Space
+
+[Alternate Approach - 3] Using Stack – O(n) Time and O(k) Space
+
+To reverse a linked list in groups k nodes, iterate through the list, reversing each group by updating the next pointers. Track the tail of the previous group to link it with the head of the newly reversed group. After reversing each group, update the prev node and move to the start of the next group. Continue this until the entire list is processed. Return the head of the first reversed group as the new head of the list.Please refer to Reverse a Linked List in groups of given size using Iteration for implementation.
+
+To reverse a linked list in groups of k nodes using recursion, reverse the first k nodes of the list and update the head to point to the new head of this reversed segment. Recursively reverse the remaining portion of the list and connect the tail of the current reversed segment to the head of this recursively reversed portion.Please refer to Reverse a Linked List in groups of given size using Recursion for implementation.
+
+To reverse a linked list in groups of k nodes using a deque, start traverse the list by adding nodes to the deque in groups of k. For each group, reverse the nodes by repeatedly swapping the data of first and last nodes of the deque. Please refer to Reverse a Linked List in groups of given size using Deque for implementation.
+
+The idea is to use a stack to store the nodes of the given linked list. Firstly, push the k nodes of the linked list into the stack. Now, pop the nodes one by one and keep track of the previously popped node. Point the next pointer of the prev node to the top element of the stack. Repeat this process, until we reach end of linked list.Please refer to Reverse a Linked List in groups of given size using Stack for implementation.

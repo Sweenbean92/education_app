@@ -1,0 +1,136 @@
+URL: https://www.geeksforgeeks.org/dsa/top-50-interview-problems-on-recursion-algorithm
+Title: Top Problems on Recursion - GeeksforGeeks
+================================================================================
+
+
+Easy Problems using Recursion
+=============================
+
+
+
+Medium Problems using Recursion
+===============================
+
+
+
+Hard Problems using Recursion
+=============================
+
+
+
+Related Articles
+================
+
+
+
+Explore
+=======
+
+
+Recursion is one of the most essential algorithms that uses the concept of code reusability and repeated usage of the same piece of code. In this post, we have curated an extensive list of interview questions asked around the Recursion Algorithm. The point that makes Recursion one of the most used algorithms is that it forms the base for many other algorithms,such as:
+
+Tree traversals
+
+Graph traversals
+
+Divide and Conquer Algorithms
+
+Backtracking algorithms
+
+To learn more about the Recursion Algorithm, Please refer to the Tutorial on Recursion Algorithms
+
+Print 1 to n without using loops
+
+Print n to 1 without loop
+
+Mean of Array
+
+Sum of natural numbers
+
+Decimal to binary number
+
+Sum of array
+
+Reverse of a string
+
+Length of a string
+
+Sum of digit
+
+Sum of array using tail recursion
+
+First n Fibonacci Numbers
+
+Factorial of a number
+
+Minimum and Maximum in array
+
+Palindrome Check
+
+Count Set-bits
+
+Fibonacci Series in reverse
+
+Remove all adjacent duplicates
+
+Sort the Queue
+
+Reversing a queue
+
+Binary to Gray code
+
+Product of 2 Numbers
+
+Printing Pyramid Patterns
+
+Longest palindromic sub-string
+
+Tower of Hanoi Algorithm
+
+Calculate nCr
+
+Geometric sum of the series
+
+Convert a String to an Integer
+
+Subsets of a given Set or Array
+
+All Paths from Top-Left to Bottom-Right of Matrix
+
+All combinations of balanced parentheses
+
+Longest Common Subsequence (LCS)
+
+Permutations of given String
+
+Josephus Problem
+
+Number raised to its reverse
+
+Flood Fill Algorithm
+
+Sort a Stack using Recursion
+
+All palindromic partitions
+
+Scrambled Strings
+
+Word Break Problem
+
+N Queen Problem
+
+Sudoku Solver
+
+The Knight's tour problem
+
+N-digit Numbers with |K| Difference Between Adjacent Digits
+
+DSA Tutorial
+
+Top 50 Problems on Stack for Interviews
+
+Top 50 Dynamic Programming Coding Problems for Interviews
+
+Top 50 Problems on Linked List for Interviews
+
+Top 50 Problems on Queue for Interviews

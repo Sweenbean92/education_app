@@ -1,0 +1,96 @@
+URL: https://www.geeksforgeeks.org/dsa/data-structures-and-algorithms-online-quiz
+Title: Data Structures and Algorithms (DSA) MCQ Quiz Online - GeeksforGeeks
+================================================================================
+
+
+Combined DSA MCQ Quiz
+=====================
+
+
+
+What is Data Structure?
+=======================
+
+
+
+Data Structures Quiz
+====================
+
+
+
+Topic-wise Online Quiz for Data Structures:
+===========================================
+
+
+
+What is Algorithm?
+==================
+
+
+
+MCQ Quiz on Algorithms
+======================
+
+
+
+Topic-wise MCQ Quiz for Algorithms:
+===================================
+
+
+
+Quiz on Time and Space Complexities:
+====================================
+
+
+
+Explore
+=======
+
+
+Welcome to our Data Structures and Algorithms (DSA) MCQ Quiz Online! This DSA MCQ is all about Quizzes for solving problems and learning the fundamentals of Algorithms and Data Structures. You'll see multiple-choice questions (MCQs) that test how well you understand the basics and Data structure Algorithms.
+
+We'll cover every topic of DSA like Array, Linked lists, stacks, queues, trees, Grpah, etc. We'll also learn about algorithms sorting, searching, Greedy algorithms, etc.
+
+Table of Content
+
+Combined DSA MCQ Quiz
+
+What is Data Structure?
+
+Data Structures Quiz
+
+Topic-wise Online Quiz for Data Structures:
+
+What is Algorithm?
+
+MCQ Quiz on Algorithms
+
+Topic-wise MCQ Quiz for Algorithms:
+
+Quiz on Time and Space Complexities:
+
+Top MCQs on Data Structures and Algorithms
+
+A data structure is defined as a particular way of storing and organizing data in our devices to use the data efficiently and effectively. The main idea behind using data structures is to minimize the time and space complexities. An efficient data structure takes minimum memory space and requires minimum time to execute the data.
+
+Top MCQs on Data Structures in DSA with Answers
+
+Top MCQs on Data Structures | DSA Quiz for Beginners
+
+Top 50 Data Structures MCQs with Answers
+
+Algorithm is defined as a process or set of well-defined instructions that are typically used to solve a particular group of problems or perform a specific type of calculation. To explain in simpler terms, it is a set of operations performed in a step-by-step manner to execute a task.
+
+Top MCQs on Algorithms in DSA with Answers
+
+Top MCQs on Algorithms | DSA Quiz for Beginners
+
+Top 50 Algorithms MCQs with Answers
+
+DSA Quiz Link
+
+Here comes one of the interesting and important topics. The primary motive to use DSA is to solve a problem effectively and efficiently. How can you decide if a program written by you is efficient or not? This is measured by complexities. Complexity is of two types:
+
+Time Complexity: Time complexity is used to measure the amount of time required to execute the code.
+
+Space Complexity: Space complexity means the amount of space required to execute successfully the functionalities of the code. You will also come across the term Auxiliary Space very commonly in DSA, which refers to the extra space used in the program other than the input data structure.

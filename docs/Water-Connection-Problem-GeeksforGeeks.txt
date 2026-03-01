@@ -1,0 +1,61 @@
+URL: https://www.geeksforgeeks.org/dsa/water-connection-problem
+Title: Water Connection Problem - GeeksforGeeks
+================================================================================
+
+
+Approach:
+=========
+
+
+
+Explore
+=======
+
+
+You are given n houses in a colony, numbered from 1 to n, and p pipes connecting these houses. Each house has at most one outgoing pipe and at most one incoming pipe. Your goal is to install tanks and taps efficiently.
+
+A tank is installed at a house that has one outgoing pipe but no incoming pipe.
+
+A tap is installed at a house that has one incoming pipe but no outgoing pipe.
+
+Each pipe is represented as (a[i], b[i], d[i]), where:
+
+a[i] is the house where the pipe starts.
+
+b[i] is the house where the pipe ends.
+
+d[i] is the pipe's diameter.
+
+The task is to determine all tank-tap pairs and the minimum pipe diameter in each connection.
+
+Input: n = 9, p = 6, a[] = [7, 5, 4, 2, 9, 3], b[] = [4, 9, 6, 8, 7, 1], d[] = [98, 72, 10, 22, 17, 66] Output: [[2, 8, 22], [3, 1, 66], [5, 6, 10]]Explanation: Identify Tanks and Taps:Tanks (houses with outgoing pipes but no incoming pipes): 2, 3, 5Taps (houses with incoming pipes but no outgoing pipes): 8, 1, 6Find Tank-Tap Paths:2 -> 8 (Min Diameter = 22) -> [2, 8, 22]3 -> 1 (Min Diameter = 66) -> [3, 1, 66]5 -> 9 -> 7 -> 4 -> 6 (Min Diameter = 10) -> [5, 6, 10]Input: n = 4, p = 2, a[] = [1, 3], b[] = [2, 4], d[] = [60, 50]Output: [[1, 2, 60], [3, 4, 50]]Explanation: Identify Tanks and Taps:Tanks (houses with outgoing pipes but no incoming pipes): 1, 3Taps (houses with incoming pipes but no outgoing pipes): 2, 4Find Tank-Tap Paths:1 -> 2 (Min Diameter = 60) → [1, 2, 60]3 -> 4 (Min Diameter = 50) → [3, 4, 50]
+
+The idea is to efficiently identify tanks (houses with outgoing pipes but no incoming pipes) as starting points. Then, we traverse the pipeline while tracking the minimum diameter until we reach a tap (a house with an incoming pipe but no outgoing pipe).
+
+Steps to implement the above idea:
+
+Initialize outgoing, incoming, and diameter arrays to track pipeline connections and minimum diameters for each house.
+
+Populate these arrays using input values, setting outgoing[i] = b[i], incoming[b[i]] = a[i], and diameter[a[i]] = d[i].
+
+Iterate through houses and identify tanks (houses with outgoing but no incoming pipe) as starting points.
+
+Perform DFS-like traversal from each tank, following outgoing pipes until reaching a house with no outgoing connection.
+
+Track the minimum diameter along the path while updating the current house to the next outgoing connection.
+
+Store each (tank, tap, min diameter) triplet in the result list and continue processing the next tank. Finally, print the result
+
+// C++ Code for Water Distribution problem // using Depth First Search(DFS) #include <bits/stdc++.h> using namespace std; // Function to find tank-tap pairs vector<vector<int>> findWaterDistribution(int n, int p, vector<int> &a, vector<int> &b, vector<int> &d) { vector<int> outgoing(n + 1, -1), incoming(n + 1, -1), diameter(n + 1, INT_MAX); // Building graph representation for (int i = 0; i < p; i++) { outgoing[a[i]] = b[i]; incoming[b[i]] = a[i]; diameter[a[i]] = d[i]; } vector<vector<int>> result; // DFS to find tank-tap connections for (int i = 1; i <= n; i++) { // Tank found if (outgoing[i] != -1 && incoming[i] == -1) { int curr = i, minDia = INT_MAX; while (outgoing[curr] != -1) { minDia = min(minDia, diameter[curr]); // Move to next house curr = outgoing[curr]; } // Store (tank, tap, min diameter) result.push_back({i, curr, minDia}); } } return result; } void print2dArray(vector<vector<int>> &arr) { cout << "["; for (int i = 0; i < arr.size(); i++) { cout << "["; for (int j = 0; j < arr[i].size(); j++) { cout << arr[i][j]; if (j != arr[i].size() - 1) { cout << ", "; } } cout << "]"; if (i != arr.size() - 1) { cout << ", "; } } cout << "]" << endl; } int main() { int n = 9, p = 6; vector<int> a = {7, 5, 4, 2, 9, 3}, b = {4, 9, 6, 8, 7, 1}, d = {98, 72, 10, 22, 17, 66}; vector<vector<int>> ans = findWaterDistribution(n, p, a, b, d); print2dArray(ans); return 0; }
+
+// Java Code for Water Distribution problem // using Depth First Search(DFS) import java.util.*; class GfG { // Function to find tank-tap pairs static List<List<Integer>> findWaterDistribution(int n, int p, List<Integer> a, List<Integer> b, List<Integer> d) { int[] outgoing = new int[n + 1], incoming = new int[n + 1], diameter = new int[n + 1]; Arrays.fill(outgoing, -1); Arrays.fill(incoming, -1); Arrays.fill(diameter, Integer.MAX_VALUE); // Building graph representation for (int i = 0; i < p; i++) { outgoing[a.get(i)] = b.get(i); incoming[b.get(i)] = a.get(i); diameter[a.get(i)] = d.get(i); } List<List<Integer>> result = new ArrayList<>(); // DFS to find tank-tap connections for (int i = 1; i <= n; i++) { // Tank found if (outgoing[i] != -1 && incoming[i] == -1) { int curr = i, minDia = Integer.MAX_VALUE; while (outgoing[curr] != -1) { minDia = Math.min(minDia, diameter[curr]); // Move to next house curr = outgoing[curr]; } // Store (tank, tap, min diameter) result.add(Arrays.asList(i, curr, minDia)); } } return result; } static void print2dArray(List<List<Integer>> arr) { System.out.print("["); for (int i = 0; i < arr.size(); i++) { System.out.print(arr.get(i)); if (i != arr.size() - 1) { System.out.print(", "); } } System.out.println("]"); } public static void main(String[] args) { int n = 9, p = 6; List<Integer> a = Arrays.asList(7, 5, 4, 2, 9, 3), b = Arrays.asList(4, 9, 6, 8, 7, 1), d = Arrays.asList(98, 72, 10, 22, 17, 66); List<List<Integer>> ans = findWaterDistribution(n, p, a, b, d); print2dArray(ans); } }
+
+# Python Code for Water Distribution problem # using Depth First Search(DFS) # Function to find tank-tap pairs def findWaterDistribution(n, p, a, b, d): outgoing = [-1] * (n + 1) incoming = [-1] * (n + 1) diameter = [float('inf')] * (n + 1) # Building graph representation for i in range(p): outgoing[a[i]] = b[i] incoming[b[i]] = a[i] diameter[a[i]] = d[i] result = [] # DFS to find tank-tap connections for i in range(1, n + 1): # Tank found if outgoing[i] != -1 and incoming[i] == -1: curr, minDia = i, float('inf') while outgoing[curr] != -1: minDia = min(minDia, diameter[curr]) # Move to next house curr = outgoing[curr] # Store (tank, tap, min diameter) result.append([i, curr, minDia]) return result def print2dArray(arr): print("[", end="") print(", ".join(str(row) for row in arr), end="") print("]") if __name__ == "__main__": n, p = 9, 6 a = [7, 5, 4, 2, 9, 3] b = [4, 9, 6, 8, 7, 1] d = [98, 72, 10, 22, 17, 66] ans = findWaterDistribution(n, p, a, b, d) print2dArray(ans)
+
+// C# Code for Water Distribution problem // using Depth First Search(DFS) using System; using System.Collections.Generic; class GfG { // Function to find tank-tap pairs static List<List<int>> findWaterDistribution(int n, int p, List<int> a, List<int> b, List<int> d) { int[] outgoing = new int[n + 1], incoming = new int[n + 1], diameter = new int[n + 1]; Array.Fill(outgoing, -1); Array.Fill(incoming, -1); Array.Fill(diameter, int.MaxValue); // Building graph representation for (int i = 0; i < p; i++) { outgoing[a[i]] = b[i]; incoming[b[i]] = a[i]; diameter[a[i]] = d[i]; } List<List<int>> result = new List<List<int>>(); // DFS to find tank-tap connections for (int i = 1; i <= n; i++) { // Tank found if (outgoing[i] != -1 && incoming[i] == -1) { int curr = i, minDia = int.MaxValue; while (outgoing[curr] != -1) { minDia = Math.Min(minDia, diameter[curr]); // Move to next house curr = outgoing[curr]; } // Store (tank, tap, min diameter) result.Add(new List<int>{ i, curr, minDia }); } } return result; } public static void print2dArray(List<List<int>> arr) { Console.Write("["); for (int i = 0; i < arr.Count; i++) { Console.Write("[{0}]", string.Join(", ", arr[i])); if (i != arr.Count - 1) { Console.Write(", "); } } Console.WriteLine("]"); } public static void Main() { int n = 9, p = 6; List<int> a = new List<int>{7, 5, 4, 2, 9, 3}, b = new List<int>{4, 9, 6, 8, 7, 1}, d = new List<int>{98, 72, 10, 22, 17, 66}; List<List<int>> ans = findWaterDistribution(n, p, a, b, d); print2dArray(ans); } }
+
+// JavaScript Code for Water Distribution problem // using Depth First Search(DFS) // Function to find tank-tap pairs function findWaterDistribution(n, p, a, b, d) { let outgoing = new Array(n + 1).fill(-1); let incoming = new Array(n + 1).fill(-1); let diameter = new Array(n + 1).fill(Infinity); // Building graph representation for (let i = 0; i < p; i++) { outgoing[a[i]] = b[i]; incoming[b[i]] = a[i]; diameter[a[i]] = d[i]; } let result = []; // DFS to find tank-tap connections for (let i = 1; i <= n; i++) { // Tank found if (outgoing[i] !== -1 && incoming[i] === -1) { let curr = i, minDia = Infinity; while (outgoing[curr] !== -1) { minDia = Math.min(minDia, diameter[curr]); // Move to next house curr = outgoing[curr]; } // Store (tank, tap, min diameter) result.push([i, curr, minDia]); } } return result; } function print2dArray(arr) { console.log(JSON.stringify(arr)); } // Driver code let n = 9, p = 6; let a = [7, 5, 4, 2, 9, 3], b = [4, 9, 6, 8, 7, 1], d = [98, 72, 10, 22, 17, 66]; let ans = findWaterDistribution(n, p, a, b, d); print2dArray(ans);
+
+[[2, 8, 22], [3, 1, 66], [5, 6, 10]]
+
+Time Complexity: O(n + p), Traversing pipes and performing DFS.Space Complexity: O(n), Storing incoming, outgoing, and diameter arrays.

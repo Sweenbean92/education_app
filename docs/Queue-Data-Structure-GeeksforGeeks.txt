@@ -1,0 +1,113 @@
+URL: https://www.geeksforgeeks.org/dsa/queue-data-structure
+Title: Queue Data Structure - GeeksforGeeks
+================================================================================
+
+
+Basics
+======
+
+
+
+Implementations in Different Languages
+======================================
+
+
+
+Easy Problems
+=============
+
+
+
+Medium Problems
+===============
+
+
+
+Hard Problems
+=============
+
+
+
+Explore
+=======
+
+
+A Queue Data Structure is a fundamental concept in computer science used for storing and managing data in a specific order.
+
+It follows the principle of "First in, First out" (FIFO), where the first element added to the queue is the first one to be removed.
+
+It is used as a buffer in computer systems where we have speed mismatch between two devices that communicate with each other. For example, CPU and keyboard and two devices in a network
+
+Queue is also used in Operating System algorithms like CPU Scheduling and Memory Management, and many standard algorithms like Breadth First Search of Graph, Level Order Traversal of a Tree.
+
+Introduction
+
+Basic Operations
+
+Array Implementations
+
+Linked List Implementation
+
+Applications
+
+Queue in C++ STL
+
+Queue In Java
+
+Queue In Python
+
+Queue In C#
+
+Queue in JavaScript
+
+Queue in Go Language
+
+Queue in Scala
+
+Stack using Queues
+
+Queue using Stacks
+
+Level Order Traversal
+
+BFS for a Graph
+
+FIFO Page Replacement
+
+K Queues in an array
+
+Reverse a Queue
+
+First non-repeating in a stream
+
+Min Knight steps for target
+
+Reverse First K of Queue
+
+Sliding Window Maximum
+
+Shortest path in a Binary Maze
+
+Generate Binary from 1 to n
+
+Maximum Cost Path
+
+Snake and Ladder Problem
+
+Shortest safe route
+
+All possible walks with K edges
+
+Minimum Cost Path
+
+Min Cost Path via intermediates
+
+Quick Links:
+
+‘Practice Problems’ on Queue
+
+‘Quizzes’ on Queue
+
+Top 50 Queue Interview Questions
+
+DSA Tutorial

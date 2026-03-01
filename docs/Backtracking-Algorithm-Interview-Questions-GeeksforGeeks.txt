@@ -1,0 +1,68 @@
+URL: https://www.geeksforgeeks.org/dsa/top-20-backtracking-algorithm-interview-questions
+Title: Backtracking Algorithm Interview Questions - GeeksforGeeks
+================================================================================
+
+
+Easy Problems
+=============
+
+
+
+Medium Problems
+===============
+
+
+
+Hard Problems
+=============
+
+
+
+Related Links:
+==============
+
+
+
+Explore
+=======
+
+
+Backtracking is a powerful algorithmic technique used to solve problems by exploring all possible solutions in a systematic and recursive manner. It is particularly useful for problems that require searching through a vast solution space, such as combinatorial problems, constraint satisfaction problems, and optimization tasks.
+
+Rat in a Maze
+
+Print all permutations
+
+Palindromic Partitions
+
+All possible paths in a matrix
+
+N Queens Problem
+
+Word Break Problem
+
+Path to middle cell in a maze
+
+Hamiltonian cycle
+
+M Coloring Problem
+
+Cryptarithmetic puzzle
+
+Path of more than k length
+
+Partition into k subsets
+
+Warnsdorff's Algorithm
+
+Remove Invalid Parenthesis
+
+Match a pattern and string using regular expression
+
+longest possible route in a matrix with hurdles
+
+Shortest safe route in a path with landmines
+
+DSA Tutorial
+
+System Design Tutorial

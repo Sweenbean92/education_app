@@ -1,0 +1,167 @@
+URL: https://www.geeksforgeeks.org/dsa/traversal-in-array
+Title: Traversal in Array - GeeksforGeeks
+================================================================================
+
+
+Types of Array Traversal
+========================
+
+
+
+Methods of Array Traversal
+==========================
+
+
+
+Applications of Array Traversal
+===============================
+
+
+
+1. Searching Elements
+=====================
+
+
+
+2. Modifying Elements
+=====================
+
+
+
+Explore
+=======
+
+
+Traversal in an array refers to the process of accessing each element in the array sequentially, typically to perform a specific operation, such as searching, sorting, or modifying the elements.
+
+Traversing an array is essential for a wide range of tasks in programming, and the most common methods of traversal include iterating through the array using loops like for, while, or foreach. Efficient traversal plays a critical role in algorithms that require scanning or manipulating data.
+
+Input: arr[] = [10, 20, 30, 40, 50]Output: "10 20 30 40 50 "Explanation: Just traverse and print the numbers.Input: arr[] = [7, 8, 9, 1, 2]Output: "7 8 9 1 2 "Explanation: Just traverse and print the numbers.Input: arr[] = [100, 200, 300, 400, 500]Output: "100 200 300 400 500 "Explanation: Just traverse and print the numbers.
+
+There are mainly two types of array traversal:
+
+1. Linear Traversal
+
+Linear traversal is the process of visiting each element of an array sequentially, starting from the first element and moving to the last element. During this traversal, each element is processed (printed, modified, or checked) one after the other, in the order they are stored in the array. This is the most common and straightforward way of accessing the elements of an array.
+
+#include <iostream> using namespace std; int main() { int arr[] = {1, 2, 3, 4, 5}; int n = sizeof(arr) / sizeof(arr[0]); cout << "Linear Traversal: "; for(int i = 0; i < n; i++) { cout << arr[i] << " "; } cout << endl; return 0; }
+
+#include <stdio.h> int main() { int arr[] = {1, 2, 3, 4, 5}; int n = sizeof(arr) / sizeof(arr[0]); printf("Linear Traversal: "); for(int i = 0; i < n; i++) { printf("%d ", arr[i]); } printf("\n"); return 0; }
+
+public class Main { public static void main(String[] args) { int[] arr = {1, 2, 3, 4, 5}; int n = arr.length; System.out.print("Linear Traversal: "); for(int i = 0; i < n; i++) { System.out.print(arr[i] + " "); } System.out.println(); } }
+
+arr = [1, 2, 3, 4, 5] print("Linear Traversal: ", end=" ") for i in arr: print(i, end=" ") print()
+
+using System; class Program { static void Main() { int[] arr = {1, 2, 3, 4, 5}; Console.Write("Linear Traversal: "); foreach (int i in arr) { Console.Write(i + " "); } Console.WriteLine(); } }
+
+const arr = [1, 2, 3, 4, 5]; console.log("Linear Traversal: "); arr.forEach(i => { process.stdout.write(i + ' '); }); console.log();
+
+Linear Traversal: 1 2 3 4 5
+
+Time Complexity: O(n)Auxiliary Space: O(1)
+
+2. Reverse Traversal
+
+Reverse traversal is the process of visiting each element of an array starting from the last element and moving towards the first element. This method is useful when you need to process the elements of an array in reverse order. In this type of traversal, you begin from the last index (the rightmost element) and work your way to the first index (the leftmost element).
+
+#include <iostream> using namespace std; int main() { int arr[] = {1, 2, 3, 4, 5}; int n = sizeof(arr) / sizeof(arr[0]); cout << "Reverse Traversal: "; for(int i = n - 1; i >= 0; i--) { cout << arr[i] << " "; } cout << endl; return 0; }
+
+// C Code #include <stdio.h> int main() { int arr[] = {1, 2, 3, 4, 5}; int n = sizeof(arr) / sizeof(arr[0]); printf("Reverse Traversal: "); for(int i = n - 1; i >= 0; i--) { printf("%d ", arr[i]); } printf("\n"); return 0; }
+
+// Java Code class Main { public static void main(String[] args) { int[] arr = {1, 2, 3, 4, 5}; int n = arr.length; System.out.print("Reverse Traversal: "); for (int i = n - 1; i >= 0; i--) { System.out.print(arr[i] + " "); } System.out.println(); } }
+
+# Python Code arr = [1, 2, 3, 4, 5] print("Reverse Traversal: ", end="") for i in range(len(arr) - 1, -1, -1): print(arr[i], end=" ") print()
+
+// C# Code using System; class Program { static void Main() { int[] arr = {1, 2, 3, 4, 5}; int n = arr.Length; Console.Write("Reverse Traversal: "); for (int i = n - 1; i >= 0; i--) { Console.Write(arr[i] + " "); } Console.WriteLine(); } }
+
+// JavaScript Code let arr = [1, 2, 3, 4, 5]; console.log("Reverse Traversal: "); for (let i = arr.length - 1; i >= 0; i--) { process.stdout.write(arr[i] + " "); } console.log();
+
+Reverse Traversal: 5 4 3 2 1
+
+1. Using For Loop
+
+A for loop is a control structure that allows you to iterate over an array by specifying an initial index, a condition, and an update to the index after each iteration. It is the most common and efficient way to traverse an array because the loop can be easily controlled by setting the range of the index. This method is ideal when you know the number of elements in the array beforehand or when you need to access each element by its index.
+
+#include <iostream> using namespace std; int main() { int arr[] = {10, 20, 30, 40, 50}; int n = sizeof(arr) / sizeof(arr[0]); cout << "Traversal using for loop: "; for(int i = 0; i < n; i++) { cout << arr[i] << " "; } cout << endl; return 0; }
+
+#include <stdio.h> int main() { int arr[] = {10, 20, 30, 40, 50}; int n = sizeof(arr) / sizeof(arr[0]); printf("Traversal using for loop: "); for(int i = 0; i < n; i++) { printf("%d ", arr[i]); } printf("\n"); return 0; }
+
+public class Main { public static void main(String[] args) { int[] arr = {10, 20, 30, 40, 50}; int n = arr.length; System.out.print("Traversal using for loop: "); for(int i = 0; i < n; i++) { System.out.print(arr[i] + " "); } System.out.println(); } }
+
+arr = [10, 20, 30, 40, 50] print("Traversal using for loop: ", end=' ') for i in arr: print(i, end=' ') print()
+
+using System; class Program { static void Main() { int[] arr = {10, 20, 30, 40, 50}; int n = arr.Length; Console.Write("Traversal using for loop: "); for(int i = 0; i < n; i++) { Console.Write(arr[i] + " "); } Console.WriteLine(); } }
+
+const arr = [10, 20, 30, 40, 50]; console.log("Traversal using for loop: "); for(let i = 0; i < arr.length; i++) { process.stdout.write(arr[i] + ' '); } console.log();
+
+Traversal using for loop: 10 20 30 40 50
+
+2. Using While Loop
+
+A while loop is another method to traverse an array, where the loop continues to execute as long as the specified condition is true. The key difference with the for loop is that the loop control is more manual, and the counter or index is updated inside the loop body rather than automatically. The while loop can be useful when the number of iterations isn't predetermined or when the loop may need to stop based on a condition other than the array size.
+
+#include <iostream> using namespace std; int main() { int arr[] = {10, 20, 30, 40, 50}; int n = sizeof(arr) / sizeof(arr[0]); int i = 0; cout << "Traversal using while loop: "; while(i < n) { cout << arr[i] << " "; i++; } cout << endl; return 0; }
+
+#include <stdio.h> int main() { int arr[] = {10, 20, 30, 40, 50}; int n = sizeof(arr) / sizeof(arr[0]); int i = 0; printf("Traversal using while loop: "); while(i < n) { printf("%d ", arr[i]); i++; } printf("\n"); return 0; }
+
+public class Main { public static void main(String[] args) { int[] arr = {10, 20, 30, 40, 50}; int n = arr.length; int i = 0; System.out.print("Traversal using while loop: "); while(i < n) { System.out.print(arr[i] + " "); i++; } System.out.println(); } }
+
+arr = [10, 20, 30, 40, 50] n = len(arr) i = 0 print("Traversal using while loop: ", end=" ") while i < n: print(arr[i], end=" ") i += 1 print()
+
+using System; class Program { static void Main() { int[] arr = {10, 20, 30, 40, 50}; int n = arr.Length; int i = 0; Console.Write("Traversal using while loop: "); while(i < n) { Console.Write(arr[i] + " "); i++; } Console.WriteLine(); } }
+
+const arr = [10, 20, 30, 40, 50]; let n = arr.length; let i = 0; console.log("Traversal using while loop: "); while(i < n) { process.stdout.write(arr[i] + ' '); i++; } console.log();
+
+Traversal using while loop: 10 20 30 40 50
+
+3. Using Foreach Loop (Range-based For Loop)
+
+The foreach loop, also known as a range-based for loop , simplifies array traversal by directly accessing each element of the array without needing to manually manage the index. It is often used for its simplicity and readability when you just need to access or process each item in the array.
+
+#include <iostream> using namespace std; int main() { int arr[] = {10, 20, 30, 40, 50}; int n = sizeof(arr) / sizeof(arr[0]); cout << "Traversal using foreach (range-based for) loop: "; for(int value : arr) { cout << value << " "; } cout << endl; return 0; }
+
+#include <stdio.h> int main() { int arr[] = {10, 20, 30, 40, 50}; int n = sizeof(arr) / sizeof(arr[0]); printf("Traversal using foreach loop: "); for(int i = 0; i < n; i++) { printf("%d ", arr[i]); } printf("\n"); return 0; }
+
+public class Main { public static void main(String[] args) { int[] arr = {10, 20, 30, 40, 50}; System.out.print("Traversal using foreach loop: "); for(int value : arr) { System.out.print(value + " "); } System.out.println(); } }
+
+arr = [10, 20, 30, 40, 50] print("Traversal using foreach loop:", end=' ') for value in arr: print(value, end=' ') print()
+
+using System; class Program { static void Main() { int[] arr = {10, 20, 30, 40, 50}; Console.Write("Traversal using foreach loop: "); foreach(int value in arr) { Console.Write(value + " "); } Console.WriteLine(); } }
+
+const arr = [10, 20, 30, 40, 50]; console.log("Traversal using foreach loop:"); arr.forEach(value => { process.stdout.write(value + ' '); }); console.log();
+
+Traversal using foreach (range-based for) loop: 10 20 30 40 50
+
+Array traversal plays a key role in many operations where we need to access or modify the elements of an array. Two of the most common applications are searching elements and modifying elements.
+
+Traversal is often used to search for an element in an array. By visiting each element of the array sequentially, we can compare each element with the target value to determine if it exists.
+
+Example: If you have an array of numbers, and you need to find if a specific number is present in the array, array traversal would involve checking each element one by one until a match is found or the entire array has been searched.
+
+#include <iostream> using namespace std; int main() { int arr[] = {10, 20, 30, 40, 50}; int target = 30; int n = sizeof(arr) / sizeof(arr[0]); bool found = false; // Linear search using traversal for(int i = 0; i < n; i++) { if(arr[i] == target) { found = true; break; } } if(found) { cout << "Element found!" << endl; } else { cout << "Element not found!" << endl; } return 0; }
+
+#include <stdio.h> int main() { int arr[] = {10, 20, 30, 40, 50}; int target = 30; int n = sizeof(arr) / sizeof(arr[0]); int found = 0; // Linear search using traversal for(int i = 0; i < n; i++) { if(arr[i] == target) { found = 1; break; } } if(found) { printf("Element found!\n"); } else { printf("Element not found!\n"); } return 0; }
+
+public class Main { public static void main(String[] args) { int[] arr = {10, 20, 30, 40, 50}; int target = 30; boolean found = false; // Linear search using traversal for(int i = 0; i < arr.length; i++) { if(arr[i] == target) { found = true; break; } } if(found) { System.out.println("Element found!"); } else { System.out.println("Element not found!"); } } }
+
+arr = [10, 20, 30, 40, 50] target = 30 found = False # Linear search using traversal for i in range(len(arr)): if arr[i] == target: found = True break if found: print("Element found!") else: print("Element not found!")
+
+using System; class Program { static void Main() { int[] arr = {10, 20, 30, 40, 50}; int target = 30; bool found = false; // Linear search using traversal for(int i = 0; i < arr.Length; i++) { if(arr[i] == target) { found = true; break; } } if(found) { Console.WriteLine("Element found!"); } else { Console.WriteLine("Element not found!"); } } }
+
+Array traversal is also used to modify the elements of the array. This could involve updating values, changing the order, or applying some mathematical operations to each element. For example, you can multiply every element of an array by a constant, or increase each value by 1.
+
+Example: If you want to increase each element in an array by 5, array traversal allows you to visit each element and modify it.
+
+#include <iostream> using namespace std; int main() { int arr[] = {10, 20, 30, 40, 50}; int n = sizeof(arr) / sizeof(arr[0]); // Modifying elements using traversal (increasing each by 5) for(int i = 0; i < n; i++) { arr[i] += 5; } // Print modified array cout << "Modified array: "; for(int i = 0; i < n; i++) { cout << arr[i] << " "; } cout << endl; return 0; }
+
+#include <stdio.h> int main() { int arr[] = {10, 20, 30, 40, 50}; int n = sizeof(arr) / sizeof(arr[0]); // Modifying elements using traversal (increasing each by 5) for(int i = 0; i < n; i++) { arr[i] += 5; } // Print modified array printf("Modified array: "); for(int i = 0; i < n; i++) { printf("%d ", arr[i]); } printf("\n"); return 0; }
+
+public class Main { public static void main(String[] args) { int[] arr = {10, 20, 30, 40, 50}; int n = arr.length; // Modifying elements using traversal (increasing each by 5) for(int i = 0; i < n; i++) { arr[i] += 5; } // Print modified array System.out.print("Modified array: "); for(int i = 0; i < n; i++) { System.out.print(arr[i] + " "); } System.out.println(); } }
+
+arr = [10, 20, 30, 40, 50] # Modifying elements using traversal (increasing each by 5) for i in range(len(arr)): arr[i] += 5 # Print modified array print("Modified array:", end=' ') for num in arr: print(num, end=' ') print()
+
+using System; class Program { static void Main() { int[] arr = {10, 20, 30, 40, 50}; int n = arr.Length; // Modifying elements using traversal (increasing each by 5) for(int i = 0; i < n; i++) { arr[i] += 5; } // Print modified array Console.Write("Modified array: "); for(int i = 0; i < n; i++) { Console.Write(arr[i] + " "); } Console.WriteLine(); } }
+
+let arr = [10, 20, 30, 40, 50]; // Modifying elements using traversal (increasing each by 5) for(let i = 0; i < arr.length; i++) { arr[i] += 5; } // Print modified array console.log("Modified array:", arr.join(' '));
+
+Modified array: 15 25 35 45 55

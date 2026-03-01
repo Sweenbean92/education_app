@@ -1,0 +1,182 @@
+URL: https://www.geeksforgeeks.org/dsa/sorting-algorithms
+Title: Sorting Algorithms - GeeksforGeeks
+================================================================================
+
+
+Basics
+======
+
+
+
+Sorting Algorithms:
+===================
+
+
+
+Library Implementations:
+========================
+
+
+
+Easy Problems
+=============
+
+
+
+Medium Problems
+===============
+
+
+
+Hard Problems
+=============
+
+
+
+Explore
+=======
+
+
+A Sorting Algorithm is used to rearrange a given array or list of elements in an order. For example, a given array [10, 20, 5, 2] becomes [2, 5, 10, 20] after sorting in increasing order and becomes [20, 10, 5, 2] after sorting in decreasing order.
+
+There exist different sorting algorithms for different different types of inputs, for example a binary array, a character array, an array with a large range of values or an array with many duplicates or a small vs large array.
+
+The algorithms may also differ according to output requirements. For example, stable sorting (or maintains original order of equal elements) or not stable.
+
+Sorting is provided in library implementation of most of the programming languages. These sorting functions typically are general purpose functions with flexibility of providing the expected sorting order (increasing or decreasing or by a specific key in case of objects).
+
+Introduction to Sorting
+
+Applications of Sorting
+
+Comparison Based : Selection Sort, Bubble Sort, Insertion Sort, Merge Sort, Quick Sort, Heap Sort, Cycle Sort, 3-way Merge SortNon Comparison Based : Counting Sort, Radix Sort, Bucket Sort, Pigeonhole SortHybrid Sorting Algorithms : IntroSort, TimSort
+
+qsort() in C
+
+sort() in C++ STL
+
+Arrays.sort() in Java with examples
+
+Collections.sort() in Java with Examples
+
+Sort a List in Python
+
+Sorting in JavaScript
+
+Check if an array is Sorted
+
+Sort an array of two types
+
+Sort a String
+
+Sort a Matrix
+
+Sort a Linked List
+
+Sort in Wave Form
+
+Sort from Different Machines
+
+Check if any two intervals overlap
+
+Missing elements of a range
+
+Sort by set bits counts
+
+Sort even and odd placed in different orders
+
+Sort strings by lengths
+
+Merge Two Sorted Arrays
+
+Sort when two halves are sorted
+
+2 Sum - Pair in a Sorted Array
+
+Intersection & Union of two Sorted
+
+Meeting Rooms
+
+K-th smallest after removing given Set
+
+Sort by Frequency
+
+Minimum Increments to Make Unique
+
+Merge Overlapping Intervals
+
+Maximum intervals overlap
+
+Minimum Platforms
+
+Chocolate Distribution Problem
+
+Min and Max Amount to Buy All
+
+Three Way Partitioning
+
+Sort an array of 0s, 1s and 2s
+
+Sort a linked list of 0s, 1s and 2s
+
+Inversion count
+
+K-th Smallest Element
+
+K Smallest Elements
+
+3 Sum - Find Any
+
+3 Sum - Closest Triplet
+
+Smallest Difference Triplet from Three arrays
+
+Merge K Sorted Arrays
+
+Min Unsorted Subarray to make array sorted
+
+Sort a nearly sorted array
+
+Sort n numbers in range from 0 to n^2 – 1
+
+Sort an array of 1 to n
+
+Sort according to order defined by another
+
+Permute two arrays such that all pair suns are greater than K
+
+4 Sum - Find Any [More problems an 4 Sum are in Hard Section]
+
+Merge Without Extra Space
+
+Top K Frequent Elements
+
+3 Sum - Distinct Triplets
+
+4 Sum - Distinct Quadruples
+
+4 Sum - All Quadruples
+
+4 Sum - Closest Quadruple
+
+Surpasser Counts in an Array
+
+Minimum consecutive number subsets
+
+Min swaps to reach given array
+
+Making Array Elements Same
+
+Sort after applying an equation
+
+Closest Pair of Points
+
+Quick Links :
+
+‘Practice Problems’ on Sorting
+
+Top Sorting Interview Questions
+
+‘Quizzes’ on Sorting
+
+Learn Data Structure and Algorithms | DSA Tutorial

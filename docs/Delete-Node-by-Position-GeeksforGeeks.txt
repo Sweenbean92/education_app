@@ -1,0 +1,35 @@
+URL: https://www.geeksforgeeks.org/dsa/delete-a-linked-list-node-at-a-given-position
+Title: Delete Node by Position - GeeksforGeeks
+================================================================================
+
+
+[Approach] Single Traversal Deletion - O(n) Time and O(1) Space
+===============================================================
+
+
+
+Explore
+=======
+
+
+Given the head of a singly linked list and a position (1-based index), delete the node at that position and return the updated head of the linked list.
+
+Note: Position will be valid (i.e, 1 <= position <= linked list length)
+
+Input: position = 1 Output: 2-> 3 -> 1-> 7 -> nullptrExplanation: After deleting the node at the 1st position (1-base indexing), the linked list is as Input: position = 5 Output: 2 -> 3 -> 4 -> 5 -> nullptrExplanation: After deleting the node at 5th position (1-based indexing), the linked list is as
+
+Deletion at a specified position in a linked list involves removing a node from a specific index/position, which can be the first, middle, or last node.
+
+To perform the deletion, If the position is 1, we update the head to point to the next node and delete the current head. For other positions, we traverse the list to reach the node just before the specified position. If the target node exists, we adjust the next of this previous node to point to next of next nodes, which will result in skipping the target node.
+
+#include <iostream> using namespace std; class Node { public: int data; Node* next; Node(int data) { this->data = data; this->next = nullptr; } }; Node* deleteNode(Node* head, int position) { Node* temp = head; // Head is to be deleted if (position == 1) { head = temp->next; delete temp; return head; } // Traverse to the node // before the one to be deleted Node* prev = nullptr; for (int i = 1; i < position; i++) { prev = temp; temp = temp->next; } // Delete the node at the position prev->next = temp->next; delete temp; return head; } void printList(Node* head) { while (head != nullptr) { cout << head->data << " -> "; head = head->next; } cout << "nullptr" << endl; } int main() { Node* head = new Node(1); head->next = new Node(2); head->next->next = new Node(3); head->next->next->next = new Node(4); int position = 3; head = deleteNode(head, position); printList(head); return 0; }
+
+class GfG { static class Node { int data; Node next; Node(int data) { this.data = data; this.next = null; } } static Node deleteNode(Node head, int position) { Node temp = head; // Head is to be deleted if (position == 1) { head = temp.next; return head; } // Traverse to the node before // the one to be deleted Node prev = null; for (int i = 1; i < position; i++) { prev = temp; temp = temp.next; } // Delete the node at the position prev.next = temp.next; return head; } static void printList(Node head) { while (head != null) { System.out.print(head.data + " -> "); head = head.next; } System.out.println("nullptr"); } public static void main(String[] args) { Node head = new Node(1); head.next = new Node(2); head.next.next = new Node(3); head.next.next.next = new Node(4); int position = 3; head = deleteNode(head, position); printList(head); } }
+
+class Node: def __init__(self, data): self.data = data self.next = None def deleteNode(head, position): temp = head # Head is to be deleted if position == 1: head = temp.next return head # Traverse to the node before # the one to be deleted prev = None for i in range(1, position): prev = temp temp = temp.next # Delete the node at the position prev.next = temp.next return head def printList(head): while head is not None: print(f"{head.data} -> ", end="") head = head.next print("nullptr") if __name__ == "__main__": head = Node(1) head.next = Node(2) head.next.next = Node(3) head.next.next.next = Node(4) position = 3 head = deleteNode(head, position) printList(head)
+
+using System; class Node{ public int data; public Node next; public Node(int data){ this.data = data; this.next = null; } } class GfG { static Node deleteNode(Node head, int position){ Node temp = head; // Head is to be deleted if (position == 1){ head = temp.next; return head; } // Traverse to the node before // the one to be deleted Node prev = null; for (int i = 1; i < position; i++) { prev = temp; temp = temp.next; } // Delete the node at the position prev.next = temp.next; return head; } static void PrintList(Node head){ while (head != null){ Console.Write(head.data + " -> "); head = head.next; } Console.WriteLine("nullptr"); } static void Main(){ Node head = new Node(1); head.next = new Node(2); head.next.next = new Node(3); head.next.next.next = new Node(4); int position = 3; head = deleteNode(head, position); PrintList(head); } }
+
+class Node { constructor(data) { this.data = data; this.next = null; } } function deleteNode(head, position) { let temp = head; // Head is to be deleted if (position === 1) { head = temp.next; return head; } // Traverse to the node before the one to be deleted let prev = null; for (let i = 1; i < position; i++) { prev = temp; temp = temp.next; } // Delete the node at the position prev.next = temp.next; return head; } function printList(head) { let curr = head; while (curr !== null) { process.stdout.write(curr.data + " -> "); curr = curr.next; } console.log("nullptr"); } // Driver Code let head = new Node(1); head.next = new Node(2); head.next.next = new Node(3); head.next.next.next = new Node(4); let position = 3; head = deleteNode(head, position); printList(head);
+
+1 -> 2 -> 4 -> nullptr

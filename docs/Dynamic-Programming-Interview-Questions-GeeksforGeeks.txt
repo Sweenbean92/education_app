@@ -1,0 +1,69 @@
+URL: https://www.geeksforgeeks.org/dsa/top-20-dynamic-programming-interview-questions
+Title: Dynamic Programming Interview Questions - GeeksforGeeks
+================================================================================
+
+
+Related Articles
+================
+
+
+
+Explore
+=======
+
+
+Dynamic Programming is an algorithmic paradigm that solves a given complex problem by breaking it into subproblems and stores the results of subproblems to avoid computing the same results again.
+
+Longest Common Subsequence
+
+Longest Increasing Subsequence
+
+Edit Distance
+
+Minimum Partition
+
+Ways to Cover a Distance
+
+Longest Path In Matrix
+
+Subset Sum Problem
+
+Optimal Strategy for a Game
+
+0-1 Knapsack Problem
+
+Boolean Parenthesization Problem
+
+Shortest Common Supersequence
+
+Matrix Chain Multiplication
+
+Partition problem
+
+Rod Cutting
+
+Coin change problem
+
+Word Break Problem
+
+Maximal Product when Cutting Rope
+
+Dice Throw Problem
+
+Box Stacking
+
+Egg Dropping Puzzle
+
+Count distinct occurrences as a subsequence
+
+Word Break - Find All Ways to Break
+
+String Interleaving
+
+Buy and Sell Stock with Transaction Fee
+
+Palindrome Partitioning
+
+DSA Tutorial
+
+System Design Tutorial

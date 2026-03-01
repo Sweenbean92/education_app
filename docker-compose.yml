@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  webapp:
+    build: .
+    container_name: webapp
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - PYTHONUNBUFFERED=1
+    volumes:
+      # Persist ChromaDB data
+      - ./chroma_db:/app/chroma_db
+      # Persist logs
+      - ./logs:/app/logs
+      # Optional: persist Ollama models (uncomment if you want models to persist)
+      # - ollama_models:/root/.ollama
+    restart: unless-stopped
+    # Resource limits (adjust based on your needs)
+    deploy:
+      resources:
+        limits:
+          cpus: '4'
+          memory: 8G
+        reservations:
+          cpus: '2'
+          memory: 4G
+
+# Optional: Uncomment to persist Ollama models across container restarts
+# volumes:
+#   ollama_models:

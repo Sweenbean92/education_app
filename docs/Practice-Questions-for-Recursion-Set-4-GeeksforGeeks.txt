@@ -1,0 +1,70 @@
+URL: https://www.geeksforgeeks.org/dsa/practice-questions-for-recursion-set-4
+Title: Practice Questions for Recursion | Set 4 - GeeksforGeeks
+================================================================================
+
+
+Explore
+=======
+
+
+Question 1 Predict the output of the following program.
+
+#include <iostream> using namespace std; void fun(int x) { if(x > 0) { fun(--x); cout << x <<" "; fun(--x); } } int main() { int a = 4; fun(a); return 0; } // This code is contributed by SHUBHAMSINGH10
+
+#include<stdio.h> void fun(int x) { if(x > 0) { fun(--x); printf("%d\t", x); fun(--x); } } int main() { int a = 4; fun(a); getchar(); return 0; }
+
+import java.io.*; class GFG { static void fun(int x) { if(x > 0) { fun(--x); System.out.print(x + " "); fun(--x); } } public static void main (String[] args) { int a = 4; fun(a); } } // This code is contributed by SHUBHAMSINGH10
+
+def fun(x): if(x > 0): x -= 1 fun(x) print(x , end=" ") x -= 1 fun(x) # Driver code a = 4 fun(a) # This code is contributed by SHUBHAMSINGH10
+
+using System; class GFG{ static void fun(int x) { if(x > 0) { fun(--x); Console.Write(x + " "); fun(--x); } } static public void Main () { int a = 4; fun(a); } } // This code is contributed by SHUBHAMSINGH10
+
+<script> function fun(x) { if (x > 0) { x -= 1 fun(x) document.write(x + " "); x -= 1 fun(x) } } // Driver code let a = 4; fun(a) // This code is contributed by bobby </script>
+
+0 1 2 0 3 0 1
+
+Time complexity: O(2n)
+
+Auxiliary Space: O(n), since n extra space has been taken.
+
+fun(4); / fun(3), print(3), fun(2)(prints 0 1) / fun(2), print(2), fun(1)(prints 0) / fun(1), print(1), fun(0)(does nothing) / fun(0), print(0), fun(-1) (does nothing)
+
+Question 2 Predict the output of the following program. What does the following fun() do in general?
+
+#include <iostream> using namespace std; int fun(int a[],int n) { int x; if(n == 1) return a[0]; else x = fun(a, n - 1); if(x > a[n - 1]) return x; else return a[n - 1]; } int main() { int arr[] = {12, 10, 30, 50, 100}; cout << " " << fun(arr, 5) <<" "; getchar(); return 0; } // This code is contributed by shubhamsingh10
+
+#include<stdio.h> int fun(int a[],int n) { int x; if(n == 1) return a[0]; else x = fun(a, n-1); if(x > a[n-1]) return x; else return a[n-1]; } int main() { int arr[] = {12, 10, 30, 50, 100}; printf(" %d ", fun(arr, 5)); getchar(); return 0; }
+
+import java.io.*; class GFG { static int fun(int a[],int n) { int x; if(n == 1) return a[0]; else x = fun(a, n - 1); if(x > a[n - 1]) return x; else return a[n - 1]; } public static void main (String[] args) { int arr[] = {12, 10, 30, 50, 100}; System.out.println(" "+fun(arr, 5)+" "); } } // This code is contributed by shubhamsingh10
+
+def fun( a, n): if(n == 1): return a[0] else: x = fun(a, n - 1) if(x > a[n - 1]): return x else: return a[n - 1] # Driver code arr = [12, 10, 30, 50, 100] print(fun(arr, 5)) # This code is contributed by shubhamsingh10
+
+using System; public class GFG{ static int fun(int[] a,int n) { int x; if(n == 1) return a[0]; else x = fun(a, n - 1); if(x > a[n - 1]) return x; else return a[n - 1]; } static public void Main () { int[] arr = {12, 10, 30, 50, 100}; Console.Write(" "+fun(arr, 5)+" "); } } // This code is contributed by shubhamsingh10
+
+<script> //Javascript Implementation function fun(a, n) { var x; if(n == 1) return a[0]; else x = fun(a, n - 1); if(x > a[n - 1]) return x; else return a[n - 1]; } // Driver code var arr = [12, 10, 30, 50, 100]; document.write(fun(arr, 5)); // This code is contributed by shubhamsingh10 </script>
+
+Time complexity: O(n)
+
+Auxiliary Space: O(n)
+
+fun() returns the maximum value in the input array a[] of size n.
+
+Question 3 Predict the output of the following program. What does the following fun() do in general?
+
+#include <iostream> using namespace std; int fun(int i) { if (i % 2) return (i++); else return fun(fun(i - 1)); } int main() { cout << " " << fun(200) << " "; getchar(); return 0; } // This code is contributed by Shubhamsingh10
+
+int fun(int i) { if ( i%2 ) return (i++); else return fun(fun( i - 1 )); } int main() { printf(" %d ", fun(200)); getchar(); return 0; }
+
+import java.io.*; class GFG { static int fun(int i) { if (i % 2 == 1) return (i++); else return fun(fun(i - 1)); } public static void main (String[] args) { System.out.println(" " + fun(200) + " "); } } // This code is contributed by Shubhamsingh10
+
+def fun(i) : if (i % 2 == 1) : i += 1 return (i - 1) else : return fun(fun(i - 1)) print(fun(200)) # This code is contributed by divyeshrabadiya07
+
+using System; class GFG{ static int fun(int i) { if (i % 2 == 1) return (i++); else return fun(fun(i - 1)); } // Driver code static public void Main () { Console.WriteLine(fun(200)); } } // This code is contributed by Shubhamsingh10
+
+<script> function fun(i) { if (i % 2 == 1) return (i++); else return fun(fun(i - 1)); } // Driver code document.write(fun(200)); // This code is contributed by bobby </script>
+
+If n is odd, then return n, else returns (n-1). Eg., for n = 12, you get 11 and for n = 11 you get 11. The statement "return i++;" returns the value of i only as it is a post-increment.
+
+Auxiliary Space: O(1)
+
+Please write comments if you find any of the answers/codes incorrect, or you want to share more information/questions about the topics discussed above.

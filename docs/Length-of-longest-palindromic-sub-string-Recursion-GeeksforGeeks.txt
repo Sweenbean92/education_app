@@ -1,0 +1,31 @@
+URL: https://www.geeksforgeeks.org/dsa/length-of-longest-palindromic-sub-string-recursion
+Title: Length of longest palindromic sub-string : Recursion - GeeksforGeeks
+================================================================================
+
+
+Approach- Using Recursion
+=========================
+
+
+
+Explore
+=======
+
+
+Given a string S, the task is to find the length of the longest sub-string which is a palindromeExamples:
+
+Input: S = "aaaabbaa" Output: 6 Explanation: Sub-string "aabbaa" is the longest palindromic sub-string.Input: S = "banana" Output: 5 Explanation: Sub-string "anana" is the longest palindromic sub-string.
+
+The idea is to use recursion to break the problem into smaller sub-problems. To break the problem into two smaller sub-problems, Compare the start and end characters of the string untill the starting index of the string is greater than or equal to the ending index. If the starting and ending characters are equal, then recursively call for the substring by excluding the starting and ending characters. If starting and ending characters are not equal, then recursively call for the substring by excluding the starting and ending characters one at a time.
+
+#include <bits/stdc++.h> using namespace std; // Function to find the longest // palindromic substring : Recursion int longestPalindromic(string str, int i, int j, int count) { // Base condition when the start // index is greater than end index if (i > j) return count; // Base condition when both the // start and end index are equal if (i == j) return (count + 1); // Condition when corner characters // are equal in the string if (str[i] == str[j]) { // Recursive call to find the // longest Palindromic string // by excluding the corner characters count = longestPalindromic(str, i + 1, j - 1, count + 2); return max(count, max(longestPalindromic(str, i + 1, j, 0), longestPalindromic(str, i, j - 1, 0))); } // Recursive call to find the // longest Palindromic string // by including one corner // character at a time return max( longestPalindromic(str, i + 1, j, 0), longestPalindromic(str, i, j - 1, 0)); } int main() { string str = "aaaabbaa"; int n = str.length(); // Function Call cout << longestPalindromic(str, 0, n - 1, 0); return 0; }
+
+public class GfG { public static int longestPalindromic(String str, int i, int j, int count) { // Base condition when the start // index is greater than end index if (i > j) return count; // Base condition when both the // start and end index are equal if (i == j) return (count + 1); // Condition when corner characters // are equal in the string if (str.charAt(i) == str.charAt(j)) { // Recursive call to find the // longest Palindromic string // by excluding the corner characters count = longestPalindromic(str, i + 1, j - 1, count + 2); return Math.max(count, Math.max(longestPalindromic(str, i + 1, j, 0), longestPalindromic(str, i, j - 1, 0))); } // Recursive call to find the // longest Palindromic string // by including one corner // character at a time return Math.max(longestPalindromic(str, i + 1, j, 0), longestPalindromic(str, i, j - 1, 0)); } public static void main(String[] args) { String str = "aaaabbaa"; int n = str.length(); // Function Call System.out.println(longestPalindromic(str, 0, n - 1, 0)); } }
+
+def longest_palindromic(str, i, j, count): # Base condition when the start # index is greater than end index if i > j: return count # Base condition when both the # start and end index are equal if i == j: return count + 1 # Condition when corner characters # are equal in the string if str[i] == str[j]: # Recursive call to find the # longest Palindromic string # by excluding the corner characters count = longest_palindromic(str, i + 1, j - 1, count + 2) return max(count, max(longest_palindromic(str, i + 1, j, 0), longest_palindromic(str, i, j - 1, 0))) # Recursive call to find the # longest Palindromic string # by including one corner # character at a time return max(longest_palindromic(str, i + 1, j, 0), longest_palindromic(str, i, j - 1, 0)) str = "aaaabbaa" n = len(str) # Function Call print(longest_palindromic(str, 0, n - 1, 0))
+
+using System; class GfG { public static int LongestPalindromic(string str, int i, int j, int count) { // Base condition when the start // index is greater than end index if (i > j) return count; // Base condition when both the // start and end index are equal if (i == j) return count + 1; // Condition when corner characters // are equal in the string if (str[i] == str[j]) { // Recursive call to find the // longest Palindromic string // by excluding the corner characters count = LongestPalindromic(str, i + 1, j - 1, count + 2); return Math.Max(count, Math.Max(LongestPalindromic(str, i + 1, j, 0), LongestPalindromic(str, i, j - 1, 0))); } // Recursive call to find the // longest Palindromic string // by including one corner // character at a time return Math.Max(LongestPalindromic(str, i + 1, j, 0), LongestPalindromic(str, i, j - 1, 0)); } public static void Main() { string str = "aaaabbaa"; int n = str.Length; // Function Call Console.WriteLine(LongestPalindromic(str, 0, n - 1, 0)); } }
+
+function longestPalindromic(str, i, j, count) { // Base condition when the start // index is greater than end index if (i > j) return count; // Base condition when both the // start and end index are equal if (i === j) return count + 1; // Condition when corner characters // are equal in the string if (str[i] === str[j]) { // Recursive call to find the // longest Palindromic string // by excluding the corner characters count = longestPalindromic(str, i + 1, j - 1, count + 2); return Math.max(count, Math.max(longestPalindromic(str, i + 1, j, 0), longestPalindromic(str, i, j - 1, 0))); } // Recursive call to find the // longest Palindromic string // by including one corner // character at a time return Math.max(longestPalindromic(str, i + 1, j, 0), longestPalindromic(str, i, j - 1, 0)); } let str = "aaaabbaa"; let n = str.length; // Function Call console.log(longestPalindromic(str, 0, n - 1, 0));
+
+Please note that the above solution can be optimized. Please refer Longest Palindromic Substring for more details.

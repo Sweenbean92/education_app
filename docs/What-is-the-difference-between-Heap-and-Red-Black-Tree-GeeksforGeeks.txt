@@ -1,0 +1,31 @@
+URL: https://www.geeksforgeeks.org/dsa/what-is-the-difference-between-heap-and-red-black-tree
+Title: What is the difference between Heap and Red-Black Tree? - GeeksforGeeks
+================================================================================
+
+
+What is Heap?
+=============
+
+
+
+What is a Red-Black Tree?
+=========================
+
+
+
+Differences between Heap and Red-Black Tree
+===========================================
+
+
+
+Explore
+=======
+
+
+A Heap is a special Tree-based data structure in which the tree is a complete binary tree. There are two types of heap - Min heap and Max heap.
+
+To learn more about heap, go through the following article: Introduction to Heap
+
+The red-Black tree is a self-balancing binary search tree in which each node contains an extra bit for denoting the color of the node, either red or black.
+
+Red Black Tree

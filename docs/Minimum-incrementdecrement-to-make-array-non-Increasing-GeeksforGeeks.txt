@@ -1,0 +1,52 @@
+URL: https://www.geeksforgeeks.org/dsa/minimum-incrementdecrement-to-make-array-non-increasing
+Title: Minimum increment/decrement to make array non-Increasing - GeeksforGeeks
+================================================================================
+
+
+[Naive Approach] Brute Force – Exponential O((maxElement)^n) Time and O(1) Space
+================================================================================
+
+
+
+[Expected Approach] Using Min-Heap – O(n logn) Time and O(n) Space
+==================================================================
+
+
+
+Explore
+=======
+
+
+Given an array arr[], find the minimum number of operations ( either incrementing or decrementing by 1) required to convert it into a non-increasing array.Note: An element can be incremented or decremented any number of times (possibly zero) to achieve the non-increasing order.Examples :
+
+Input : arr[] = [3, 1, 2, 1]Output : 1Explanation : We can convert the array into [3, 1, 1, 1] by changing 3rd element of array i.e. 2 into its previous integer 1 in one step. Hence, only one step is required.Input : arr[] = [3, 1, 5, 1]Output : 4Explanation : We need to decrease 5 to 1 to make array sorted in non-increasing order. The final non-increasing array is [3, 1, 1, 1].Input : arr[] = [5, 5, 5, 5]Output : 0
+
+Table of Content
+
+[Naive Approach] Brute Force – Exponential Time O((maxElement)^n)
+
+[Expected Approach] Using Min-Heap – O(n logn) Time and O(n) Space
+
+We recursively try all possible target values for each element (ranging from 0 to the previous element’s value) and compute the cost of converting the current element to that value. Among all such configurations, we take the minimum cost. Since we explore all combinations, the time complexity is exponential, making this approach infeasible for large arrays.
+
+#include <iostream> #include <vector> #include <climits> #include <algorithm> using namespace std; // Recursive helper to try all possibilities int helper(vector<int>& arr, int idx, int prev) { if (idx == (int)arr.size()) return 0; int best = INT_MAX / 4; // Enumerate all possible values for arr[idx] in range [0..prev] for (int val = 0; val <= prev; ++val) { int cost = abs(arr[idx] - val) + helper(arr, idx + 1, val); best = min(best, cost); } return best; } int decreasingArray(vector<int>& arr) { // Start with the maximum element int maxVal = *max_element(arr.begin(), arr.end()); return helper(arr, 0, maxVal); } int main() { vector<int> arr = {3, 1, 2, 1}; cout << decreasingArray(arr) << endl; return 0; }
+
+import java.util.Arrays; class GFG { // Recursive helper to try all possibilities static int helper(int[] arr, int idx, int prev) { if (idx == arr.length) return 0; int best = Integer.MAX_VALUE / 4; // Enumerate all possible values for arr[idx] in range [0..prev] for (int val = 0; val <= prev; val++) { int cost = Math.abs(arr[idx] - val) + helper(arr, idx + 1, val); best = Math.min(best, cost); } return best; } static int decreasingArray(int[] arr) { // Start with the maximum element int maxVal = Arrays.stream(arr).max().getAsInt(); return helper(arr, 0, maxVal); } public static void main(String[] args) { int[] arr = {3, 1, 2, 1}; System.out.println(decreasingArray(arr)); } }
+
+import sys def helper(arr, idx, prev): if idx == len(arr): return 0 best = float('inf') # Enumerate all possible values for arr[idx] in range [0..prev] for val in range(prev + 1): cost = abs(arr[idx] - val) + helper(arr, idx + 1, val) best = min(best, cost) return best def decreasingArray(arr): max_val = max(arr) # Start with the maximum element return helper(arr, 0, max_val) if __name__ == '__main__': arr = [3, 1, 2, 1] print(decreasingArray(arr))
+
+using System; class GFG { static int helper(int[] arr, int idx, int prev) { if (idx == arr.Length) return 0; int best = int.MaxValue / 4; // Enumerate all possible values for arr[idx] in range [0..prev] for (int val = 0; val <= prev; val++) { int cost = Math.Abs(arr[idx] - val) + helper(arr, idx + 1, val); if (cost < best) best = cost; } return best; } public static int decreasingArray(int[] arr) { int maxVal = 0; foreach (int x in arr) { if (x > maxVal) maxVal = x; } // Start with the maximum element return helper(arr, 0, maxVal); } public static void Main() { int[] arr = { 3, 1, 2, 1 }; Console.WriteLine(decreasingArray(arr)); } }
+
+function helper(arr, idx, prev) { if (idx === arr.length) return 0; let best = Infinity; // Enumerate all possible values for arr[idx] in range [0..prev] for (let val = 0; val <= prev; val++) { let cost = Math.abs(arr[idx] - val) + helper(arr, idx + 1, val); best = Math.min(best, cost); } return best; } function decreasingArray(arr) { let maxVal = Math.max(...arr); // Start with the maximum element return helper(arr, 0, maxVal); } // Driver code const arr = [3, 1, 2, 1]; console.log(decreasingArray(arr));
+
+The idea is to traverse the array from left to right while keeping track of the smallest value seen so far in a min-heap. If the current element exceeds the smallest value so far, then it is reduced and the difference is added to the total operations. This ensures the sequence stays non-increasing as we move forward, while making only the necessary adjustments.
+
+#include <iostream> #include <vector> #include <queue> using namespace std; int decreasingArray(vector<int>& arr) { int totalChanges = 0; // Min-heap to maintain the smallest element seen so far priority_queue<int, vector<int>, greater<int>> pq; for (int x : arr) { if (!pq.empty() && pq.top() < x) { // Calculate adjustment needed to maintain non-increasing order totalChanges += (x - pq.top()); pq.pop(); pq.push(x); } pq.push(x); } return totalChanges; } int main() { vector<int> arr = {3, 1, 2, 1}; cout << decreasingArray(arr) << endl; return 0; }
+
+import java.util.PriorityQueue; public class GFG { public static int decreasingArray(int[] arr) { int totalChanges = 0; // Min-heap to maintain the smallest element seen so far PriorityQueue<Integer> pq = new PriorityQueue<>(); for (int x : arr) { if (!pq.isEmpty() && pq.peek() < x) { // Calculate adjustment needed to maintain non-increasing order totalChanges += (x - pq.peek()); pq.poll(); pq.offer(x); } pq.offer(x); } return totalChanges; } public static void main(String[] args) { int[] arr = { 3, 1, 2, 1 }; System.out.println(decreasingArray(arr)); } }
+
+import heapq def decreasing_array(arr): total_changes = 0 # Min-heap to maintain the smallest element seen so far pq = [] for x in arr: if pq and pq[0] < x: # Calculate adjustment needed to maintain non-increasing order total_changes += (x - pq[0]) heapq.heappop(pq) heapq.heappush(pq, x) heapq.heappush(pq, x) return total_changes if __name__ == "__main__": arr = [3, 1, 2, 1] print(decreasing_array(arr))
+
+using System; using System.Collections.Generic; class GFG { static int decreasingArray(int[] arr) { int totalChanges = 0; // Min-heap simulation using SortedSet var pq = new SortedSet<(int value, int index)>(); int idx = 0; foreach (int x in arr) { if (pq.Count > 0 && pq.Min.value < x) { // Calculate adjustment needed to maintain non-increasing order totalChanges += (x - pq.Min.value); pq.Remove(pq.Min); pq.Add((x, idx++)); } pq.Add((x, idx++)); } return totalChanges; } static void Main() { int[] arr = { 3, 1, 2, 1 }; Console.WriteLine(decreasingArray(arr)); } }
+
+// Custom MinHeap implementation class MinHeap { constructor() { this.data = []; } size() { return this.data.length; } peek() { return this.data.length > 0 ? this.data[0] : null; } push(val) { this.data.push(val); this._bubbleUp(this.data.length - 1); } pop() { if (this.data.length === 0) return null; if (this.data.length === 1) return this.data.pop(); const root = this.data[0]; this.data[0] = this.data.pop(); this._bubbleDown(0); return root; } _bubbleUp(i) { while (i > 0) { const parent = Math.floor((i - 1) / 2); if (this.data[parent] <= this.data[i]) break; [this.data[parent], this.data[i]] = [this.data[i], this.data[parent]]; i = parent; } } _bubbleDown(i) { const n = this.data.length; while (true) { let smallest = i; const left = 2 * i + 1, right = 2 * i + 2; if (left < n && this.data[left] < this.data[smallest]) smallest = left; if (right < n && this.data[right] < this.data[smallest]) smallest = right; if (smallest === i) break; [this.data[i], this.data[smallest]] = [this.data[smallest], this.data[i]]; i = smallest; } } } // Function to compute minimum changes for non-increasing array function decreasingArray(arr) { let totalChanges = 0; // Min-heap const pq = new MinHeap(); for (let x of arr) { if (pq.size() > 0 && pq.peek() < x) { // Calculate adjustment needed to maintain non-increasing order totalChanges += (x - pq.peek()); pq.pop(); pq.push(x); } pq.push(x); } return totalChanges; } //Driver Code const arr = [3, 1, 2, 1]; console.log(decreasingArray(arr));

@@ -1,0 +1,44 @@
+URL: https://www.geeksforgeeks.org/dsa/practice-questions-for-recursion-set-3
+Title: Practice Questions for Recursion | Set 3 - GeeksforGeeks
+================================================================================
+
+
+Explore
+=======
+
+
+Explain the functionality of below recursive functions.
+
+void fun1(int n) { int i = 0; if (n > 1) fun1(n - 1); for (i = 0; i < n; i++) cout << " * "; } // This code is contributed by shubhamsingh10
+
+void fun1(int n) { int i = 0; if (n > 1) fun1(n-1); for (i = 0; i < n; i++) printf(" * "); }
+
+static void fun1(int n) { int i = 0; if (n > 1) fun1(n - 1); for (i = 0; i < n; i++) System.out.print(" * "); } // This code is contributed by shubhamsingh10
+
+def fun1(n): i = 0 if (n > 1): fun1(n - 1) for i in range(n): print(" * ",end="") # This code is contributed by shubhamsingh10
+
+static void fun1(int n) { int i = 0; if (n > 1) fun1(n-1); for (i = 0; i < n; i++) Console.Write(" * "); } // This code is contributed by shubhamsingh10
+
+<script> function fun1(n) { let i = 0; if (n > 1) fun1(n - 1); for(i = 0; i < n; i++) document.write(" * "); } // This code is contributed by gottumukkalabobby </script>
+
+Answer: Total numbers of stars printed is equal to 1 + 2 + .... (n-2) + (n-1) + n, which is n(n+1)/2.
+
+Time complexity: O(n2)Auxiliary Space: O(n), due to recursion call stack
+
+#define LIMIT 1000 void fun2(int n) { if (n <= 0) return; if (n > LIMIT) return; cout << n <<" "; fun2(2*n); cout << n <<" "; } // This code is contributed by shubhamsingh10
+
+#define LIMIT 1000 void fun2(int n) { if (n <= 0) return; if (n > LIMIT) return; printf("%d ", n); fun2(2*n); printf("%d ", n); }
+
+int LIMIT = 1000; void fun2(int n) { if (n <= 0) return; if (n > LIMIT) return; System.out.print(String.format("%d ", n)); fun2(2 * n); System.out.print(String.format("%d ", n)); }
+
+LIMIT = 1000 def fun2(n): if (n <= 0): return if (n > LIMIT): return print(n, end=" ") fun2(2 * n) print(n, end=" ") # This code is contributed by shubhamsingh10
+
+int LIMIT = 1000 void fun2(int n) { if (n <= 0) return; if (n > LIMIT) return; Console.Write(n+" "); fun2(2*n); Console.Write(n+" "); } // This code is contributed by Shubhamsingh10
+
+<script> let LIMIT = 1000; function fun2(n) { if (n <= 0) return; if (n > LIMIT) return; document.write(n + " ")); fun2(2 * n); document.write(n + " ")); } // This code is contributed by gottumukkalabobby </script>
+
+Answer: For a positive n, fun2(n) prints the values of n, 2n, 4n, 8n ... while the value is smaller than LIMIT. After printing values in increasing order, it prints same numbers again in reverse order. For example fun2(100) prints 100, 200, 400, 800, 800, 400, 200, 100. If n is negative, the function is returned immediately.
+
+Time complexity: O(log(limit/n)).Auxiliary Space: O(log(limit/n)), due to recursion call stack
+
+Please write comments if you find any of the answers/codes incorrect, or you want to share more information about the topics discussed above.

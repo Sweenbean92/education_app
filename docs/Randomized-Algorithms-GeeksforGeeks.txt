@@ -1,0 +1,98 @@
+URL: https://www.geeksforgeeks.org/dsa/randomized-algorithms
+Title: Randomized Algorithms - GeeksforGeeks
+================================================================================
+
+
+Introduction
+============
+
+
+
+Easy Problems
+=============
+
+
+
+Medium Problems
+===============
+
+
+
+Hard Problems
+=============
+
+
+
+Explore
+=======
+
+
+Randomized algorithms in data structures and algorithms (DSA) are algorithms that use randomness in their computations to achieve a desired outcome. These algorithms introduce randomness to improve efficiency or simplify the algorithm design. By incorporating random choices into their processes, randomized algorithms can often provide faster solutions or better approximations compared to deterministic algorithms. They are particularly useful in situations where exact solutions are difficult to find or when a probabilistic approach is acceptable.
+
+For example, in Randomized Quick Sort, we use a random number to pick the next pivot (or we randomly shuffle the array). We use randomization in Quick Sort to avoid a pattern for which it always causes a worst case. This is useful when we implement a library sort function using Quick Sort as it allows the library function to be a general purpose function and work almost uniformly for all cases.
+
+Introduction and Analysis
+
+Classification and Applications
+
+1/2 Approximate Median Example
+
+Generates one of 3 according to given probabilities
+
+Generate 0 and 1 with 25% and 75% probability
+
+Implement rand3() using rand2()
+
+Birthday Paradox
+
+Expected Value of an array
+
+Shuffle a deck of cards
+
+Generate CAPTCHA and verify
+
+Index of max occurring with equal probability
+
+Randomized Binary Search
+
+Make a fair coin from a biased coin
+
+Shuffle a given array using Fisher–Yates shuffle Algorithm
+
+Expected Number of Trials until Success
+
+Strong Password Suggester Program
+
+QuickSort using Random Pivoting
+
+Operations on Sparse Matrices
+
+Estimating the value of Pi using Monte Carlo
+
+Implement rand12() using rand6() in one line
+
+Generate integer from 1 to 7 with equal probability
+
+Implement random-0-6-Generator using the given random-0-1-Generator
+
+Select a random number from stream, with O(1) space
+
+Random number generator in arbitrary probability distribution fashion
+
+Reservoir Sampling
+
+Linearity of Expectation
+
+Introduction and implementation of Karger’s algorithm for Minimum Cut
+
+Select a Random Node from a Singly Linked List
+
+Select a Random Node from a tree with equal probability
+
+Freivald’s Algorithm to check if a matrix is product of two
+
+Random Acyclic Maze Generator with given Entry and Exit point
+
+Recommended:
+
+Learn Data Structure and Algorithms | DSA Tutorial

@@ -1,0 +1,31 @@
+URL: https://www.geeksforgeeks.org/dsa/must-do-coding-questions-for-companies-like-amazon-microsoft-adobe
+Title: Must Do Coding Interview Questions for MAANG Companies - GeeksforGeeks
+================================================================================
+
+
+Related Links:
+==============
+
+
+
+Explore
+=======
+
+
+The following are the lists of must do questions on different data structures and algorithms. Every link below contains most asked coding questions of that topic. The questions are prepared based on different interview experiences.
+
+Two Pointer
+
+Window Sliding
+
+Linked List
+
+Dynamic Programming
+
+Backtracking
+
+Bitwise Algorithms
+
+DSA Tutorial
+
+System Design Tutorial

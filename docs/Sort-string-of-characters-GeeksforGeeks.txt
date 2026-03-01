@@ -1,0 +1,56 @@
+URL: https://www.geeksforgeeks.org/dsa/sort-string-characters
+Title: Sort string of characters - GeeksforGeeks
+================================================================================
+
+
+Naive Approach - O(n Log n) Time
+================================
+
+
+
+Efficient Approach - O(n) Time
+==============================
+
+
+
+Explore
+=======
+
+
+Given a string of lowercase characters from 'a' - 'z'. We need to write a program to print the characters of this string in sorted order.
+
+Input : "dcab" Output : "abcd"Input : "geeksforgeeks"Output : "eeeefggkkorss"
+
+A simple approach is to use sorting algorithms like quick sort or merge sort and sort the input string and print it.
+
+// C++ program to sort a string of characters #include<bits/stdc++.h> using namespace std; int main() { string s = "geeksforgeeks"; sort(s.begin(), s.end()); cout << s; return 0; }
+
+#include <stdio.h> #include <stdlib.h> #include <string.h> // comparison function for qsort int compare(const void *a, const void *b) { return (*(char *)a - *(char *)b); } // function to print string in sorted order void sortString(char *str) { int n = strlen(str); qsort(str, n, sizeof(char), compare); printf("%s", str); } // Driver program to test above function int main() { char s[] = "geeksforgeeks"; sortString(s); return 0; }
+
+import java.util.Arrays; public class GfG { public static void main(String[] args) { String s = "geeksforgeeks"; // Convert the string to a character array char[] arr = s.toCharArray(); // Sort the character array Arrays.sort(arr); // Convert sorted character array back to string s = new String(arr); // Print the sorted string System.out.print(s); } }
+
+s = "geeksforgeeks" # Sort the string and join it back s = ''.join(sorted(s)) # Print the sorted string print(s)
+
+using System; class GfG { static void Main() { string s = "geeksforgeeks"; // Convert the string to a character array char[] arr = s.ToCharArray(); // Sort the character array Array.Sort(arr); // Convert sorted character array back to string s = new string(arr); // Print the sorted string Console.Write(s); } }
+
+let s = "geeksforgeeks"; // Sort the string by converting // it to an array, sorting, and joining back s = s.split('').sort().join(''); // Print the sorted string console.log(s);
+
+eeeefggkkorss
+
+An efficient approach will be to observe first that there can be a total of 26 unique characters only. So, we can store the count of occurrences of all the characters from 'a' to 'z' in a hashed array. The first index of the hashed array will represent character 'a', second will represent 'b' and so on. Finally, we will simply traverse the hashed array and print the characters from 'a' to 'z' the number of times they occurred in input string.
+
+Below is the implementation of above idea:
+
+#include <bits/stdc++.h> using namespace std; const int MAX_CHAR = 26; // Function to print string in sorted order void sortString(string &s) { // Count array to keep count of characters int charCount[MAX_CHAR] = {0}; // Traverse string and increment count of characters for (int i = 0; i < s.length(); i++) { // 'a'-'a' will be 0, 'b'-'a' will be 1, etc. charCount[s[i] - 'a']++; } // Traverse the hash array and print characters for (int i = 0; i < MAX_CHAR; i++) { for (int j = 0; j < charCount[i]; j++) { cout << (char)('a' + i); } } } int main() { string s = "geeksforgeeks"; sortString(s); return 0; }
+
+#include <stdio.h> #include <string.h> #define MAX_CHAR 26 // Function to print string in sorted order void sortString(char s[]) { int charCount[MAX_CHAR] = {0}; // Traverse the string and count characters for (int i = 0; i < strlen(s); i++) { charCount[s[i] - 'a']++; } // Traverse the count array and print characters for (int i = 0; i < MAX_CHAR; i++) { for (int j = 0; j < charCount[i]; j++) { printf("%c", 'a' + i); } } } int main() { char s[] = "geeksforgeeks"; sortString(s); return 0; }
+
+public class GfG { static final int MAX_CHAR = 26; // Function to print string in sorted order static void sortString(String s) { int[] charCount = new int[MAX_CHAR]; // Traverse the string and count characters for (int i = 0; i < s.length(); i++) { charCount[s.charAt(i) - 'a']++; } // Traverse the count array and print characters for (int i = 0; i < MAX_CHAR; i++) { for (int j = 0; j < charCount[i]; j++) { System.out.print((char)('a' + i)); } } } public static void main(String[] args) { String s = "geeksforgeeks"; sortString(s); } }
+
+MAX_CHAR = 26 # Function to print string in sorted order def sortString(s): charCount = [0] * MAX_CHAR # Traverse the string and count characters for ch in s: charCount[ord(ch) - ord('a')] += 1 # Traverse the count array and print characters for i in range(MAX_CHAR): for _ in range(charCount[i]): print(chr(i + ord('a')), end='') s = "geeksforgeeks" sortString(s)
+
+using System; class GfG { const int MAX_CHAR = 26; // Function to print string in sorted order static void sortString(string s) { int[] charCount = new int[MAX_CHAR]; // Traverse the string and count characters foreach (char ch in s) { charCount[ch - 'a']++; } // Traverse the count array and print characters for (int i = 0; i < MAX_CHAR; i++) { for (int j = 0; j < charCount[i]; j++) { Console.Write((char)('a' + i)); } } } static void Main() { string s = "geeksforgeeks"; sortString(s); } }
+
+const MAX_CHAR = 26; // Function to print string in sorted order function sortString(s) { const charCount = new Array(MAX_CHAR).fill(0); // Traverse the string and count characters for (let ch of s) { charCount[ch.charCodeAt(0) - 'a'.charCodeAt(0)]++; } // Traverse the count array and print characters let result = ''; for (let i = 0; i < MAX_CHAR; i++) { for (let j = 0; j < charCount[i]; j++) { result += String.fromCharCode('a'.charCodeAt(0) + i); } } console.log(result); // Output the sorted string } const s = "geeksforgeeks"; sortString(s);
+
+Time Complexity:O(Max_CHAR*n) which becomes O(n) as MAX_CHAR is constant,So Overall Time Complexity:- O(n) where n is the length of the string. Auxiliary Space:O(Max_CHAR).

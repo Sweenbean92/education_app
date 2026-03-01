@@ -1,0 +1,70 @@
+URL: https://www.geeksforgeeks.org/dsa/program-for-factorial-of-a-number
+Title: Factorial of a Number - GeeksforGeeks
+================================================================================
+
+
+[Approach - 1] - Iterative Solution O(n) Time and O(1) Space
+============================================================
+
+
+
+[Another Approach]- Recursive Solution O(n) Time and O(n) Space
+===============================================================
+
+
+
+Explore
+=======
+
+
+Given the non-negative integers n , compute the factorial of a given number. Note: Factorial of n is defined as n * (n -1) * (n - 2) * ... * 1, for n = 0, factorial is 1.
+
+Input: n = 5Output: 120Explanation: 5! = 5 * 4 * 3 * 2 * 1 = 120Input: n = 4Output: 24Explanation: 4! = 4 * 3 * 2 * 1 = 24
+
+Table of Content
+
+[Approach - 1] - Iterative Solution O(n) Time and O(1) Space
+
+[Another Approach]- Recursive Solution O(n) Time and O(n) Space
+
+The idea is simple, we initialize result as 1. Then, run a loop from 1 to n and multiply every number with result.
+
+#include <iostream> using namespace std; int factorial(int n) { int ans = 1; for (int i = 2; i <= n; i++) { // calculating the factorial ans = ans * i; } return ans; } int main() { int num = 5; cout << factorial(num) << endl; return 0; }
+
+#include <stdio.h> int factorial(int n) { // calculating factorial of a number int ans = 1, i; for (i = 2; i <= n; i++) ans *= i; return ans; } int main() { int num = 5; printf("%d\n", factorial(num)); return 0; }
+
+class GfG { public static int factorial(int n) { int ans = 1; for (int i = 2; i <= n; i++) { // calculating the factorial ans = ans * i; } return ans; } public static void main(String[] args) { int num = 5; System.out.println( factorial(5)); } }
+
+def factorial(n): ans = 1 i = 2 #calculating the factorial while (i <= n): ans *= i i += 1 return ans if __name__ == "__main__": num = 5 print(factorial(num))
+
+using System; class GFG { public static int factorial(int n) { int ans = 1; for (int i = 2; i <= n; i++) { ans = ans * i; } return ans; } public static void Main() { int n = 5; Console.WriteLine(factorial(n)); } }
+
+function factorial(n) { let ans = 1; for (let i = 2; i <= n; i++) { // calculating the factorial ans = ans * i; } return ans; } // Driver method let num = 5; console.log(factorial(5));
+
+<?php function factorial($n) { // calculating Factorial of number $res = 1; for ($i = 2; $i <= $n; $i++) { $res *= $i; } return $res; } $num = 5; echo factorial($num) . "\n"; ?>
+
+Let us first see how we can break factorial(n) into smaller problem and then define recurrance.
+
+Factorial of a number n is n! = n × (n - 1)!, where (n - 1)! is the factorial of the previous number. This forms the basis of recursion. We define factorial(n) such that if n = 0 or n = 1, it returns 1 (base case); otherwise, it returns n × factorial(n - 1). Thus, the problem is broken down into smaller subproblems until reaching the base case.
+
+Illustration:
+
+#include <iostream> using namespace std; int factorial(int n) { // Calculating factorial of number if (n == 0 || n == 1) return 1; return n * factorial(n - 1); } int main() { int num = 5; cout << factorial(num) << endl; return 0; }
+
+#include <stdio.h> int factorial(int n) { // Calculating factorial of number if (n == 0) return 1; return n * factorial(n - 1); } int main() { int num = 5; printf("%d\n", factorial(num)); return 0; }
+
+class GFG { static int factorial(int n) { // Calculating factorial of number if (n == 0 || n == 1) return 1; return n * factorial(n - 1); } public static void main(String[] args) { int num = 5; System.out.println(factorial(num)); } }
+
+def factorial(n): # Calculating factorial of number if n == 0: return 1 return n * factorial(n - 1) if __name__ == "__main__": num = 5 print(factorial(num))
+
+using System; class GFG { static int factorial(int n) { // Calculating factorial of number if (n == 0) return 1; return n * factorial(n - 1); } public static void Main() { int n = 5; Console.WriteLine(factorial(n)); } }
+
+function factorial(n) { // Calculating factorial of number if (n == 0) return 1; return n * factorial(n - 1); } // Driver Code let num = 5; console.log(factorial(num));
+
+<?php function factorial($n){ // Calculating factorial of a number if ($n == 0) return 1; return $n * factorial($n - 1); } $num = 5; echo factorial($num); ?>
+
+Which approach is better - iterative or recursive?Iterative approach is better as the recursive approach requires extra space for recursion call stack and overhead of recursion calls. However writing a recursive code is always a fun exercise.
+
+How do we handle large numbers?One simple improvement that we can do is use long long in C/C++ and long in Java/C#, but that does not help much as factorials are really large numbers and causes overflow for small values. Please refer factorial of large number for a solution that works for large numbers.
+
+How to count number of zeroes in factorial?A simple hint is to count number of times 5 occurs in the factorial. Please refer Count trailing zeroes in factorial of a number for details.

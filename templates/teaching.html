@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Teaching Material - RAG Interface{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/teaching.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="teaching-container">
+        {% set active_page = 'teaching' %}
+        {% set page_class = 'teaching' %}
+        {% set page_title = 'Teaching Material Generator' %}
+        {% include 'includes/header.html' %}
+        
+        <div class="teaching-body">
+            <div class="teaching-main">
+                <div class="teaching-controls">
+                    <div class="topic-input-group">
+                        <label for="topic-input">Topic (required):</label>
+                        <input type="text" 
+                               id="topic-input" 
+                               placeholder="Enter the topic for teaching material..."
+                               autocomplete="off"
+                               required>
+                    </div>
+                    <button id="generate-btn" class="btn-primary" onclick="generateTeachingMaterial()">
+                        Generate Material
+                    </button>
+                </div>
+                
+                <div class="teaching-content" id="teaching-content">
+                    <div class="welcome-message">
+                        <p>Enter a topic above and click "Generate Material" to create teaching content.</p>
+                        <p>The content will be generated based on your course material.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='css/teaching.js') }}"></script>
+{% endblock %}

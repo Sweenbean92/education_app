@@ -1,0 +1,69 @@
+URL: https://www.geeksforgeeks.org/dsa/top-20-hashing-technique-based-interview-questions
+Title: Top 20 Hashing Technique based Interview Questions - GeeksforGeeks
+================================================================================
+
+
+Easy Problems
+=============
+
+
+
+Medium and Hard Problems
+========================
+
+
+
+Related Links
+=============
+
+
+
+Explore
+=======
+
+
+Hashing is a powerful technique in Data Structures and Algorithms (DSA) that involves mapping data to a fixed-size value using a hash function. The key advantage of hashing is its ability to provide fast lookups, often achieving constant time complexity, O(1), for operations like searching and inserting elements. However, a good hash function is essential to minimize collisions, where multiple inputs produce the same hash value.
+
+Subset Check
+
+Union and Intersection of two Linked Lists
+
+A pair with given sum
+
+Two pair sum
+
+Largest subarray with 0 sum
+
+Distinct elements in K-size Window
+
+Palindrome Substring Queries
+
+Missing elements of a range
+
+All subarrays with 0 sum
+
+Symmetric Pairs
+
+Duplicates within k distance
+
+Find Itinerary from a given list of tickets
+
+Largest subarray with equal number of 0s and 1s
+
+Count Subarrays with XOR
+
+Longest Consecutive Subsequence
+
+Pair Sum Divisible by K
+
+Smallest Range from K Lists
+
+Internal Working of HashMap in Java
+
+Separate Chaining for Collision Handling
+
+Hash Table with Chaining in Java
+
+Open Addressing for Collision Handling
+
+Articles on HashingPractice Problems on Hashing

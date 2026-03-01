@@ -1,0 +1,82 @@
+URL: https://www.geeksforgeeks.org/dsa/red-black-tree-vs-avl-tree
+Title: Red Black Tree vs AVL Tree - GeeksforGeeks
+================================================================================
+
+
+Red Black Tree:
+===============
+
+
+
+AVL(Adelson-Velskii and Landis) Tree
+====================================
+
+
+
+Comparison Table: Red-Black Tree vs AVL Tree
+============================================
+
+
+
+Application
+===========
+
+
+
+Summary
+=======
+
+
+
+Related Articles:
+=================
+
+
+
+Explore
+=======
+
+
+Table of Content
+
+Red Black Tree:
+
+AVL(Adelson-Velskii and Landis) Tree
+
+Comparison Table: Red-Black Tree vs AVL Tree
+
+Application
+
+A Red-Black tree is a balanced binary search tree where each node has an extra bit for denoting the color of the node, either Red or Black.
+
+Properties:
+
+Color Property: Every node is either red or black.
+
+Root Property: The root is always black.
+
+Red Property: If a node is red, then both its children are black (no two reds in a row).
+
+Black Property: Every path from a node to any of its descendant NULL nodes has the same number of black nodes.
+
+Balance: The tree is "loosely" balanced. The longest path is no more than twice the length of the shortest path.
+
+The AVL tree (named after inventors Adelson-Velskii and Landis) is a strictly balanced binary search tree.
+
+Balance Factor: For every node, the difference between the height of the left subtree and the right subtree (Balance Factor) must be -1, 0, or 1.
+
+Strict Balance: If at any time the heights differ by more than 1, rebalancing (rotations) is performed.
+
+Height: The height of an AVL tree is always O(log n), and it is generally flatter than a Red-Black tree.
+
+Use AVL Trees when your application involves frequent lookups and infrequent insertions or deletions.Example: Database indexing, dictionary lookups.
+
+Use Red-Black Trees when your application involves frequent insertions and deletions along with lookups.Example: Language libraries like C++ STL (map, set) and Java (TreeMap), or the Linux kernel's process scheduler.
+
+AVL trees are more rigidly balanced, making them better for Search-intensive tasks.
+
+Red-Black trees are more flexible, making them better for General-purpose use cases where data changes frequently.
+
+Introduction to Red-Black Tree
+
+AVL Tree | Set 1 (Insertion)

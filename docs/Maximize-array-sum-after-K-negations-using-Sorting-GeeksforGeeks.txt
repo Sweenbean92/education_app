@@ -1,0 +1,77 @@
+URL: https://www.geeksforgeeks.org/dsa/maximize-array-sum-after-k-negations-using-sorting
+Title: Maximize array sum after K negations using Sorting - GeeksforGeeks
+================================================================================
+
+
+[Naive Approach] Negating Minimum Element k times - O(n * k) time and O(1) space
+================================================================================
+
+
+
+[Expected Approach 1] Using Sorting - O(n Log n) time and O(1) space
+====================================================================
+
+
+
+[Expected Approach 2] Priority Queue - O(n Log n) time and O(n) space
+=====================================================================
+
+
+
+Explore
+=======
+
+
+Given an array of size n and an integer k. We must modify array k number of times. In each modification, we can replace any array element arr[i] by -arr[i]. The task is to perform this operation in such a way that after k operations, the sum of the array is maximum.
+
+Input : arr[] = [-2, 0, 5, -1, 2], k = 4Output: 10Explanation:1. Replace (-2) by -(-2), array becomes [2, 0, 5, -1, 2]2. Replace (-1) by -(-1), array becomes [2, 0, 5, 1, 2]3. Replace (0) by -(0), array becomes [2, 0, 5, 1, 2]4. Replace (0) by -(0), array becomes [2, 0, 5, 1, 2]Input : arr[] = [9, 8, 8, 5], k = 3Output: 20Explanation: Negate 5 three times. Array will become [9, 8, 8, -5].
+
+Table of Content
+
+[Naive Approach] Negating Minimum Element k times - O(n * k) time and O(1) space
+
+[Expected Approach 1] Using Sorting - O(n Log n) time and O(1) space
+
+[Expected Approach 2] Priority Queue - O(n Log n) time and O(n) space
+
+The idea is to systematically modify the array by finding and negating the minimum element in each iteration of the modification process. This approach aims to maximize the array sum by strategically converting the smallest negative numbers (or smallest positive numbers if all are positive) to their opposite values.
+
+Step by step approach:
+
+Iterate k times to perform the allowed modifications. In each iteration, find the index of the minimum elementNegate the element at the found minimum indexRepeat the process for k iterations
+
+Return the total sum of the modified array
+
+// C++ program to maximize array sum after K negations #include <bits/stdc++.h> using namespace std; int maximizeSum(vector<int> &arr, int k) { int n = arr.size(); // Perform k modifications for (int i = 0; i < k; i++) { // Find the minimum element in the array int minIndex = 0; for (int j=1; j<n; j++) { if (arr[j] < arr[minIndex]) { minIndex = j; } } // Negate the minimum element arr[minIndex] = -arr[minIndex]; } // Calculate and return the sum of the modified array int sum = 0; for (int i=0; i<n; i++) { sum += arr[i]; } return sum; } int main() { vector<int> arr = {-2, 0, 5, -1, 2}; int k = 4; cout << maximizeSum(arr, k); return 0; }
+
+// Java program to maximize array sum after K negations class GfG { static int maximizeSum(int[] arr, int k) { int n = arr.length; // Perform k modifications for (int i = 0; i < k; i++) { // Find the minimum element in the array int minIndex = 0; for (int j = 1; j < n; j++) { if (arr[j] < arr[minIndex]) { minIndex = j; } } // Negate the minimum element arr[minIndex] = -arr[minIndex]; } // Calculate and return the sum of the modified array int sum = 0; for (int i = 0; i < n; i++) { sum += arr[i]; } return sum; } public static void main(String[] args) { int[] arr = {-2, 0, 5, -1, 2}; int k = 4; System.out.println(maximizeSum(arr, k)); } }
+
+# Python program to maximize array sum after K negations def maximizeSum(arr, k): n = len(arr) # Perform k modifications for i in range(k): # Find the minimum element in the array minIndex = 0 for j in range(1, n): if arr[j] < arr[minIndex]: minIndex = j # Negate the minimum element arr[minIndex] = -arr[minIndex] # Calculate and return the sum of the modified array return sum(arr) if __name__ == "__main__": arr = [-2, 0, 5, -1, 2] k = 4 print(maximizeSum(arr, k))
+
+// C# program to maximize array sum after K negations using System; class GfG { static int maximizeSum(int[] arr, int k) { int n = arr.Length; // Perform k modifications for (int i = 0; i < k; i++) { // Find the minimum element in the array int minIndex = 0; for (int j = 1; j < n; j++) { if (arr[j] < arr[minIndex]) { minIndex = j; } } // Negate the minimum element arr[minIndex] = -arr[minIndex]; } // Calculate and return the sum of the modified array int sum = 0; for (int i = 0; i < n; i++) { sum += arr[i]; } return sum; } static void Main() { int[] arr = {-2, 0, 5, -1, 2}; int k = 4; Console.WriteLine(maximizeSum(arr, k)); } }
+
+// JavaScript program to maximize array sum after K negations function maximizeSum(arr, k) { let n = arr.length; // Perform k modifications for (let i = 0; i < k; i++) { // Find the minimum element in the array let minIndex = 0; for (let j = 1; j < n; j++) { if (arr[j] < arr[minIndex]) { minIndex = j; } } // Negate the minimum element arr[minIndex] = -arr[minIndex]; } // Calculate and return the sum of the modified array return arr.reduce((sum, num) => sum + num, 0); } let arr = [-2, 0, 5, -1, 2]; let k = 4; console.log(maximizeSum(arr, k));
+
+The idea is to use a sorting based approach to maximize the array sum by strategically converting negative numbers to positive and handling the remaining modifications to minimize the impact on the total sum.
+
+Sort the array in ascending order.
+
+Convert negative numbers to positive until k modifications are used or all negative numbers are negated.
+
+Handle remaining modifications by checking if k is even or odd. We can perform modification on the same element even times, so we do not have to change any value. So set k = k%2.
+
+If k is odd, subtract twice the minimum element from the sum. We subtract two times in order to first remove the minimum value from sum and then add the negated value to sum.
+
+Return the final maximized sum.
+
+// C++ program to maximize array sum after K negations #include <bits/stdc++.h> using namespace std; int maximizeSum(vector<int> &arr, int k) { int n = arr.size(); // Sort the array sort(arr.begin(), arr.end()); // Use k to convert negative integers // into positive integers. for (int i=0; i<n && k>0 && arr[i] <= 0; i++) { arr[i] *= -1; k--; } // If k > 1, we can repeatedly negate // the same value even times, so its // value will remain the same. k = k%2; // Calculate sum of array. int sum = 0; for (int i=0; i<n; i++) { sum += arr[i]; } if (k == 0) return sum; // If k == 1, we have to negate the // minimum value. int minIndex = 0; for (int i=1; i<n; i++) { if (arr[i] < arr[minIndex]) { minIndex = i; } } return sum - 2*arr[minIndex]; } int main() { vector<int> arr = {-2, 0, 5, -1, 2}; int k = 4; cout << maximizeSum(arr, k); return 0; }
+
+// Java program to maximize array sum after K negations import java.util.Arrays; class GfG { static int maximizeSum(int[] arr, int k) { int n = arr.length; // Sort the array Arrays.sort(arr); // Use k to convert negative integers // into positive integers. for (int i = 0; i < n && k > 0 && arr[i] <= 0; i++) { arr[i] *= -1; k--; } // If k > 1, we can repeatedly negate // the same value even times, so its // value will remain the same. k = k % 2; // Calculate sum of array. int sum = 0; for (int i = 0; i < n; i++) { sum += arr[i]; } if (k == 0) return sum; // If k == 1, we have to negate the // minimum value. int minIndex = 0; for (int i = 1; i < n; i++) { if (arr[i] < arr[minIndex]) { minIndex = i; } } return sum - 2 * arr[minIndex]; } public static void main(String[] args) { int[] arr = {-2, 0, 5, -1, 2}; int k = 4; System.out.println(maximizeSum(arr, k)); } }
+
+# Python program to maximize array sum after K negations def maximizeSum(arr, k): n = len(arr) # Sort the array arr.sort() # Use k to convert negative integers # into positive integers. i = 0 while i < n and k > 0 and arr[i] <= 0: arr[i] *= -1 k -= 1 i += 1 # If k > 1, we can repeatedly negate # the same value even times, so its # value will remain the same. k = k % 2 # Calculate sum of array. total_sum = sum(arr) if k == 0: return total_sum # If k == 1, we have to negate the # minimum value. minIndex = min(arr) return total_sum - 2 * minIndex if __name__ == "__main__": arr = [-2, 0, 5, -1, 2] k = 4 print(maximizeSum(arr, k))
+
+// C# program to maximize array sum after K negations using System; class GfG { static int maximizeSum(int[] arr, int k) { int n = arr.Length; // Sort the array Array.Sort(arr); // Use k to convert negative integers // into positive integers. for (int i = 0; i < n && k > 0 && arr[i] <= 0; i++) { arr[i] *= -1; k--; } // If k > 1, we can repeatedly negate // the same value even times, so its // value will remain the same. k = k % 2; // Calculate sum of array. int sum = 0; for (int i = 0; i < n; i++) { sum += arr[i]; } if (k == 0) return sum; // If k == 1, we have to negate the // minimum value. int minIndex = 0; for (int i = 1; i < n; i++) { if (arr[i] < arr[minIndex]) { minIndex = i; } } return sum - 2 * arr[minIndex]; } static void Main() { int[] arr = {-2, 0, 5, -1, 2}; int k = 4; Console.WriteLine(maximizeSum(arr, k)); } }
+
+// JavaScript program to maximize array sum after K negations function maximizeSum(arr, k) { let n = arr.length; // Sort the array arr.sort((a, b) => a - b); // Use k to convert negative integers // into positive integers. let i = 0; while (i < n && k > 0 && arr[i] <= 0) { arr[i] *= -1; k--; i++; } // If k > 1, we can repeatedly negate // the same value even times, so its // value will remain the same. k = k % 2; // Calculate sum of array. let sum = arr.reduce((acc, num) => acc + num, 0); if (k === 0) return sum; // If k == 1, we have to negate the // minimum value. let minIndex = Math.min(...arr); return sum - 2 * minIndex; } let arr = [-2, 0, 5, -1, 2]; let k = 4; console.log(maximizeSum(arr, k));
+
+We insert all items in a priority queue (or min heap) and then extract items one by one. The detailed approach is similar to above. Instead of sorting, we use a priority queue here (Please note that building a heap or priority queue from an array can be done in O(n) time). Please refer Maximize array sum after K negations | Set 2 for details.

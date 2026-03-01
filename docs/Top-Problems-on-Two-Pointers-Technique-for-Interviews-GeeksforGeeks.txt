@@ -1,0 +1,73 @@
+URL: https://www.geeksforgeeks.org/dsa/top-problems-on-two-pointers-technique-for-interviews
+Title: Top Problems on Two Pointers Technique for Interviews - GeeksforGeeks
+================================================================================
+
+
+Easy Problems
+=============
+
+
+
+Medium Problems
+===============
+
+
+
+Hard Problems
+=============
+
+
+
+Explore
+=======
+
+
+The Two Pointer Approach is a powerful and efficient technique used to solve problems involving sorted arrays, searching, and optimization. By utilizing two pointers either moving towards each other or in the same direction, we can reduce the time complexity of many problems from O(n2) to O(n) or O(nlog⁡n). This approach is widely used in competitive programming and real-world applications such as finding pairs with a given sum, merging sorted arrays, and optimizing subarray problems.
+
+Remove Occurrences
+
+Move Zeros To End
+
+Unique Elements in Sorted Array
+
+Reverse a string preserving space positions
+
+Sort an array of 0s, 1s and 2s
+
+Pair Sum in a Sorted and Rotated Array
+
+Closest Pair Sum
+
+Closest pair from two sorted arrays
+
+Smallest Subarray > Sum
+
+Dominant Pairs
+
+Sentence Palindrome
+
+Intersection of Arrays with Distinct
+
+Count pairs with absolute difference equal to k
+
+Triplet Sum in Array
+
+Sum of Two Equals Third
+
+K-th element of two Arrays
+
+Union of 2 Sorted with Duplicates
+
+Subarrays with Max in Range
+
+Longest Substring with K Unique
+
+Remove and Reverse
+
+The Celebrity Problem
+
+Trapping Rain Water Problem
+
+4 Sum - Check for Quadruple
+
+4 Sum – All Distinct Quadruplets with given Sum

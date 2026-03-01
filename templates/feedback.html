@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Feedback Experiment - RAG Interface{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/feedback.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="feedback-container">
+        {% set active_page = 'feedback' %}
+        {% set page_class = 'feedback' %}
+        {% set page_title = 'Feedback Experimentation' %}
+        {% include 'includes/header.html' %}
+        
+        <div class="feedback-body">
+            <div class="feedback-sidebar">
+                <h2>Questions</h2>
+                <div id="questions-list" class="questions-list">
+                    <div class="loading-message">Loading questions...</div>
+                </div>
+                <div class="progress-info">
+                    <div id="progress-text">Progress: 0/0</div>
+                </div>
+            </div>
+            
+            <div class="feedback-main">
+                <div id="feedback-content" class="feedback-content">
+                    <div class="welcome-message">
+                        <p>Welcome to the Feedback Experimentation page.</p>
+                        <p>Select a question from the sidebar to begin.</p>
+                        <p>All participants will see the same consistent questions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='css/feedback.js') }}"></script>
+{% endblock %}

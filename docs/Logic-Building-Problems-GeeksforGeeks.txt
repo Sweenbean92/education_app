@@ -1,0 +1,159 @@
+URL: https://www.geeksforgeeks.org/dsa/logic-building-problems
+Title: Logic Building Problems - GeeksforGeeks
+================================================================================
+
+
+Concepts
+========
+
+
+
+Basic Problems
+==============
+
+
+
+Easy Problems
+=============
+
+
+
+Medium Problems
+===============
+
+
+
+Hard Problems
+=============
+
+
+
+Explore
+=======
+
+
+Logic building is about creating clear, step-by-step methods to solve problems using simple rules and principles. It’s the heart of coding, enabling programmers to think, reason, and arrive at smart solutions just like we do.
+
+Here are some tips for improving your programming logic:
+
+Understand the problem: Read and understand the problem statement.
+
+Generate Examples: Create additional input and output cases for each problem.
+
+Draw observations: Draw observations and patterns based on the examples you created.
+
+Start with Basic: First, think of the basic way to solve the problem then optimize the solution.
+
+Maths for Computer Science
+
+Check Even or Odd
+
+Multiplication Table
+
+Sum of Naturals
+
+Sum of Squares of Naturals
+
+Swap Two Numbers
+
+Closest Number
+
+Dice Problem
+
+Nth Term of AP
+
+Sum of Digits
+
+Reverse Digits
+
+Prime Testing
+
+Check Power
+
+Distance between Two Points
+
+Valid Triangle
+
+Overlapping Rectangles
+
+Factorial of a Number
+
+Pair Cube Count
+
+LCM of Two Numbers
+
+Perfect Number
+
+Add Two Fraction
+
+Day of the Week
+
+Nth Fibonacci Number
+
+Decimal to Binary
+
+N-th term of 1, 3, 6, 10, 15, 21…
+
+Armstrong Number
+
+Palindrome Number
+
+Square Root
+
+Divisible by 4
+
+Divisibility by 11
+
+Divisibility by 13
+
+K-th Digit in a^b
+
+Fraction to Recurring Decimal
+
+Recurring Sequence in a Fraction
+
+Compute nPr
+
+Compute nCr
+
+Pascal’s Triangle
+
+All Factor (Or Divisors)
+
+Prime Factorization
+
+Largest Prime factor
+
+Modular Exponentiation
+
+nth Catalan Number
+
+Binomial Coefficient
+
+Next Permutation
+
+Sieve of Eratosthenes
+
+Super Prime
+
+Clock Angle Problem
+
+Tower of Hanoi
+
+Rat and Poisoned
+
+8 puzzle Problem
+
+Euler's Totient Function
+
+Josephus Problem
+
+Recommended Links
+
+Top Logic Building Interview Problems
+
+Practice Logic Building Problems
+
+Pattern Printing Problems
+
+Mathematical Algorithms

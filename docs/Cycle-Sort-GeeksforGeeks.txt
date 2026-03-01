@@ -1,0 +1,136 @@
+URL: https://www.geeksforgeeks.org/dsa/cycle-sort
+Title: Cycle Sort - GeeksforGeeks
+================================================================================
+
+
+Here's a step-by-step explanation of the cycle sort algorithm:
+==============================================================
+
+
+
+Advantage of Cycle sort:
+========================
+
+
+
+Disadvantage of Cycle sort:
+===========================
+
+
+
+Application of Cycle sort:
+==========================
+
+
+
+Explore
+=======
+
+
+Cycle sort is an in-place, unstable sorting algorithm that is particularly useful when sorting arrays containing elements with a small range of values. It was developed by W. D. Jones and published in 1963.
+
+The basic idea behind cycle sort is to divide the input array into cycles, where each cycle consists of elements that belong to the same position in the sorted output array. The algorithm then performs a series of swaps to place each element in its correct position within its cycle, until all cycles are complete and the array is sorted.
+
+Start with an unsorted array of n elements.
+
+Initialize a variable, cycleStart, to 0.
+
+For each element in the array, compare it with every other element to its right. If there are any elements that are smaller than the current element, increment cycleStart.
+
+If cycleStart is still 0 after comparing the first element with all other elements, move to the next element and repeat step 3.
+
+Once a smaller element is found, swap the current element with the first element in its cycle. The cycle is then continued until the current element returns to its original position.
+
+Repeat steps 3-5 until all cycles have been completed.
+
+The array is now sorted.
+
+One of the advantages of cycle sort is that it has a low memory footprint, as it sorts the array in-place and does not require additional memory for temporary variables or buffers. However, it can be slow in certain situations, particularly when the input array has a large range of values. Nonetheless, cycle sort remains a useful sorting algorithm in certain contexts, such as when sorting small arrays with limited value ranges.
+
+Cycle sort is an in-place sorting Algorithm, unstable sorting algorithm, and a comparison sort that is theoretically optimal in terms of the total number of writes to the original array.
+
+It is optimal in terms of the number of memory writes. It minimizes the number of memory writes to sort (Each value is either written zero times if it’s already in its correct position or written one time to its correct position.)
+
+It is based on the idea that the array to be sorted can be divided into cycles. Cycles can be visualized as a graph. We have n nodes and an edge directed from node i to node j if the element at i-th index must be present at j-th index in the sorted array. Cycle in arr[] = {2, 4, 5, 1, 3}
+
+Cycle in arr[] = {4, 3, 2, 1}
+
+We one by one consider all cycles. We first consider the cycle that includes the first element. We find the correct position of the first element, and place it at its correct position, say j. We consider the old value of arr[j] and find its correct position, we keep doing this till all elements of the current cycle are placed at the correct position, i.e., we don't come back to the cycle starting point.
+
+Pseudocode :
+
+Beginforstart:= 0 to n - 2 dokey := array[start]location := startfor i:= start + 1 to n-1 do if array[i] < key then location: =location +1doneif location = start then ignore lower part, go for next iterationwhile key = array[location] do location: = location + 1doneif location != start then swap array[location] with keywhile location != start do location startfor i:= start + 1 to n-1 do if array[i] < key then location: =location +1donewhile key= array[location] location := location +1 if key != array[location] Swap array[location] and key done doneEnd
+
+Explanation :
+
+arr[] = {10, 5, 2, 3} index = 0 1 2 3cycle_start = 0 item = 10 = arr[0]Find position where we put the item pos = cycle_starti=pos+1while(i<n)if (arr[i] < item) pos++;We put 10 at arr[3] and change item to old value of arr[3].arr[] = {10, 5, 2, 10} item = 3 Again rotate rest cycle that start with index '0' Find position where we put the item = 3 we swap item with element at arr[1] now arr[] = {10, 3, 2, 10} item = 5Again rotate rest cycle that start with index '0' and item = 5 we swap item with element at arr[2].arr[] = {10, 3, 5, 10 } item = 2Again rotate rest cycle that start with index '0' and item = 2arr[] = {2, 3, 5, 10} Above is one iteration for cycle_stat = 0.Repeat above steps for cycle_start = 1, 2, ..n-2
+
+Below is the implementation of the above approach:
+
+// C++ program to implement cycle sort #include <iostream> using namespace std; // Function sort the array using Cycle sort void cycleSort(int arr[], int n) { // count number of memory writes int writes = 0; // traverse array elements and put it to on // the right place for (int cycle_start = 0; cycle_start <= n - 2; cycle_start++) { // initialize item as starting point int item = arr[cycle_start]; // Find position where we put the item. We basically // count all smaller elements on right side of item. int pos = cycle_start; for (int i = cycle_start + 1; i < n; i++) if (arr[i] < item) pos++; // If item is already in correct position if (pos == cycle_start) continue; // ignore all duplicate elements while (item == arr[pos]) pos += 1; // put the item to it's right position if (pos != cycle_start) { swap(item, arr[pos]); writes++; } // Rotate rest of the cycle while (pos != cycle_start) { pos = cycle_start; // Find position where we put the element for (int i = cycle_start + 1; i < n; i++) if (arr[i] < item) pos += 1; // ignore all duplicate elements while (item == arr[pos]) pos += 1; // put the item to it's right position if (item != arr[pos]) { swap(item, arr[pos]); writes++; } } } // Number of memory writes or swaps // cout << writes << endl ; } // Driver program to test above function int main() { int arr[] = { 1, 8, 3, 9, 10, 10, 2, 4 }; int n = sizeof(arr) / sizeof(arr[0]); cycleSort(arr, n); cout << "After sort : " << endl; for (int i = 0; i < n; i++) cout << arr[i] << " "; return 0; }
+
+// Java program to implement cycle sort import java.util.*; import java.lang.*; class GFG { // Function sort the array using Cycle sort public static void cycleSort(int arr[], int n) { // count number of memory writes int writes = 0; // traverse array elements and put it to on // the right place for (int cycle_start = 0; cycle_start <= n - 2; cycle_start++) { // initialize item as starting point int item = arr[cycle_start]; // Find position where we put the item. We basically // count all smaller elements on right side of item. int pos = cycle_start; for (int i = cycle_start + 1; i < n; i++) if (arr[i] < item) pos++; // If item is already in correct position if (pos == cycle_start) continue; // ignore all duplicate elements while (item == arr[pos]) pos += 1; // put the item to it's right position if (pos != cycle_start) { int temp = item; item = arr[pos]; arr[pos] = temp; writes++; } // Rotate rest of the cycle while (pos != cycle_start) { pos = cycle_start; // Find position where we put the element for (int i = cycle_start + 1; i < n; i++) if (arr[i] < item) pos += 1; // ignore all duplicate elements while (item == arr[pos]) pos += 1; // put the item to it's right position if (item != arr[pos]) { int temp = item; item = arr[pos]; arr[pos] = temp; writes++; } } } } // Driver program to test above function public static void main(String[] args) { int arr[] = { 1, 8, 3, 9, 10, 10, 2, 4 }; int n = arr.length; cycleSort(arr, n); System.out.println("After sort : "); for (int i = 0; i < n; i++) System.out.print(arr[i] + " "); } } // Code Contributed by Mohit Gupta_OMG <(0_o)>
+
+# Python program to implement cycle sort def cycleSort(array): writes = 0 # Loop through the array to find cycles to rotate. for cycleStart in range(0, len(array) - 1): item = array[cycleStart] # Find where to put the item. pos = cycleStart for i in range(cycleStart + 1, len(array)): if array[i] < item: pos += 1 # If the item is already there, this is not a cycle. if pos == cycleStart: continue # Otherwise, put the item there or right after any duplicates. while item == array[pos]: pos += 1 array[pos], item = item, array[pos] writes += 1 # Rotate the rest of the cycle. while pos != cycleStart: # Find where to put the item. pos = cycleStart for i in range(cycleStart + 1, len(array)): if array[i] < item: pos += 1 # Put the item there or right after any duplicates. while item == array[pos]: pos += 1 array[pos], item = item, array[pos] writes += 1 return writes # driver code arr = [1, 8, 3, 9, 10, 10, 2, 4 ] n = len(arr) cycleSort(arr) print("After sort : ") for i in range(0, n) : print(arr[i], end = ' ') # Code Contributed by Mohit Gupta_OMG <(0_o)>
+
+// C# program to implement cycle sort using System; class GFG { // Function sort the array using Cycle sort public static void cycleSort(int[] arr, int n) { // count number of memory writes int writes = 0; // traverse array elements and // put it to on the right place for (int cycle_start = 0; cycle_start <= n - 2; cycle_start++) { // initialize item as starting point int item = arr[cycle_start]; // Find position where we put the item. // We basically count all smaller elements // on right side of item. int pos = cycle_start; for (int i = cycle_start + 1; i < n; i++) if (arr[i] < item) pos++; // If item is already in correct position if (pos == cycle_start) continue; // ignore all duplicate elements while (item == arr[pos]) pos += 1; // put the item to it's right position if (pos != cycle_start) { int temp = item; item = arr[pos]; arr[pos] = temp; writes++; } // Rotate rest of the cycle while (pos != cycle_start) { pos = cycle_start; // Find position where we put the element for (int i = cycle_start + 1; i < n; i++) if (arr[i] < item) pos += 1; // ignore all duplicate elements while (item == arr[pos]) pos += 1; // put the item to it's right position if (item != arr[pos]) { int temp = item; item = arr[pos]; arr[pos] = temp; writes++; } } } } // Driver program to test above function public static void Main() { int[] arr = { 1, 8, 3, 9, 10, 10, 2, 4 }; int n = arr.Length; // Function calling cycleSort(arr, n); Console.WriteLine("After sort : "); for (int i = 0; i < n; i++) Console.Write(arr[i] + " "); } } // This code is contributed by Nitin Mittal
+
+<script> // Javascript program to implement cycle sort // Function sort the array using Cycle sort function cycleSort(arr, n) { // count number of memory writes let writes = 0; // traverse array elements and put it to on // the right place for (let cycle_start = 0; cycle_start <= n - 2; cycle_start++) { // initialize item as starting point let item = arr[cycle_start]; // Find position where we put the item. We basically // count all smaller elements on right side of item. let pos = cycle_start; for (let i = cycle_start + 1; i < n; i++) if (arr[i] < item) pos++; // If item is already in correct position if (pos == cycle_start) continue; // ignore all duplicate elements while (item == arr[pos]) pos += 1; // put the item to it's right position if (pos != cycle_start) { let temp = item; item = arr[pos]; arr[pos] = temp; writes++; } // Rotate rest of the cycle while (pos != cycle_start) { pos = cycle_start; // Find position where we put the element for (let i = cycle_start + 1; i < n; i++) if (arr[i] < item) pos += 1; // ignore all duplicate elements while (item == arr[pos]) pos += 1; // put the item to it's right position if (item != arr[pos]) { let temp = item; item = arr[pos]; arr[pos] = temp; writes++; } } } } // Driver code let arr = [ 1, 8, 3, 9, 10, 10, 2, 4 ]; let n = arr.length; cycleSort(arr, n); document.write("After sort : " + "<br/>"); for (let i = 0; i < n; i++) document.write(arr[i] + " "); // This code is contributed by susmitakundugoaldanga. </script>
+
+After sort : 1 2 3 4 8 9 10 10
+
+Time Complexity Analysis:
+
+Worst Case: O(n2)
+
+Average Case: O(n2)
+
+Best Case: O(n2)
+
+Auxiliary Space: O(1)
+
+The space complexity is constant cause this algorithm is in place so it does not use any extra memory to sort.
+
+Method 2: This method is only applicable when given array values or elements are in the range of 1 to N or 0 to N. In this method, we do not need to rotate an array
+
+Approach : All the given array values should be in the range of 1 to N or 0 to N. If the range is 1 to N then every array element's correct position will be the index == value-1 i.e. means at the 0th index value will be 1 similarly at the 1st index position value will be 2 and so on till nth value.
+
+similarly for 0 to N values correct index position of each array element or value will be the same as its value i.e. at 0th index 0 will be there 1st position 1 will be there.
+
+arr[] = {5, 3, 1, 4, 2}index = 0 1 2 3 4i = 0;while( i < arr.length) correctposition = arr[i]-1; find ith item correct position for the first time i = 0 arr[0] = 5 correct index of 5 is 4 so arr[i] - 1 = 5-1 = 4 if( arr[i] <= arr.length && arr[i] != arr[correctposition]) arr[i] = 5 and arr[correctposition] = 4 so 5 <= 5 && 5 != 4 if condition true now swap the 5 with 4 int temp = arr[i]; arr[i] = arr[correctposition]; arr[correctposition] = temp; now resultant arr at this after 1st swap arr[] = {2, 3, 1, 4, 5} now 5 is shifted at its correct position now loop will run again check for i = 0 now arr[i] is = 2 after swapping 2 at its correct position arr[] = {3, 2, 1, 4, 5} now loop will run again check for i = 0 now arr[i] is = 3 after swapping 3 at its correct position arr[] = {1, 2, 3, 4, 5} now loop will run again check for i = 0 now arr[i] is = 1 this time 1 is at its correct position so else block will execute and i will increment i = 1; once i exceeds the size of array will get array sorted. arr[] = {1, 2, 3, 4, 5} else i++;loop end;once while loop end we get sorted array just print it for( index = 0 ; index < arr.length; index++) print(arr[index] + " ")sorted arr[] = {1, 2, 3, 4, 5}
+
+#include <iostream> using namespace std; void cyclicSort(int arr[], int n){ int i = 0; while(i < n) { // as array is of 1 based indexing so the // correct position or index number of each // element is element-1 i.e. 1 will be at 0th // index similarly 2 correct index will 1 so // on... int correct = arr[i] - 1 ; if(arr[i] != arr[correct]){ // if array element should be lesser than // size and array element should not be at // its correct position then only swap with // its correct position or index value swap(arr[i], arr[correct]) ; }else{ // if element is at its correct position // just increment i and check for remaining // array elements i++ ; } } } void printArray(int arr[], int size) { int i; for (i = 0; i < size; i++) cout << arr[i] << " "; cout << endl; } int main() { int arr[] = { 3, 2, 4, 5, 1}; int n = sizeof(arr) / sizeof(arr[0]); cout << "Before sorting array: \n"; printArray(arr, n); cyclicSort(arr, n); cout << "Sorted array: \n"; printArray(arr, n); return 0; }
+
+// java program to check implement cycle sort import java.util.*; public class MissingNumber { public static void main(String[] args) { int[] arr = { 3, 2, 4, 5, 1 }; int n = arr.length; System.out.println("Before sort :"); System.out.println(Arrays.toString(arr)); CycleSort(arr, n); } static void CycleSort(int[] arr, int n) { int i = 0; while (i < n) { // as array is of 1 based indexing so the // correct position or index number of each // element is element-1 i.e. 1 will be at 0th // index similarly 2 correct index will 1 so // on... int correctpos = arr[i] - 1; if (arr[i] < n && arr[i] != arr[correctpos]) { // if array element should be lesser than // size and array element should not be at // its correct position then only swap with // its correct position or index value swap(arr, i, correctpos); } else { // if element is at its correct position // just increment i and check for remaining // array elements i++; } } System.out.println("After sort : "); System.out.print(Arrays.toString(arr)); } static void swap(int[] arr, int i, int correctpos) { // swap elements with their correct indexes int temp = arr[i]; arr[i] = arr[correctpos]; arr[correctpos] = temp; } } // this code is contributed by devendra solunke
+
+# Python program to check implement cycle sort def cyclicSort(arr, n): i = 0 while i < n: # as array is of 1 based indexing so the # correct position or index number of each # element is element-1 i.e. 1 will be at 0th # index similarly 2 correct index will 1 so # on... correct = arr[i] - 1 if arr[i] != arr[correct]: # if array element should be lesser than # size and array element should not be at # its correct position then only swap with # its correct position or index value arr[i], arr[correct] = arr[correct], arr[i] else: # if element is at its correct position # just increment i and check for remaining # array elements i += 1 def printArray(arr): print(*arr) arr = [3, 2, 4, 5, 1] n = len(arr) print("Before sorting array:") printArray(arr) # Function Call cyclicSort(arr, n) print("Sorted array:") printArray(arr) # This Code is Contributed by Prasad Kandekar(prasad264)
+
+using System; public class GFG { static void CycleSort(int[] arr, int n) { int i = 0; while (i < n) { // as array is of 1 based indexing so the // correct position or index number of each // element is element-1 i.e. 1 will be at 0th // index similarly 2 correct index will 1 so // on... int correctpos = arr[i] - 1; if (arr[i] < n && arr[i] != arr[correctpos]) { // if array element should be lesser than // size and array element should not be at // its correct position then only swap with // its correct position or index value swap(arr, i, correctpos); } else { // if element is at its correct position // just increment i and check for remaining // array elements i++; } } Console.Write("\nAfter sort : "); for (int index = 0; index < n; index++) Console.Write(arr[index] + " "); } static void swap(int[] arr, int i, int correctpos) { // swap elements with their correct indexes int temp = arr[i]; arr[i] = arr[correctpos]; arr[correctpos] = temp; } static public void Main() { // Code int[] arr = { 3, 2, 4, 5, 1 }; int n = arr.Length; Console.Write("Before sort : "); for (int i = 0; i < n; i++) Console.Write(arr[i] + " "); CycleSort(arr, n); } } // This code is contributed by devendra solunke
+
+// JavaScript code for the above code function cyclicSort(arr, n) { var i = 0; while (i < n) { // as array is of 1 based indexing so the // correct position or index number of each // element is element-1 i.e. 1 will be at 0th // index similarly 2 correct index will 1 so // on... let correct = arr[i] - 1; if (arr[i] !== arr[correct]) { // if array element should be lesser than // size and array element should not be at // its correct position then only swap with // its correct position or index value [arr[i], arr[correct]] = [arr[correct], arr[i]]; } else { // if element is at its correct position // just increment i and check for remaining // array elements i++; } } } function printArray(arr, size) { for (var i = 0; i < size; i++) { console.log(arr[i] + " "); } console.log("\n"); } var arr = [3, 2, 4, 5, 1]; var n = arr.length; console.log("Before sorting array: \n"); printArray(arr, n); cyclicSort(arr, n); console.log("Sorted array: \n"); printArray(arr, n); // This Code is Contributed by Prasad Kandekar(prasad264)
+
+Before sorting array: 3 2 4 5 1 Sorted array: 1 2 3 4 5
+
+Worst Case : O(n)
+
+Average Case: O(n)
+
+Best Case : O(n)
+
+No additional storage is required.
+
+in-place sorting algorithm.
+
+A minimum number of writes to the memory
+
+Cycle sort is useful when the array is stored in EEPROM or FLASH.
+
+It is not mostly used.
+
+It has more time complexity o(n^2)
+
+Unstable sorting algorithm.
+
+This sorting algorithm is best suited for situations where memory write or swap operations are costly.
+
+Useful for complex problems.

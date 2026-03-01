@@ -1,0 +1,143 @@
+URL: https://www.geeksforgeeks.org/dsa/top-50-graph-coding-problems-for-interviews
+Title: Graph Coding Problems for Interviews - GeeksforGeeks
+================================================================================
+
+
+Easy Problems
+=============
+
+
+
+Medium Problems
+===============
+
+
+
+Hard Problems
+=============
+
+
+
+Related Articles
+================
+
+
+
+Related Tutorials
+=================
+
+
+
+Explore
+=======
+
+
+Here is the collection of the Top 50 list of frequently asked interview questions on Graph. Problems in this Article are divided into three Levels so that readers can practice according to the difficulty level step by step.
+
+BFS of Graph
+
+DFS of Graph
+
+Number of islands
+
+Detect cycle in an undirected graph
+
+Bipartite Graph
+
+Snake and Ladder problem
+
+Flood Fill Algorithm
+
+Replace O’s with X’s
+
+Cycle in a Directed Graph
+
+Kruskal's Minimum Spanning Tree
+
+Prim's Minimum Spanning Tree
+
+Dijkstra's Shortest Path
+
+Bellman Ford Algorithm
+
+Floyd's Algorithm
+
+Toplogical Sort
+
+Prerequisite Tasks
+
+Course Schedule
+
+Circle of Strings
+
+Maximum Bipartite Matching
+
+Detect cycle in a directed graph
+
+Find whether path exists
+
+Possible paths between 2 vertices
+
+Find the number of ‘X’ total shapes
+
+Distance of nearest cell having 1
+
+Mother Vertex
+
+Unit Area of largest region of 1’s
+
+Rotten Oranges
+
+Minimum Swaps to Sort
+
+Steps by Knight
+
+Dijkstra Algorithm
+
+Word Search
+
+Word Boggle
+
+Minimum Weight Cycle
+
+Bridge Edge in Graph
+
+Strongly Connected Components (Kosaraju’s Algo)
+
+Minimum Cost Path
+
+Strongly Connected Components (Tarjan’s Algo)
+
+Articulation Point
+
+Alien Dictionary
+
+Word Ladder I
+
+Word Ladder II
+
+Number of closed islands
+
+Shortest Path by removing K walls
+
+Min Length String with All Substrings of Size N
+
+Hamiltonian Path
+
+Array Coding Problems for Interviews
+
+String Coding Problems for Interviews
+
+Tree Coding Problems for Interviews
+
+Dynamic Programming Coding Problems for Interviews
+
+Sorting Coding Problems for Interviews
+
+Searching Coding Problems for Interviews
+
+Binary Search Tree Coding Problems for Interviews
+
+DSA Tutorial
+
+System Design Tutorial

@@ -1,0 +1,80 @@
+URL: https://www.geeksforgeeks.org/dsa/advance-data-structure
+Title: Practice Problems on Advance Data Structure and Aglorithms - GeeksforGeeks
+================================================================================
+
+
+Practice Problems on Advanced Data Structure
+============================================
+
+
+
+Segment Tree
+============
+
+
+
+Binary Indexed Tree
+===================
+
+
+
+Advanced Array Algorithm Questions
+==================================
+
+
+
+Explore
+=======
+
+
+Advanced data structures like Trie, Segment Tree, and Binary Indexed Tree significantly enhance performance for specific problem types. They offer efficient solutions for tasks such as quick prefix searches, range queries, dynamic updates, and maintaining balanced trees, which are essential for managing large datasets and real-time processing. By optimizing time complexity, these structures improve scalability and accelerate the execution of various computational problems.
+
+Insert and Search in Trie
+
+Boggle using Trie
+
+Deletion in Trie
+
+Prefix match with other strings
+
+Palindrome Pairs
+
+CamelCase Pattern Matching
+
+Prefix Suffix String
+
+Program for assigning usernames
+
+Unique rows in a given Binary matrix
+
+Find duplicate rows in a binary matrix
+
+Implement a Phone Directory
+
+Range Minimum Query
+
+Smallest Subarray GCD
+
+Minimum XOR Value Pair
+
+Greater or Less
+
+MO’s Algorithm
+
+Square Root (Sqrt) Decomposition Algorithm
+
+Sparse Table
+
+Range sum query using Sparse Table
+
+Range Minimum Query (Square Root Decomposition and Sparse Table)
+
+Range LCM Queries
+
+Merge Sort Tree for Range Order Statistics
+
+Minimum number of jumps to reach end
+
+Space optimization using bit manipulations
+
+Max value of Sum( i*arr[i]) with only rotations allowed

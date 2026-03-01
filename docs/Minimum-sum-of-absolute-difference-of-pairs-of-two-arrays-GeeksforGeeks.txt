@@ -1,0 +1,36 @@
+URL: https://www.geeksforgeeks.org/dsa/minimum-sum-absolute-difference-pairs-two-arrays
+Title: Minimum sum of absolute difference of pairs of two arrays - GeeksforGeeks
+================================================================================
+
+
+Explore
+=======
+
+
+Given two arrays a[] and b[] of equal length n. The task is to pair each element of array a to an element in array b, such that sum S of absolute differences of all the pairs is minimum.Suppose, two elements a[i] and a[j] (i != j) of a are paired with elements b[p] and b[q] of b respectively, then p should not be equal to q.
+
+Input : a[] = {3, 2, 1} b[] = {2, 1, 3} Output : 0 Explanation : 1st pairing: |3 - 2| + |2 - 1| + |1 - 3| = 1 + 1 + 2 = 4 2nd pairing: |3 - 2| + |1 - 1| + |2 - 3| = 1 + 0 + 1 = 2 3rd pairing: |2 - 2| + |3 - 1| + |1 - 3| = 0 + 2 + 2 = 4 4th pairing: |1 - 2| + |2 - 1| + |3 - 3| = 1 + 1 + 0 = 2 5th pairing: |2 - 2| + |1 - 1| + |3 - 3| = 0 + 0 + 0 = 0 6th pairing: |1 - 2| + |3 - 1| + |2 - 3| = 1 + 2 + 1 = 4 Therefore, 5th pairing has minimum sum of absolute difference. Input : n = 4 a[] = {4, 1, 8, 7} b[] = {2, 3, 6, 5} Output : 6
+
+The solution to the problem is a simple greedy approach. It consists of two steps.
+
+Step 1 : Sort both the arrays in O (n log n) time.
+
+Step 2 : Find absolute difference of each pair of corresponding elements (elements at same index) of both arrays and add the result to the sum S. The time complexity of this step is O(n).
+
+Hence, the overall time complexity of the program is O(n log n).
+
+// C++ program to find minimum sum of absolute // differences of two arrays. #include <bits/stdc++.h> using namespace std; // Returns minimum possible pairwise absolute // difference of two arrays. long long int findMinSum(long long int a[],long long int b[], int n) { // Sort both arrays sort(a, a+n); sort(b, b+n); // Find sum of absolute differences long long int sum= 0 ; for (int i=0; i<n; i++) sum = sum + abs(a[i]-b[i]); return sum; } // Driver code int main() { // Both a[] and b[] must be of same size. long long int a[] = {4, 1, 8, 7}; long long int b[] = {2, 3, 6, 5}; int n = sizeof(a)/sizeof(a[0]); printf("%lld\n", findMinSum(a, b, n)); return 0; }
+
+// C program to find minimum sum of absolute // differences of two arrays. #include <stdio.h> #include<stdlib.h> void merge(int arr[], int l, int m, int r) { int i, j, k; int n1 = m - l + 1; int n2 = r - m; /* create temp arrays */ int L[n1], R[n2]; /* Copy data to temp arrays L[] and R[] */ for (i = 0; i < n1; i++) L[i] = arr[l + i]; for (j = 0; j < n2; j++) R[j] = arr[m + 1 + j]; /* Merge the temp arrays back into arr[l..r]*/ i = 0; // Initial index of first subarray j = 0; // Initial index of second subarray k = l; // Initial index of merged subarray while (i < n1 && j < n2) { if (L[i] <= R[j]) { arr[k] = L[i]; i++; } else { arr[k] = R[j]; j++; } k++; } /* Copy the remaining elements of L[], if there are any */ while (i < n1) { arr[k] = L[i]; i++; k++; } /* Copy the remaining elements of R[], if there are any */ while (j < n2) { arr[k] = R[j]; j++; k++; } } /* l is for left index and r is right index of the sub-array of arr to be sorted */ void mergeSort(int arr[], int l, int r) { if (l < r) { // Same as (l+r)/2, but avoids overflow for // large l and h int m = l + (r - l) / 2; // Sort first and second halves mergeSort(arr, l, m); mergeSort(arr, m + 1, r); merge(arr, l, m, r); } } // Returns minimum possible pairwise absolute // difference of two arrays. int findMinSum(int a[],int b[], int n) { // Sort both arrays mergeSort(a,0,n-1); mergeSort(b,0,n-1); // Find sum of absolute differences int sum= 0 ; for (int i=0; i<n; i++) sum = sum + abs(a[i]-b[i]); return sum; } // Driver code int main() { // Both a[] and b[] must be of same size. int a[] = {4, 1, 8, 7}; int b[] = {2, 3, 6, 5}; int n = sizeof(a)/sizeof(a[0]); printf("%d\n", findMinSum(a, b, n)); return 0; } // This code is contributed by rexomkar.
+
+// Java program to find minimum sum of // absolute differences of two arrays. import java.util.Arrays; class MinSum { // Returns minimum possible pairwise // absolute difference of two arrays. static long findMinSum(long a[], long b[], long n) { // Sort both arrays Arrays.sort(a); Arrays.sort(b); // Find sum of absolute differences long sum = 0 ; for (int i = 0; i < n; i++) sum = sum + Math.abs(a[i] - b[i]); return sum; } // Driver code public static void main(String[] args) { // Both a[] and b[] must be of same size. long a[] = {4, 1, 8, 7}; long b[] = {2, 3, 6, 5}; int n = a.length; System.out.println(findMinSum(a, b, n)); } } // This code is contributed by Raghav Sharma
+
+# Python3 program to find minimum sum # of absolute differences of two arrays. def findMinSum(a, b, n): # Sort both arrays a.sort() b.sort() # Find sum of absolute differences sum = 0 for i in range(n): sum = sum + abs(a[i] - b[i]) return sum # Driver program # Both a[] and b[] must be of same size. a = [4, 1, 8, 7] b = [2, 3, 6, 5] n = len(a) print(findMinSum(a, b, n)) # This code is contributed by Anant Agarwal.
+
+// C# program to find minimum sum of // absolute differences of two arrays. using System; class MinSum { // Returns minimum possible pairwise // absolute difference of two arrays. static long findMinSum(long []a, long []b, long n) { // Sort both arrays Array.Sort(a); Array.Sort(b); // Find sum of absolute differences long sum = 0 ; for (int i = 0; i < n; i++) sum = sum + Math.Abs(a[i] - b[i]); return sum; } // Driver code public static void Main(String[] args) { // Both a[] and b[] must be of same size. long []a = {4, 1, 8, 7}; long []b = {2, 3, 6, 5}; int n = a.Length; Console.Write(findMinSum(a, b, n)); } } // This code is contributed by parashar...
+
+<?php // PHP program to find minimum sum // of absolute differences of two // arrays. // Returns minimum possible pairwise // absolute difference of two arrays. function findMinSum($a, $b, $n) { // Sort both arrays sort($a); sort($a, $n); sort($b); sort($b, $n); // Find sum of absolute // differences $sum= 0 ; for ($i = 0; $i < $n; $i++) $sum = $sum + abs($a[$i] - $b[$i]); return $sum; } // Driver Code // Both a[] and b[] must // be of same size. $a = array(4, 1, 8, 7); $b = array(2, 3, 6, 5); $n = sizeof($a); echo(findMinSum($a, $b, $n)); // This code is contributed by nitin mittal. ?>
+
+<script> // JavaScript program for the above approach // Function to return the minimum number // Returns minimum possible pairwise // absolute difference of two arrays. function findMinSum(a, b, n) { // Sort both arrays a.sort(); b.sort(); // Find sum of absolute differences let sum = 0 ; for (let i = 0; i < n; i++) sum = sum + Math.abs(a[i] - b[i]); return sum; } // Driver Code // Both a[] and b[] must be of same size. let a = [4, 1, 8, 7]; let b = [2, 3, 6, 5]; let n = a.length; document.write(findMinSum(a, b, n)); // This code is contributed by code_hunt. </script>
+
+Time Complexity: O(n * logn)Auxiliary Space: O(1)

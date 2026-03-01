@@ -1,0 +1,134 @@
+URL: https://www.geeksforgeeks.org/dsa/top-50-array-coding-problems-for-interviews
+Title: Array Coding Problems for Interviews - GeeksforGeeks
+================================================================================
+
+
+Easy Problems
+=============
+
+
+
+Medium Problems
+===============
+
+
+
+Hard Problems
+=============
+
+
+
+Related Articles:
+=================
+
+
+
+Explore
+=======
+
+
+The following list of array coding problems covers a range of difficulty levels, from easy to hard, to help candidates prepare for interviews.
+
+Second Largest Element
+
+Third Largest Element
+
+Reverse an Array
+
+Reverse Array in Groups
+
+Rotate Array
+
+Three Great Candidates
+
+Max Consecutive Ones
+
+Move All Zeroes To End
+
+Stock Buy and Sell – One Transaction
+
+Stock Buy and Sell – Multiple Transactions
+
+Remove Duplicates from Sorted Array
+
+Alternate Positive Negative
+
+Array Leaders
+
+Missing and Repeating in Array
+
+Missing Ranges of Numbers
+
+Sum of all Subarrays
+
+Next Permutation
+
+Majority Element
+
+Majority Element II
+
+Minimize the Heights II
+
+Maximum Subarray Sum
+
+Maximum Product Subarray
+
+Product of Array Except Self
+
+Subarrays with Product Less Than K
+
+Split Into Three Equal Sum Segments
+
+Maximum Consecutive 1s After Flipping 0s
+
+Last Moment Before Ants Fall Out of Plank
+
+Find 0 with Farthest 1s in a Binary
+
+Intersection of Interval Lists
+
+Rearrange Array Elements by Sign
+
+Meeting Scheduler for Two Persons
+
+Longest Mountain Subarray
+
+Transform and Sort Array
+
+Minimum Swaps To Group All Ones
+
+Minimum Moves To Equalize Array
+
+Minimum Indices To Equal Even-Odd Sums
+
+Trapping Rain Water
+
+Maximum Circular Subarray Sum
+
+Smallest Missing Positive Number
+
+Closest Subsequence Sum
+
+Smallest Non-Representable Sum in Array
+
+Smallest Range Having Elements From K Lists
+
+Count Subarrays with K Distinct Elements
+
+Next Smallest Palindrome
+
+Maximum Sum Among All Rotations
+
+String Coding Problems for Interviews
+
+Tree Coding Problems for Interviews
+
+Graph Coding Problems for Interviews
+
+Dynamic Programming Coding Problems for Interviews
+
+Sorting Coding Problems for Interviews
+
+Searching Coding Problems for Interviews
+
+Binary Search Tree Coding Problems for Interviews

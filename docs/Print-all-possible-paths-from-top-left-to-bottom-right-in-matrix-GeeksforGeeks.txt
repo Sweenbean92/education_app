@@ -1,0 +1,45 @@
+URL: https://www.geeksforgeeks.org/dsa/print-all-possible-paths-from-top-left-to-bottom-right-of-a-mxn-matrix
+Title: Print all possible paths from top left to bottom right in matrix - GeeksforGeeks
+================================================================================
+
+
+Print all possible paths from top left to bottom right in matrix using Backtracking
+===================================================================================
+
+
+
+Explore
+=======
+
+
+Given a 2D matrix of dimension m✕n, the task is to print all the possible paths from the top left corner to the bottom right corner in a 2D matrix with the constraints that from each cell you can either move to right or down only.
+
+Input: [[1,2,3], [4,5,6]]Output: [[1,4,5,6], [1,2,5,6], [1,2,3,6]] Input: [[1,2], [3,4]]Output: [[1,2,4], [1,3,4]]
+
+Explore all the possible paths from a current cell using recursion and backtracking to reach bottom right cell.
+
+Base cases: Check If the bottom right cell, print the current path.
+
+Boundary cases: In case in we reach out of the matrix, return from it.
+
+Otherwise, Include the current cell in the path
+
+Make two recursive call: Move right in the matrixMove down in the matrix
+
+Backtrack: Remove the current cell from the current path
+
+Implementation of the above approach:
+
+#include <bits/stdc++.h> using namespace std; // To store the matrix dimension int M, N; // Function to print the path taken to reach destination void printPath(vector<int>& path) { for (int i : path) { cout << i << ", "; } cout << endl; } // Function to find all possible path in matrix from top // left cell to bottom right cell void findPaths(vector<vector<int> >& arr, vector<int>& path, int i, int j) { // if the bottom right cell, print the path if (i == M - 1 && j == N - 1) { path.push_back(arr[i][j]); printPath(path); path.pop_back(); return; } // Boundary cases: In case in we reach out of the matrix if (i < 0 || i >= M || j < 0 || j >= N) { return; } // Include the current cell in the path path.push_back(arr[i][j]); // Move right in the matrix if (j + 1 < N) { findPaths(arr, path, i, j + 1); } // Move down in the matrix if (i + 1 < M) { findPaths(arr, path, i + 1, j); } // Backtrack: Remove the current cell from the current // path path.pop_back(); } // Driver code int main() { // Input matrix vector<vector<int> > arr = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } }; // To store the path vector<int> path; // Starting cell `(0, 0)` cell int i = 0, j = 0; M = arr.size(); N = arr[0].size(); // Function call findPaths(arr, path, i, j); return 0; }
+
+import java.util.ArrayList; import java.util.List; public class MatrixPaths { // To store the matrix dimensions static int M, N; // Function to print the path taken to reach the // destination static void printPath(List<Integer> path) { for (int i : path) { System.out.print(i + ", "); } System.out.println(); } // Function to find all possible paths in the matrix // from the top-left cell to the bottom-right cell static void findPaths(int[][] arr, List<Integer> path, int i, int j) { // If it's the bottom-right cell, print the path if (i == M - 1 && j == N - 1) { path.add(arr[i][j]); printPath(path); path.remove(path.size() - 1); return; } // Boundary cases: Check if we are out of the matrix if (i < 0 || i >= M || j < 0 || j >= N) { return; } // Include the current cell in the path path.add(arr[i][j]); // Move right in the matrix if (j + 1 < N) { findPaths(arr, path, i, j + 1); } // Move down in the matrix if (i + 1 < M) { findPaths(arr, path, i + 1, j); } // Backtrack: Remove the current cell from the // current path path.remove(path.size() - 1); } // Driver code public static void main(String[] args) { // Input matrix int[][] arr = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } }; // To store the path List<Integer> path = new ArrayList<>(); // Starting cell (0, 0) int i = 0, j = 0; M = arr.length; N = arr[0].length; // Function call findPaths(arr, path, i, j); } } // This code is contributed by shivamgupta310570
+
+# Function to print the path taken to reach destination def printPath(path): for i in path: print(i, end=", ") print() # Function to find all possible paths in a matrix # from the top-left cell to the bottom-right cell def findPaths(arr, path, i, j): global M, N # If the bottom-right cell is reached, print the path if i == M - 1 and j == N - 1: path.append(arr[i][j]) printPath(path) path.pop() return # Boundary cases: Check if we are out of the matrix if i < 0 or i >= M or j < 0 or j >= N: return # Include the current cell in the path path.append(arr[i][j]) # Move right in the matrix if j + 1 < N: findPaths(arr, path, i, j + 1) # Move down in the matrix if i + 1 < M: findPaths(arr, path, i + 1, j) # Backtrack: Remove the current cell from the current path path.pop() # Driver code if __name__ == "__main__": # Input matrix arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]] # To store the path path = [] # Starting cell (0, 0) i, j = 0, 0 M = len(arr) N = len(arr[0]) # Function call findPaths(arr, path, i, j)
+
+using System; using System.Collections.Generic; class Program { // To store the matrix dimension static int M, N; // Function to print the path taken to reach the // destination static void PrintPath(List<int> path) { foreach(int i in path) { Console.Write(i + ", "); } Console.WriteLine(); } // Function to find all possible paths in the matrix // from the top-left cell to the bottom-right cell static void FindPaths(int[][] arr, List<int> path, int i, int j) { // If the bottom right cell is reached, print the // path if (i == M - 1 && j == N - 1) { path.Add(arr[i][j]); PrintPath(path); path.RemoveAt(path.Count - 1); return; } // Boundary cases: In case we reach outside of the // matrix if (i < 0 || i >= M || j < 0 || j >= N) { return; } // Include the current cell in the path path.Add(arr[i][j]); // Move right in the matrix if (j + 1 < N) { FindPaths(arr, path, i, j + 1); } // Move down in the matrix if (i + 1 < M) { FindPaths(arr, path, i + 1, j); } // Backtrack: Remove the current cell from the // current path path.RemoveAt(path.Count - 1); } // Driver code static void Main(string[] args) { // Input matrix int[][] arr = { new int[] { 1, 2, 3 }, new int[] { 4, 5, 6 }, new int[] { 7, 8, 9 } }; // To store the path List<int> path = new List<int>(); // Starting cell `(0, 0)` cell int i = 0, j = 0; M = arr.Length; N = arr[0].Length; // Function call FindPaths(arr, path, i, j); } } // This code is contributed by akshitauprzj3
+
+// Function to print the path taken to reach the destination function printPath(path) { for (let i = 0; i < path.length; i++) { console.log(path[i] + ", "); } console.log(); } // Function to find all possible paths in a matrix // from the top-left cell to the bottom-right cell function findPaths(arr, path, i, j) { // If the bottom-right cell is reached, print the path if (i === M - 1 && j === N - 1) { path.push(arr[i][j]); printPath(path); path.pop(); return; } // Boundary cases: Check if we are out of the matrix if (i < 0 || i >= M || j < 0 || j >= N) { return; } // Include the current cell in the path path.push(arr[i][j]); // Move right in the matrix if (j + 1 < N) { findPaths(arr, path, i, j + 1); } // Move down in the matrix if (i + 1 < M) { findPaths(arr, path, i + 1, j); } // Backtrack: Remove the current // cell from the current path path.pop(); } // Driver code // Input matrix const arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]; // To store the path const path = []; // Starting cell (0, 0) let i = 0, j = 0; const M = arr.length; const N = arr[0].length; // Function call findPaths(arr, path, i, j);
+
+1, 2, 3, 6, 9, 1, 2, 5, 6, 9, 1, 2, 5, 8, 9, 1, 4, 5, 6, 9, 1, 4, 5, 8, 9, 1, 4, 7, 8, 9,
+
+Time Complexity : O(2^(N*M))Auxiliary space : O(N + M), where M and N are dimension of matrix.

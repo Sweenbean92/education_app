@@ -1,0 +1,33 @@
+URL: https://www.geeksforgeeks.org/dsa/print-1-to-n-without-using-loops
+Title: Print 1 to n using Recursion - GeeksforGeeks
+================================================================================
+
+
+Approach:
+=========
+
+
+
+Explore
+=======
+
+
+Given an integer n. Print numbers from 1 to n using recursion.
+
+Input: n = 3Output: [1, 2, 3]Explanation: We have to print numbers from 1 to 3.Input: n = 10Output: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+To solve this problem using recursion, we define a function that takes an integer n as an argument. The function first checks for a base case (n == 0) to stop the recursion. If not, it makes a recursive call with n - 1, ensuring smaller numbers are handled first. After the recursive call returns, the function prints the current value of n. This process continues until all numbers from 1 up to the given value are printed in order.
+
+#include <iostream> using namespace std; void printNos(int n){ // base condition if (n == 0) return; // recursive call printNos(n - 1); cout << n << " "; } int main(){ int n = 3; printNos(n); return 0; }
+
+#include <stdio.h> void printNos(int n){ // base condition if (n == 0) return; // recursive call printNos(n - 1); printf("%d ", n); } int main(){ int n = 3; printNos(n); return 0; }
+
+class GfG { static void printNos(int n){ // base condition if (n == 0) return; // recursive call printNos(n - 1); System.out.print(n + " "); } public static void main(String[] args){ int n = 3; printNos(n); } }
+
+def printNos(n): if n == 0: # base condition return # recursive call first printNos(n - 1) # print after recursion print(n, end=' ') if __name__ == "__main__": n = 3 printNos(n)
+
+using System; class GfG { static void printNos(int n){ // base condition if (n == 0) { return; } // recursive call printNos(n - 1); Console.Write(n + " "); } static void Main(){ int n = 3; printNos(n); } }
+
+function printNos(n){ // base condition if (n == 0) return; // recursive call printNos(n - 1); // print in same line with space process.stdout.write(n + " "); } // Driver Code let n = 3; printNos(n);
+
+Time Complexity: O(n)Auxiliary Space: O(n)

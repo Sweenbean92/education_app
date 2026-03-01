@@ -1,0 +1,64 @@
+URL: https://www.geeksforgeeks.org/dsa/c-program-for-tower-of-hanoi
+Title: Program for Tower of Hanoi Algorithm - GeeksforGeeks
+================================================================================
+
+
+Examples:
+=========
+
+
+
+Tower of Hanoi using Recursion
+==============================
+
+
+
+Explore
+=======
+
+
+Tower of Hanoi is a mathematical puzzle where we have three rods (A, B, and C) and N disks. Initially, all the disks are stacked in decreasing value of diameter i.e., the smallest disk is placed on the top and they are on rod A. The objective of the puzzle is to move the entire stack to another rod (here considered C), obeying the following simple rules:
+
+Only one disk can be moved at a time.
+
+Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack i.e. a disk can only be moved if it is the uppermost disk on a stack.
+
+No disk may be placed on top of a smaller disk.
+
+Input: 2Output: Disk 1 moved from A to BDisk 2 moved from A to CDisk 1 moved from B to CInput: 3Output: Disk 1 moved from A to CDisk 2 moved from A to BDisk 1 moved from C to BDisk 3 moved from A to CDisk 1 moved from B to ADisk 2 moved from B to CDisk 1 moved from A to CInput: 4Output: Disk 1 moved from A to B Disk 2 moved from A to C Disk 1 moved from B to C Disk 3 moved from A to B Disk 1 moved from C to A Disk 2 moved from C to B Disk 1 moved from A to B Disk 4 moved from A to C Disk 1 moved from B to C Disk 2 moved from B to A Disk 1 moved from C to A Disk 3 moved from B to C Disk 1 moved from A to B Disk 2 moved from A to C Disk 1 moved from B to C
+
+The following video shows the solution of Tower of Hanoi for input (N) = 3
+
+The idea is to use the helper node to reach the destination using recursion. Below is the pattern for this problem:Shift 'N-1' disks from 'A' to 'B', using C.Shift last disk from 'A' to 'C'.Shift 'N-1' disks from 'B' to 'C', using A.
+
+Follow the steps below to solve the problem:
+
+Create a function towerOfHanoi where pass the N (current number of disk), from_rod, to_rod, aux_rod.
+
+Make a function call for N - 1 th disk.
+
+Then print the current the disk along with from_rod and to_rod
+
+Again make a function call for N - 1 th disk.
+
+// C++ recursive function to // solve tower of hanoi puzzle #include <bits/stdc++.h> using namespace std; void towerOfHanoi(int n, char from_rod, char to_rod, char aux_rod) { if (n == 0) { return; } towerOfHanoi(n - 1, from_rod, aux_rod, to_rod); cout << "Move disk " << n << " from rod " << from_rod << " to rod " << to_rod << endl; towerOfHanoi(n - 1, aux_rod, to_rod, from_rod); } // Driver code int main() { int N = 3; // A, B and C are names of rods towerOfHanoi(N, 'A', 'C', 'B'); return 0; } // This is code is contributed by rathbhupendra
+
+#include <stdio.h> void towerOfHanoi(int n, char from_rod, char to_rod, char aux_rod) { if (n == 0) { return; } towerOfHanoi(n - 1, from_rod, aux_rod, to_rod); printf("Move disk %d from rod %c to rod %c\n", n, from_rod, to_rod); towerOfHanoi(n - 1, aux_rod, to_rod, from_rod); } // Driver code int main() { int N = 3; // A, B and C are names of rods towerOfHanoi(N, 'A', 'C', 'B'); return 0; }
+
+// JAVA recursive function to // solve tower of hanoi puzzle import java.io.*; import java.math.*; import java.util.*; class GFG { static void towerOfHanoi(int n, char from_rod, char to_rod, char aux_rod) { if (n == 0) { return; } towerOfHanoi(n - 1, from_rod, aux_rod, to_rod); System.out.println("Move disk " + n + " from rod " + from_rod + " to rod " + to_rod); towerOfHanoi(n - 1, aux_rod, to_rod, from_rod); } // Driver code public static void main(String args[]) { int N = 3; // A, B and C are names of rods towerOfHanoi(N, 'A', 'C', 'B'); } } // This code is contributed by jyoti369
+
+# Recursive Python function to solve tower of hanoi def TowerOfHanoi(n, from_rod, to_rod, aux_rod): if n == 0: return TowerOfHanoi(n-1, from_rod, aux_rod, to_rod) print("Move disk", n, "from rod", from_rod, "to rod", to_rod) TowerOfHanoi(n-1, aux_rod, to_rod, from_rod) # Driver code N = 3 # A, C, B are the name of rods TowerOfHanoi(N, 'A', 'C', 'B') # Contributed By Harshit Agrawal
+
+// C# recursive program to solve tower of hanoi puzzle using System; class GFG { static void towerOfHanoi(int n, char from_rod, char to_rod, char aux_rod) { if (n == 0) { return; } towerOfHanoi(n - 1, from_rod, aux_rod, to_rod); Console.WriteLine("Move disk " + n + " from rod " + from_rod + " to rod " + to_rod); towerOfHanoi(n - 1, aux_rod, to_rod, from_rod); } // Driver method public static void Main(String[] args) { int N = 3; // A, B and C are names of rods towerOfHanoi(N, 'A', 'C', 'B'); } } // This code is contributed by shivanisinghss2110
+
+// javascript recursive function to // solve tower of hanoi puzzle function towerOfHanoi(n, from_rod, to_rod, aux_rod) { if (n == 0) { return; } towerOfHanoi(n - 1, from_rod, aux_rod, to_rod); console.log("Move disk " + n + " from rod " + from_rod + " to rod " + to_rod+"<br/>"); towerOfHanoi(n - 1, aux_rod, to_rod, from_rod); } // Driver code var N = 3; // A, B and C are names of rods towerOfHanoi(N, 'A', 'C', 'B'); // This code is contributed by gauravrajput1
+
+Move disk 1 from rod A to rod C Move disk 2 from rod A to rod B Move disk 1 from rod C to rod B Move disk 3 from rod A to rod C Move disk 1 from rod B to rod A Move disk 2 from rod B to rod C Move disk 1 from rod A to rod C
+
+Time complexity: O(2N), There are two possibilities for every disk. Therefore, 2 * 2 * 2 * . . . * 2(N times) is 2NAuxiliary Space: O(N), Function call stack space
+
+Related Articles
+
+Iterative solution to TOH puzzle
+
+Quiz on Recursion

@@ -1,0 +1,120 @@
+URL: https://www.geeksforgeeks.org/dsa/top-50-problems-on-stack-data-structure-asked-in-interviews
+Title: Stack Coding Problems for SDE Interviews - GeeksforGeeks
+================================================================================
+
+
+Easy Problems
+=============
+
+
+
+Medium Problems
+===============
+
+
+
+Hard Problems
+=============
+
+
+
+Related Articles:
+=================
+
+
+
+Explore
+=======
+
+
+A Stack is a linear data structure in which the insertion of a new element and removal of an existing element takes place at the same end, represented as the top of the stack. To learn about Stack Data Structure in detail, please refer to the Tutorial on Stack Data Structure.
+
+Parenthesis Checker
+
+Reverse a String using Stack
+
+Postfix to Prefix
+
+Two stacks in an array
+
+Delete Middle element from stack
+
+Reverse individual words
+
+Queue using Stacks
+
+Stack using Queues
+
+Stack using single queue
+
+Evaluate Postfix Expression
+
+Next Greater Element
+
+Nearest Smaller Element
+
+Next Smaller of next Greater
+
+Sort a stack using a temporary stack
+
+Stock Span Problem
+
+Reverse a Stack using recursion
+
+Infix to Postfix
+
+Delete consecutive same words
+
+A Stack with getMin() in O(1) Time
+
+Count of Subarrays with first as minimum
+
+Length of the longest valid substring
+
+Index of closing bracket
+
+Next Greater Frequency Element
+
+Max Diff between nearest smallers
+
+Max product of indexes of next greater
+
+The Celebrity Problem
+
+Valid stack permutation
+
+Stack with getMin() in O(1)
+
+Stack with getRandom() in O(1)
+
+Equivalent expressions
+
+k stacks in a single array
+
+Largest rectangular area in a histogram
+
+Clone a Stack without Extra Space
+
+Custom Browser History
+
+Maximum Rectangle with all 1s
+
+Sort a stack using Recursion
+
+Stack with findMiddle() and deleteMiddle()
+
+Maximum visible people
+
+Count distinct Max Differences in Subarrays
+
+Longest Correct Bracket Subsequence Set
+
+Maximum of minimum for every window size
+
+DSA Tutorial
+
+Dynamic Programming Coding Problems for Interviews
+
+Problems on Linked List for Interviews
+
+Problems on Queue for Interviews

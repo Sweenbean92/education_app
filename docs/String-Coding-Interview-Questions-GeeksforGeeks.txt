@@ -1,0 +1,145 @@
+URL: https://www.geeksforgeeks.org/dsa/top-50-string-coding-problems-for-interviews
+Title: String Coding Interview Questions - GeeksforGeeks
+================================================================================
+
+
+Easy Problems
+=============
+
+
+
+Medium Problems
+===============
+
+
+
+Hard Problems
+=============
+
+
+
+Explore
+=======
+
+
+String-related problems often assess a candidate's understanding of concepts like pattern matching, manipulation, and efficient algorithm design. Here is the collection of frequently asked interview questions on Strings. Problems in this Article are divided into three Levels so that readers can practice according to the difficulty level step by step.
+
+Palindrome Check
+
+Reverse a String
+
+Reverse Words
+
+Check for Rotation
+
+First Non Repeating
+
+Roman to Integer
+
+Implement Atoi
+
+Encrypt the String – II
+
+Equal Point in Brackets
+
+Anagram Checking
+
+Panagram Checking
+
+Validate IP Address
+
+Add Binary Strings
+
+Integer to Words
+
+Palindromic Sentence Check
+
+Isomorphic Strings
+
+Check for k-anagram
+
+Equal 0,1, and 2
+
+Find and replace in String
+
+Look and say Pattern
+
+Minimum repetitions to make Substring
+
+Excel Sheet – I
+
+Find the N-th character
+
+Next Palindromic Number with same digits
+
+Length of longest prefix suffix
+
+Longest K unique characters substring
+
+Smallest window containing all
+
+Longest substring without repeating characters
+
+Substrings of length k with k-1 distinct elements
+
+Count number of substrings
+
+Interleaved Strings
+
+Print Anagrams together
+
+Rank the permutation
+
+A Special Keyboard
+
+Sum of two large numbers
+
+Repeatedly Remove Duplicates
+
+Multiply Two Strings
+
+Search Pattern (KMP-Algorithm)
+
+Search Pattern (Rabin-Karp Algorithm)
+
+Shortest Common Supersequence
+
+Longest substring to form a Palindrome
+
+Longest Valid Parenthesis
+
+Longest Palindromic Subsequence
+
+Distinct Palindromic Substrings
+
+Palindrome Substring Queries
+
+Number of Distinct Subsequences
+
+Minimum Deletions for Palindrome
+
+Minimum Insertions for Palindrome
+
+Max Non-Overlapping Odd Palindrome Sum
+
+Related Articles:
+
+Array Coding Problems for Interviews
+
+Tree Coding Problems for Interviews
+
+Graph Coding Problems for Interviews
+
+Dynamic Programming Coding Problems for Interviews
+
+Sorting Coding Problems for Interviews
+
+Searching Coding Problems for Interviews
+
+Binary Search Tree Coding Problems for Interviews
+
+Related Tutorials:
+
+DSA Tutorial
+
+System Design Tutorial

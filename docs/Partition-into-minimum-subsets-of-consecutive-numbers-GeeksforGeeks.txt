@@ -1,0 +1,52 @@
+URL: https://www.geeksforgeeks.org/dsa/count-minimum-number-subsets-subsequences-consecutive-numbers
+Title: Partition into minimum subsets of consecutive numbers - GeeksforGeeks
+================================================================================
+
+
+[Naive Approach] Sorting - O(n*log n) Time and O(1) Space
+=========================================================
+
+
+
+[Expected Approach] Hashing - O(n) Time and O(n) Space
+======================================================
+
+
+
+Explore
+=======
+
+
+Given an array of distinct positive numbers, the task is to partition the array into minimum number of subsets (or subsequences) such that each subset contains consecutive numbers only.
+
+Input: arr[] = [100, 56, 5, 6, 102, 58, 101, 57, 7, 103, 59]Output: 3Explanation: [5, 6, 7], [ 56, 57, 58, 59] and [100, 101, 102, 103] are 3 subsets in which numbers are consecutive.Input: arr[] = [10, 100, 105]Output: 3Explanation: [10], [100] and [105] are 3 subsets in which numbers are consecutive.
+
+Table of Content
+
+[Naive Approach] Sorting - O(n*log n) Time and O(1) Space
+
+[Expected Approach] Hashing - O(n) Time and O(n) Space
+
+The idea is to sort the array and traverse the sorted array to count the number of such subsets. To count the number of such subsets, we need to count the pairs of consecutive numbers such that the difference between them is not equal to one. Each of such pair will belong to a new subset.
+
+// C++ program to find minimum number of subsets // containing consecutive numbers #include <iostream> #include <vector> #include <algorithm> using namespace std; // Returns count of subsets with consecutive numbers int minSubsets(vector<int>& arr) { // Sort the array so that consecutive elements // become consecutive in the array. sort(arr.begin(), arr.end()); int count = 1; for (int i = 0; i < arr.size() - 1; i++) { // Check if there's a break between // consecutive numbers if (arr[i] + 1 != arr[i + 1]) count++; } return count; } int main() { vector<int> arr = {100, 56, 5, 6, 102, 58, 101, 57, 7, 103, 59}; cout << minSubsets(arr) << endl; return 0; }
+
+// Java program to find number of subset // containing consecutive numbers import java.util.*; class GfG { // Returns count of subsets with consecutive numbers static int minSubsets(int[] arr) { // Sort the array so that consecutive elements // become consecutive in the array. Arrays.sort(arr); int count = 1; for (int i = 0; i < arr.length - 1; i++) { // Check if there's a break between // consecutive numbers if (arr[i] + 1 != arr[i + 1]) count++; } return count; } public static void main(String[] args) { int[] arr = { 100, 56, 5, 6, 102, 58, 101, 57, 7, 103, 59 }; System.out.println(minSubsets(arr)); } }
+
+# Python program to find number of subset # containing consecutive numbers def minSubsets(arr): # Sort the array so that consecutive elements # become consecutive in the array. arr.sort() count = 1 for i in range(len(arr) - 1): # Check if there's a break between # consecutive numbers if arr[i] + 1 != arr[i + 1]: count += 1 return count if __name__ == "__main__": arr = [100, 56, 5, 6, 102, 58, 101, 57, 7, 103, 59] print(minSubsets(arr))
+
+// C# program to find number of subset // containing consecutive numbers using System; using System.Collections.Generic; class GfG { // Returns count of subsets with consecutive numbers static int minSubsets(int[] arr) { // Sort the array so that consecutive elements // become consecutive in the array. Array.Sort(arr); int count = 1; for(int i = 0; i < arr.Length - 1; i++) { // Check if there's a break between // consecutive numbers if(arr[i] + 1 != arr[i + 1]) count++; } return count; } static void Main() { int[] arr = {100, 56, 5, 6, 102, 58, 101, 57, 7, 103, 59}; Console.WriteLine(minSubsets(arr)); } }
+
+// JavaScript program to find number of subset // containing consecutive numbers function minSubsets(arr) { // Sort the array so that consecutive elements // become consecutive in the array. arr.sort((a, b) => a - b); let count = 1; for (let i = 0; i < arr.length - 1; i++) { // Check if there's a break between // consecutive numbers if (arr[i] + 1 !== arr[i + 1]) count++; } return count; } // Driver Code let arr = [ 100, 56, 5, 6, 102, 58, 101, 57, 7, 103, 59 ]; console.log(minSubsets(arr));
+
+The idea is to use Hashing. We first insert all elements in a Hash Set. Then, traverse over all the elements and check if the current element can be a starting element of a consecutive subsequence. If it is then increment count by 1 and and remove elements X, X + 1, X + 2 …. till all consecutive numbers of this subset are removed.To check if the current element, say X can be a starting element, check if (X – 1) is present in the set. If (X – 1) is present in the set, then X cannot be starting of a consecutive subsequence.
+
+// C++ program to find number of subset containing // consecutive numbers using Hash Map #include <iostream> #include <vector> #include <unordered_set> using namespace std; int minSubsets(vector<int>& arr) { unordered_set<int> s(arr.begin(), arr.end()); int count = 0; for(int x : arr) { // Check for the start of a new subset if(s.find(x - 1) == s.end()) { count++; } } return count; } int main() { vector<int> arr = {100, 56, 5, 6, 102, 58, 101, 57, 7, 103}; cout << minSubsets(arr) << endl; return 0; }
+
+// Java program to find number of subset containing // consecutive numbers using Hash Map in O(n) import java.util.*; class GfG { static int minSubsets(int[] arr) { // Create a HashSet from the array Set<Integer> s = new HashSet<>(); for(int num : arr){ s.add(num); } int count = 0; for(int x : arr){ // Check for the start of a new subset if(!s.contains(x - 1)){ count++; } } return count; } public static void main(String[] args){ int[] arr = {100, 56, 5, 6, 102, 58, 101, 57, 7, 103}; System.out.println(minSubsets(arr)); } }
+
+# Python program to find number of subset containing # consecutive numbers using Hash Map in O(n) def minSubsets(arr): # Create a set from the list s = set(arr) count = 0 for x in arr: # Check for the start of a new subset if (x - 1) not in s: count += 1 return count if __name__ == "__main__": arr = [100, 56, 5, 6, 102, 58, 101, 57, 7, 103, 59] print(minSubsets(arr))
+
+// C# program to find number of subset containing // consecutive numbers using Hash Map in O(n) using System; using System.Collections.Generic; class GfG { static int countSubsets(int[] arr) { // Create a HashSet from the list HashSet<int> s = new HashSet<int>(arr); int count = 0; foreach(int x in arr){ // Check for the start of a new subset if(!s.Contains(x - 1)){ count++; } } return count; } static void Main(){ int[] arr = {100, 56, 5, 6, 102, 58, 101, 57, 7, 103}; Console.WriteLine(countSubsets(arr)); } }
+
+// JavaScript program to find number of subset containing // consecutive numbers using Hash Map in O(n) function minSubsets(arr) { // Create a Set from the array let s = new Set(arr); let count = 0; for(let x of arr){ // Check for the start of a new subset if(!s.has(x - 1)){ count++; } } return count; } // Driver Code let arr = [100, 56, 5, 6, 102, 58, 101, 57, 7, 103]; console.log(minSubsets(arr));

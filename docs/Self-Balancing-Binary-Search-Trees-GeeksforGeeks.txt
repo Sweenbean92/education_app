@@ -1,0 +1,86 @@
+URL: https://www.geeksforgeeks.org/dsa/self-balancing-binary-search-trees
+Title: Self-Balancing Binary Search Trees - GeeksforGeeks
+================================================================================
+
+
+AVL Tree:
+=========
+
+
+
+Red-Black Tree:
+===============
+
+
+
+Splay Tree:
+===========
+
+
+
+Language Implementations of self-balancing BST:
+===============================================
+
+
+
+How does Self-Balancing Binary Search Tree maintain height?
+===========================================================
+
+
+
+Comparisons among Red-Black Tree, AVL Tree and Splay Tree:
+==========================================================
+
+
+
+Explore
+=======
+
+
+Self-Balancing Binary Search Trees are height-balanced binary search trees that automatically keep the height as small as possible when insertion and deletion operations are performed on the tree.
+
+The height is typically maintained in order of O(log n) so that all operations take O(log n) time.Examples: The most common examples of self-balancing binary search trees are AVL Tree. Red Black Tree and Splay Tree
+
+An AVL tree defined as a self-balancing Binary Search Tree (BST) where the difference between heights of left and right subtrees for any node cannot be more than one. The values above the nodes in the below diagram show difference between left and right subtrees.
+
+Basic operations on AVL Tree include, Insertion, search and delete
+
+To learn more about this, refer to the article on AVL Tree.
+
+Red-Black tree is a self-balancing binary search tree in which every node is colored with either red or black. The root and leaf nodes (i.e., NULL nodes) are always marked as black.
+
+Properties of Red-Black Tree:
+
+Root property: The root is black.
+
+External property: Every leaf (Leaf is a NULL child of a node) is black in Red-Black tree.
+
+Internal property: The children of a red node are black. Hence possible parent of red node is a black node.
+
+Depth property: All the leaves have the same black depth.
+
+Path property: Every simple path from the root to descendant leaf node contains the same number of black nodes
+
+The first tree in the below diagram is not red black tree as there are two consecutive black nodes and the second tree is Red Black tree as it follows all properties.
+
+To learn more about this, refer to the article on "Red-Black Tree".
+
+Splay is a self-balancing binary search tree. The basic idea behind splay trees is to bring the most recently accessed or inserted element to the root of the tree by performing a sequence of tree rotations, called splaying.
+
+To learn more about this, refer to the article on "Splay Tree".
+
+set and map in C++ STL.
+
+TreeSet and TreeMap in Java. Most of the library implementations use Red Black Tree.
+
+Python standard library does not support Self Balancing BST. In Python, we can use bisect module to keep a set of sorted data. We can also use PyPi modules like rbtree (implementation of red-black tree) and pyavl (implementation of AVL tree).
+
+A typical operation done by trees is rotation. Following are two basic operations that can be performed to re-balance a BST without violating the BST property (keys(left) < key(root) < keys(right)).
+
+Left Rotation
+
+Right Rotation
+
+T1, T2 and T3 are subtrees of the tree rooted with y (on the left side) or x (on the right side) y x / \ Right Rotation / \ x T3 - - - - - - - - - > T1 y / \ <- - - - - - - - - / \T1 T2 Left Rotation T2 T3Keys in both of the above trees follow the following order keys(T1) < key(x) < keys(T2) < key(y) < keys(T3)So BST property is not violated anywhere.
+
+In this article, we will compare the efficiency of these trees:

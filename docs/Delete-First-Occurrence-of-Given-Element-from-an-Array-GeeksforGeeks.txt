@@ -1,0 +1,58 @@
+URL: https://www.geeksforgeeks.org/dsa/delete-first-occurrence-of-given-element-from-an-array
+Title: Delete First Occurrence of Given Element from an Array - GeeksforGeeks
+================================================================================
+
+
+[Approach 1] Using Built-In Methods
+===================================
+
+
+
+[Approach 2] Using Custom Methods
+=================================
+
+
+
+Explore
+=======
+
+
+Given an array of integers, the task is to delete a given element from the array. If there are multiple occurrences of the element, we need to remove only its first occurrence.
+
+Input: arr[] = [10, 20, 30, 40], ele = 20Output: [10, 30, 40]Input: arr[] = [10, 20, 30, 40], ele = 25Output: [10, 20, 30, 40]Input: arr[] = [10, 20, 20, 20 30], ele = 20Output: [10, 20, 20, 30]
+
+Table of Content
+
+[Approach 1] Using Built-In Methods
+
+[Approach 2] Using Custom Methods
+
+We will use library methods like erase() in C++, remove() in Java and Python, Remove() in C# and splice() in JavaScript.
+
+// C++ program to delete the first occurrence of an // element in the array using built-in methods #include <iostream> #include <vector> #include <algorithm> using namespace std; int main() { vector<int> arr = { 10, 20, 20, 20, 30 }; int ele = 20; cout << "Array before deletion\n"; for (int i = 0; i < arr.size(); i++) cout << arr[i] << " "; // Find the element in the array auto it = find(arr.begin(), arr.end(), ele); // Remove the element if it is present in array if (it != arr.end()) { arr.erase(it); } cout << "\nArray after deletion\n"; for (int i = 0; i < arr.size(); i++) cout << arr[i] << " "; return 0; }
+
+// Java program to delete the first occurrence of an // element in the array using built-in methods import java.util.*; class GfG { public static void main(String[] args) { ArrayList<Integer> arr = new ArrayList<Integer> (Arrays.asList(10, 20, 20, 20, 30)); int ele = 20; System.out.println("Array before deletion"); for (int i = 0; i < arr.size(); i++) System.out.print(arr.get(i) + " "); // Remove the element from the array arr.remove(Integer.valueOf(ele)); System.out.println("\nArray after deletion"); for (int i = 0; i < arr.size(); i++) System.out.print(arr.get(i) + " "); } }
+
+# Python program to delete the first occurrence of an # element in the array using built-in methods if __name__ == "__main__": arr = [10, 20, 20, 20, 30] ele = 20 print("Array before deletion") for num in arr: print(num, end=" ") # Remove the element if it is present in array if ele in arr: arr.remove(ele) print("\nArray after deletion") for num in arr: print(num, end=" ")
+
+// C# program to delete the first occurrence of an // element in the array using built-in methods using System; using System.Collections.Generic; class GfG { static void Main() { List<int> arr = new List<int> { 10, 20, 20, 20, 30 }; int ele = 20; Console.WriteLine("Array before deletion"); foreach (int num in arr) Console.Write(num + " "); arr.Remove(ele); Console.WriteLine("\nArray after deletion"); foreach (int num in arr) Console.Write(num + " "); } }
+
+// JavaScript program to delete the first occurrence of // an element in the array using built-in methods let arr = [10, 20, 20, 20, 30]; let ele = 20; console.log("Array before deletion"); console.log(arr) // Find the element in the array let idx = arr.indexOf(ele); // Remove the element if it is present in array if (idx !== -1) { arr.splice(idx, 1); } console.log("Array after deletion"); console.log(arr)
+
+Array before deletion 10 20 20 20 30 Array after deletion 10 20 20 30
+
+Time Complexity: O(n), where n is the size of input array.Auxiliary Space: O(1)
+
+The idea is to iterate over all the elements of the array and as soon as we encounter the element to be deleted, shift all the elements occurring to the right of the element, one position to the left.
+
+// C++ program to delete the first occurrence of an // element in the array using custom method #include <iostream> #include <vector> #include <algorithm> using namespace std; int main() { vector<int> arr = { 10, 20, 20, 20, 30 }; int n = arr.size(); int ele = 20; cout << "Array before deletion\n"; for (int i = 0; i < n; i++) cout << arr[i] << " "; bool found = false; for(int i = 0; i < n; i++) { // If the element has been found previously, // shift the current element to the left if(found) { arr[i - 1] = arr[i]; } // check if the current element is equal to // the element to be removed else if(arr[i] == ele) { found = true; } } // If element was found, reduce the size of array if(found == true) n--; cout << "\nArray after deletion\n"; for (int i = 0; i < n; i++) cout << arr[i] << " "; return 0; }
+
+// C program to delete the first occurrence of an // element in the array using custom method #include <stdio.h> #include <stdbool.h> int main() { int arr[] = { 10, 20, 20, 20, 30 }; int n = sizeof(arr)/sizeof(arr[0]); int ele = 20; printf("Array before deletion\n"); for (int i = 0; i < n; i++) printf("%d ", arr[i]); bool found = false; for (int i = 0; i < n; i++) { // If the element has been found previously, // shift the current element to the left if (found) { arr[i - 1] = arr[i]; } // check if the current element is equal to // the element to be removed else if (arr[i] == ele) { found = true; } } // If element was found, reduce the size of array if (found) n--; printf("\nArray after deletion\n"); for (int i = 0; i < n; i++) printf("%d ", arr[i]); return 0; }
+
+// Java program to delete the first occurrence of an // element in the array using custom method class GfG { public static void main(String[] args) { int[] arr = { 10, 20, 20, 20, 30 }; int n = arr.length; int ele = 20; System.out.println("Array before deletion"); for (int i = 0; i < n; i++) System.out.print(arr[i] + " "); boolean found = false; for (int i = 0; i < n; i++) { // If the element has been found previously, // shift the current element to the left if (found) { arr[i - 1] = arr[i]; } // check if the current element is equal to // the element to be removed else if (arr[i] == ele) { found = true; } } // If element was found, reduce the size of array if (found == true) n--; System.out.println("\nArray after deletion"); for (int i = 0; i < n; i++) System.out.print(arr[i] + " "); } }
+
+# Python program to delete the first occurrence of an # element in the array using custom method if __name__ == "__main__": arr = [10, 20, 20, 20, 30] n = len(arr) ele = 20 print("Array before deletion") for i in range(n): print(arr[i], end=" ") found = False for i in range(n): # If the element has been found previously, # shift the current element to the left if found: arr[i - 1] = arr[i] # check if the current element is equal to # the element to be removed elif arr[i] == ele: found = True # If element was found, reduce the size of array if found: n -= 1 print("\nArray after deletion") for i in range(n): print(arr[i], end=" ")
+
+// C# program to delete the first occurrence of an // element in the array using custom method using System; class GfG { static void Main() { int[] arr = { 10, 20, 20, 20, 30 }; int n = arr.Length; int ele = 20; Console.WriteLine("Array before deletion"); for (int i = 0; i < n; i++) { Console.Write(arr[i] + " "); } bool found = false; for (int i = 0; i < n; i++) { // If the element has been found previously, // shift the current element to the left if (found) { arr[i - 1] = arr[i]; } // check if the current element is equal to // the element to be removed else if (arr[i] == ele) { found = true; } } // If element was found, reduce the size of array if (found) { n--; } Console.WriteLine("\nArray after deletion"); for (int i = 0; i < n; i++) { Console.Write(arr[i] + " "); } } }
+
+// JavaScript program to delete the first occurrence of an // element in the array using custom method let arr = [ 10, 20, 20, 20, 30 ]; let ele = 20; let n = arr.length; console.log("Array before deletion"); for(let i = 0; i < n; i++) console.log(arr[i]); let found = false; for (let i = 0; i < n; i++) { // If the element has been found previously, // shift the current element to the left if (found) { arr[i - 1] = arr[i]; } // check if the current element is equal to // the element to be removed else if (arr[i] === ele) { found = true; } } // If element was found, reduce the size of array if (found === true) { n--; } console.log("\nArray after deletion"); for (let i = 0; i < n; i++) { console.log(arr[i] + " "); }

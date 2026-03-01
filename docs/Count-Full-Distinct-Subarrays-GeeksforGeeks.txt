@@ -1,0 +1,54 @@
+URL: https://www.geeksforgeeks.org/dsa/count-subarrays-total-distinct-elements-original-array
+Title: Count Full Distinct Subarrays - GeeksforGeeks
+================================================================================
+
+
+[Naive Approach] Traversing All SubArrays - O(n2) Time and O(n) Space
+=====================================================================
+
+
+
+[Expected Approach] Using Sliding Window - O(n) Time and O(n) Space
+===================================================================
+
+
+
+Explore
+=======
+
+
+Given an array arr[] consisting of integers, find the number of subarrays of arr[] that contain exactly the same number of distinct elements as the entire array.
+
+Input: arr[] = [1, 2, 1, 3]Output: 2Explanation: The array has 3 distinct elements. Subarrays with exactly 3 distinct elements are: [1, 2, 1, 3], [2, 1, 3]Input: arr[] = [4, 3, 4, 3, 5]Output: 3Explanation: The array has 3 distinct elements. Subarrays with exactly 3 distinct elements are: [4, 3, 4, 3, 5], [3, 4, 3, 5], [4, 3, 5]
+
+Table of Content
+
+[Naive Approach] Traversing All SubArrays - O(n^2) Time and O(n) Space
+
+[Expected Approach] Using Sliding Window - O(n) Time and O(n) Space
+
+We can simply traverse all possible subarrays of arr[] and, for each subarray, count how many distinct elements it contains.
+
+To do this, we fix a starting index and extend the subarray by moving the ending index one step at a time. For every subarray, we insert its elements into a set data structure to get the count of distinct elements. If this count matches the total number of distinct elements in the original array, we increase our answer.
+
+//Driver Code Starts #include <iostream> #include <vector> using namespace std; //Driver Code Ends int countsub(vector<int> &arr) { // count distinct elements in the whole array set<int> st; for (int x : arr) st.insert(x); int d = st.size(); // count valid subarrays int n = arr.size(); int ans = 0; for (int i = 0; i < n; i++) { // set to count distinct // elements in current subarray set<int> temp; for (int j = i; j < n; j++) { temp.insert(arr[j]); // if distinct count matches if ((int)temp.size() == d) ans++; } } return ans; } //Driver Code Starts int main() { vector<int> arr = {1, 2, 1, 3}; cout << countsub(arr); return 0; } //Driver Code Ends
+
+//Driver Code Starts import java.util.HashSet; import java.util.Set; class GFG { //Driver Code Ends static int countsub(int[] arr) { // count distinct elements in the whole array Set<Integer> st = new HashSet<>(); for (int x : arr) st.add(x); int d = st.size(); // count valid subarrays int n = arr.length; int ans = 0; for (int i = 0; i < n; i++) { // set to count distinct // elements in current subarray Set<Integer> temp = new HashSet<>(); for (int j = i; j < n; j++) { temp.add(arr[j]); // if distinct count matches if (temp.size() == d) ans++; } } return ans; } //Driver Code Starts public static void main(String[] args) { int[] arr = {1, 2, 1, 3}; System.out.println(countsub(arr)); } } //Driver Code Ends
+
+def countsub(arr): # count distinct elements # in the whole array st = set() for x in arr: st.add(x) d = len(st) # count valid subarrays n = len(arr) ans = 0 for i in range(n): # set to count distinct # elements in current subarray temp = set() for j in range(i, n): temp.add(arr[j]) # if distinct count matches if len(temp) == d: ans += 1 return ans #Driver Code Starts if __name__ == '__main__': arr = [1, 2, 1, 3] print(countsub(arr)) #Driver Code Ends
+
+//Driver Code Starts using System; using System.Collections.Generic; class GFG { //Driver Code Ends static int countsub(int[] arr) { // count distinct elements // in the whole array HashSet<int> st = new HashSet<int>(); foreach (int x in arr) st.Add(x); int d = st.Count; // count valid subarrays int n = arr.Length; int ans = 0; for (int i = 0; i < n; i++) { // set to count distinct // elements in current subarray HashSet<int> temp = new HashSet<int>(); for (int j = i; j < n; j++) { temp.Add(arr[j]); // if distinct count matches if (temp.Count == d) ans++; } } return ans; } //Driver Code Starts static void Main() { int[] arr = {1, 2, 1, 3}; Console.WriteLine(countsub(arr)); } } //Driver Code Ends
+
+function countsub(arr) { // count distinct elements // in the whole array let st = new Set(); for (let x of arr) st.add(x); let d = st.size; // count valid subarrays let n = arr.length; let ans = 0; for (let i = 0; i < n; i++) { // set to count distinct // elements in current subarray let temp = new Set(); for (let j = i; j < n; j++) { temp.add(arr[j]); // if distinct count matches if (temp.size === d) ans++; } } return ans; } //Driver Code Starts // Driver Code let arr = [1, 2, 1, 3]; console.log(countsub(arr)); //Driver Code Ends
+
+Instead of counting every subarray, we fix the starting index l and move the end pointer r forward until the window [l, r] contains all distinct elements of the array. We do this because once a window has all distinct elements, every larger window [l, r+1], [l, r+2], and so on will also be valid. So, for that l, we can count all such subarrays in one step. Then we move l forward and repeat the process.
+
+//Driver Code Starts #include <iostream> #include <vector> #include <map> using namespace std; //Driver Code Ends int countsub(vector<int> &arr) { int n = arr.size(); // count distinct elements in the whole array unordered_map<int, int> total; for (int x : arr) total[x]++; int d = total.size(); // window map unordered_map<int, int> m; int ans = 0; int r = 0; for (int l = 0; l < n; l++) { // expand r until window has // all distinct elements while (r < n && (int)m.size() < d) { m[arr[r]]++; r++; } // if window is valid if ((int)m.size() == d) { ans += (n - r + 1); } // shrink window from the left m[arr[l]]--; if (m[arr[l]] == 0) { m.erase(arr[l]); } } return ans; } //Driver Code Starts int main() { vector<int> arr = {1, 2, 1, 3}; cout << countsub(arr); return 0; } //Driver Code Ends
+
+//Driver Code Starts import java.util.HashMap; class GFG { //Driver Code Ends static int countsub(int[] arr) { int n = arr.length; // count distinct elements in the whole array HashMap<Integer, Integer> total = new HashMap<>(); for (int x : arr) total.put(x, total.getOrDefault(x, 0) + 1); int d = total.size(); // window map HashMap<Integer, Integer> m = new HashMap<>(); int ans = 0; int r = 0; for (int l = 0; l < n; l++) { // expand r until window has // all distinct elements while (r < n && m.size() < d) { m.put(arr[r], m.getOrDefault(arr[r], 0) + 1); r++; } // if window is valid if (m.size() == d) { ans += (n - r + 1); } // shrink window from the left m.put(arr[l], m.get(arr[l]) - 1); if (m.get(arr[l]) == 0) { m.remove(arr[l]); } } return ans; } //Driver Code Starts public static void main(String[] args) { int[] arr = {1, 2, 1, 3}; System.out.println(countsub(arr)); } } //Driver Code Ends
+
+def countsub(arr): n = len(arr) # count distinct elements # in the whole array total = {} for x in arr: total[x] = total.get(x, 0) + 1 d = len(total) # window map m = {} ans = 0 r = 0 for l in range(n): # expand r until window has # all distinct elements while r < n and len(m) < d: m[arr[r]] = m.get(arr[r], 0) + 1 r += 1 # if window is valid if len(m) == d: ans += (n - r + 1) # shrink window from the left m[arr[l]] -= 1 if m[arr[l]] == 0: del m[arr[l]] return ans #Driver Code Starts if __name__ == '__main__': arr = [1, 2, 1, 3] print(countsub(arr)) #Driver Code Ends
+
+//Driver Code Starts using System; using System.Collections.Generic; class GFG { //Driver Code Ends static int countsub(int[] arr) { int n = arr.Length; // count distinct elements // in the whole array Dictionary<int, int> total = new Dictionary<int, int>(); foreach (int x in arr) { if (!total.ContainsKey(x)) total[x] = 0; total[x]++; } int d = total.Count; // window map Dictionary<int, int> m = new Dictionary<int, int>(); int ans = 0; int r = 0; for (int l = 0; l < n; l++) { // expand r until window has // all distinct elements while (r < n && m.Count < d) { if (!m.ContainsKey(arr[r])) m[arr[r]] = 0; m[arr[r]]++; r++; } // if window is valid if (m.Count == d) { ans += (n - r + 1); } // shrink window from the left m[arr[l]]--; if (m[arr[l]] == 0) { m.Remove(arr[l]); } } return ans; } //Driver Code Starts static void Main() { int[] arr = {1, 2, 1, 3}; Console.WriteLine(countsub(arr)); } } //Driver Code Ends
+
+function countsub(arr) { let n = arr.length; // count distinct elements in the whole array let total = new Map(); for (let x of arr) { total.set(x, (total.get(x) || 0) + 1); } let d = total.size; // window map let m = new Map(); let ans = 0; let r = 0; for (let l = 0; l < n; l++) { // expand r until window has // all distinct elements while (r < n && m.size < d) { m.set(arr[r], (m.get(arr[r]) || 0) + 1); r++; } // if window is valid if (m.size === d) { ans += (n - r + 1); } // shrink window from the left m.set(arr[l], m.get(arr[l]) - 1); if (m.get(arr[l]) === 0) { m.delete(arr[l]); } } return ans; } //Driver Code Starts // Driver Code let arr = [1, 2, 1, 3]; console.log(countsub(arr)); //Driver Code Ends

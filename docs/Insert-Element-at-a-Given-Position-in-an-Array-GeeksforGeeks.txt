@@ -1,0 +1,58 @@
+URL: https://www.geeksforgeeks.org/dsa/insert-element-at-a-given-position-in-an-array
+Title: Insert Element at a Given Position in an Array - GeeksforGeeks
+================================================================================
+
+
+[Approach 1] Using Built-In Methods
+===================================
+
+
+
+[Approach 2] Using Custom Method
+================================
+
+
+
+Explore
+=======
+
+
+Given an array of integers, the task is to insert an element at a given position in the array.
+
+Input: arr[] = [10, 20, 30, 40], pos = 2, ele = 50Output: [10, 50, 20, 30, 40]Input: arr[] = [], pos = 1, ele = 20Output: [20]Input: arr[] = [10, 20, 30, 40], pos = 5, ele = 50Output: [10, 20, 30, 40, 50]
+
+Table of Content
+
+[Approach 1] Using Built-In Methods
+
+[Approach 2] Using Custom Method
+
+We will use library methods like insert() in C++, Python and C#, add() in Java and splice() in JavaScript.
+
+// C++ program to insert given element at a given position // in an array using in-built methods #include <iostream> #include <vector> using namespace std; int main() { vector<int> arr = {10, 20, 30, 40}; int ele = 50; int pos = 2; cout << "Array before insertion\n"; for (int i = 0; i < arr.size(); i++) cout << arr[i] << " "; // Insert element at the given position arr.insert(arr.begin() + pos - 1, ele); cout << "\nArray after insertion\n"; for (int i = 0; i < arr.size(); i++) cout << arr[i] << " "; return 0; }
+
+// Java program to insert given element at a given position // in an array using in-built methods import java.util.ArrayList; import java.util.Arrays; class GfG { public static void main(String[] args) { ArrayList<Integer> arr = new ArrayList<>(Arrays.asList(10, 20, 30, 40)); int ele = 50; int pos = 2; System.out.println("Array before insertion"); for (int i = 0; i < arr.size(); i++) System.out.print(arr.get(i) + " "); // Insert element at the given position arr.add(pos - 1, ele); System.out.println("\nArray after insertion"); for (int i = 0; i < arr.size(); i++) System.out.print(arr.get(i) + " "); } }
+
+# Python program to insert given element at a given position # in an array using in-built methods if __name__ == "__main__": arr = [10, 20, 30, 40] ele = 50 pos = 2 print("Array before insertion") print(arr) # Insert element at the given position arr.insert(pos - 1, ele) print("Array after insertion") print(arr)
+
+// C# program to insert given element at a given position // in an array using in-built methods using System; using System.Collections.Generic; class GfG { static void Main() { List<int> arr = new List<int> { 10, 20, 30, 40 }; int ele = 50; int pos = 2; Console.WriteLine("Array before insertion"); foreach (var item in arr) Console.Write(item + " "); // Insert element at the given position arr.Insert(pos - 1, ele); Console.WriteLine("\nArray after insertion"); foreach (var item in arr) Console.Write(item + " "); } }
+
+// JavaScript program to insert given element at a given position // in an array using in-built methods let arr = [10, 20, 30, 40]; let ele = 50; let pos = 2; console.log("Array before insertion"); console.log(arr); // Insert element at the given position arr.splice(pos - 1, 0, ele); console.log("Array after insertion"); console.log(arr);
+
+Array before insertion 10 20 30 40 Array after insertion 10 50 20 30 40
+
+Time Complexity: O(n), where n is the size of the array.
+
+To add an element at a given position in an array, shift all the elements from that position one index to the right, and after shifting insert the new element at the required position.
+
+// C++ program to insert given element at a given position // in an array using custom method #include <iostream> #include <vector> using namespace std; int main() { int n = 4; vector<int> arr = {10, 20, 30, 40, 0}; int ele = 50; int pos = 2; cout << "Array before insertion\n"; for (int i = 0; i < n; i++) cout << arr[i] << " "; // Shifting elements to the right for(int i = n; i >= pos; i--) arr[i] = arr[i - 1]; // Insert the new element at index pos - 1 arr[pos - 1] = ele; cout << "\nArray after insertion\n"; for (int i = 0; i <= n; i++) cout << arr[i] << " "; return 0; }
+
+// C program to insert given element at a given position // in an array using custom method #include <stdio.h> #include <string.h> int main() { int n = 4; int arr[] = {10, 20, 30, 40, 0}; int ele = 50; int pos = 2; printf("Array before insertion\n"); for (int i = 0; i < n; i++) printf("%d ", arr[i]); // Shifting elements to the right for(int i = n; i >= pos; i--) arr[i] = arr[i - 1]; // Insert the new element at index pos - 1 arr[pos - 1] = ele; printf("\nArray after insertion\n"); for (int i = 0; i <= n; i++) printf("%d ", arr[i]); return 0; }
+
+// Java program to insert given element at a given position // in an array using custom method import java.util.Arrays; class GfG { public static void main(String[] args) { int n = 4; int[] arr = {10, 20, 30, 40, 0}; int ele = 50; int pos = 2; System.out.println("Array before insertion"); for (int i = 0; i < n; i++) System.out.print(arr[i] + " "); // Shifting elements to the right for (int i = n; i >= pos; i--) arr[i] = arr[i - 1]; // Insert the new element at index pos - 1 arr[pos - 1] = ele; System.out.println("\nArray after insertion"); for (int i = 0; i <= n; i++) System.out.print(arr[i] + " "); } }
+
+# Python program to insert given element at a given position # in an array using custom method if __name__ == "__main__": n = 4 arr = [10, 20, 30, 40, 0] ele = 50 pos = 2 print("Array before insertion") for i in range(n): print(arr[i], end=' ') # Shifting elements to the right for i in range(n, pos - 1, -1): arr[i] = arr[i - 1] # Insert the new element at index pos - 1 arr[pos - 1] = ele print("\nArray after insertion") for i in range(n + 1): print(arr[i], end=' ')
+
+// C# program to insert given element at a given position // in an array using custom method using System; class GfG { static void Main() { int n = 4; int[] arr = {10, 20, 30, 40, 0}; int ele = 50; int pos = 2; Console.WriteLine("Array before insertion"); for (int i = 0; i < n; i++) Console.Write(arr[i] + " "); // Shifting elements to the right for (int i = n; i >= pos; i--) arr[i] = arr[i - 1]; // Insert the new element at index pos - 1 arr[pos - 1] = ele; Console.WriteLine("\nArray after insertion"); for (int i = 0; i <= n; i++) Console.Write(arr[i] + " "); } }
+
+// JavaScript program to insert given element at a given // position in an array using custom method let n = 4; let arr = [10, 20, 30, 40, 0]; let ele = 50; let pos = 2; console.log("Array before insertion"); console.log(arr); // Shifting elements to the right for (let i = n; i >= pos; i--) arr[i] = arr[i - 1]; // Insert the new element at index pos - 1 arr[pos - 1] = ele; console.log("\nArray after insertion"); console.log(arr);

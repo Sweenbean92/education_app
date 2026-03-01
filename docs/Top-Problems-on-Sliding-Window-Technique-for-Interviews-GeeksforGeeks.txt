@@ -1,0 +1,79 @@
+URL: https://www.geeksforgeeks.org/dsa/top-problems-on-sliding-window-technique-for-interviews
+Title: Top Problems on Sliding Window Technique for Interviews - GeeksforGeeks
+================================================================================
+
+
+Easy Problems
+=============
+
+
+
+Medium Problems
+===============
+
+
+
+Hard Problems
+=============
+
+
+
+Explore
+=======
+
+
+The Sliding Window Technique is a powerful algorithmic approach used to solve problems involving arrays or lists where a subarray or subsequence is required to be analyzed. This technique allows you to reduce the time complexity of problems that would typically involve nested loops, by maintaining a "window" of elements and sliding it across the array. The window can either expand or shrink based on certain conditions, which helps in optimizing the solution.
+
+Maximum sum of a subarray of size k
+
+Smallest window containing 0, 1 and 2
+
+Check if Permutation of Pattern is Substring
+
+Count Strictly Increasing Subarrays
+
+Remove Consecutive Characters
+
+Maximum sum of subarray <= x
+
+Longest substring with distinct characters
+
+Substrings with K Distinct
+
+Maximum Fruits in Two Baskets
+
+Substrings of length k with k-1 distinct elements
+
+Minimum Removals for Target Sum
+
+Longest Repeating Character Replacement
+
+Binary subarray with sum
+
+Subarrays Product Less than K
+
+Count Occurrences of Anagrams
+
+Largest sum subarray of size at least k
+
+Count Distinct Elements In Every Window of Size K
+
+Subarray with given sum
+
+First negative integer in every window of size k
+
+Longest Subarray With Sum K
+
+Smallest window that contains all characters of string itself
+
+Smallest window in a String containing all characters of other String
+
+Equivalent Sub-Arrays
+
+Maximum of minimum for every window size
+
+Longest Substring with K Uniques
+
+Minimum Window Substring
+
+Largest sum subarray with at-least k numbers

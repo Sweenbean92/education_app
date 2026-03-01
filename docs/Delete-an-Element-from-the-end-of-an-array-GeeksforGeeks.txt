@@ -1,0 +1,58 @@
+URL: https://www.geeksforgeeks.org/dsa/delete-an-element-from-the-end-of-an-array
+Title: Delete an Element from the end of an array - GeeksforGeeks
+================================================================================
+
+
+[Approach 1] Using Built-In Methods
+===================================
+
+
+
+[Approach 2] Using Custom Method
+================================
+
+
+
+Explore
+=======
+
+
+Given an array of integers, the task is to delete an element from the end of the array.
+
+Input: arr[] = [10, 20, 30, 40]Output: [10, 20, 30]Input: arr[] = [20]Output: []
+
+Table of Content
+
+[Approach 1] Using Built-In Methods
+
+[Approach 2] Using Custom Method
+
+We will use library methods like pop_back() in C++, remove() in Java, pop() in Python and JavaScript and removeAt() in C#.
+
+// C++ program to delete an element from the end // of an array using in-built methods #include <iostream> #include <vector> using namespace std; int main() { vector<int> arr = { 10, 20, 30, 40 }; cout << "Array before deletion\n"; for (int i = 0; i < arr.size(); i++) cout << arr[i] << " "; // Remove the last element from the array arr.pop_back(); cout << "\nArray after deletion\n"; for (int i = 0; i < arr.size(); i++) cout << arr[i] << " "; return 0; }
+
+// Java program to delete an element from the end of an array // using in-built methods import java.util.*; class GfG { public static void main(String[] args) { ArrayList<Integer> arr = new ArrayList<> (Arrays.asList(10, 20, 30, 40)); System.out.println("Array before deletion"); for (int ele : arr) System.out.print(ele + " "); // Remove the last element from the array arr.remove(arr.size() - 1); System.out.println("\nArray after deletion"); for (int ele : arr) System.out.print(ele + " "); } }
+
+# Python program to delete an element from the end # of an array using in-built methods arr = [10, 20, 30, 40] print("Array before deletion") for ele in arr: print(ele, end=" ") # Remove the last element from the array arr.pop() print("\nArray after deletion") for ele in arr: print(ele, end=" ")
+
+// C# program to delete an element from the end // of an array using in-built methods using System; using System.Collections.Generic; class GfG { static void Main() { List<int> arr = new List<int> { 10, 20, 30, 40 }; Console.WriteLine("Array before deletion"); foreach (var ele in arr) Console.Write(ele + " "); // Remove the last element from the array arr.RemoveAt(arr.Count - 1); Console.WriteLine("\nArray after deletion"); foreach (var ele in arr) Console.Write(ele + " "); } }
+
+// JavaScript program to delete an element from the end // of an array using in-built methods let arr = [10, 20, 30, 40]; console.log("Array before deletion"); console.log(arr); // Remove the last element from the array arr.pop(); console.log("Array after deletion"); console.log(arr);
+
+Array before deletion 10 20 30 40 Array after deletion 10 20 30
+
+Time Complexity: O(1) Auxiliary Space: O(1)
+
+To delete an element from the end of an array, we can simply reduce the size of array by 1.
+
+// C++ program to delete an element from the end // of an array using custom methods #include <iostream> #include <vector> using namespace std; int main() { vector<int> arr = { 10, 20, 30, 40 }; int n = arr.size(); cout << "Array before deletion\n"; for (int i = 0; i < n; i++) cout << arr[i] << " "; // Reduce the array size by 1 n--; cout << "\nArray after deletion\n"; for (int i = 0; i < n; i++) cout << arr[i] << " "; return 0; }
+
+// C program to delete an element from the end // of an array using custom methods #include <stdio.h> int main() { int arr[] = { 10, 20, 30, 40 }; int n = sizeof(arr)/sizeof(arr[0]); printf("Array before deletion\n"); for (int i = 0; i < n; i++) printf("%d ", arr[i]); // Reduce the array size by 1 n--; printf("\nArray after deletion\n"); for (int i = 0; i < n; i++) printf("%d ", arr[i]); return 0; }
+
+// Java program to delete an element from the end // of an array using custom methods class GfG { public static void main(String[] args) { int[] arr = { 10, 20, 30, 40 }; int n = arr.length; System.out.println("Array before deletion"); for (int i = 0; i < n; i++) System.out.print(arr[i] + " "); // Reduce the array size by 1 n--; System.out.println("\nArray after deletion"); for (int i = 0; i < n; i++) System.out.print(arr[i] + " "); } }
+
+# Python program to delete an element from the end # of an array using custom methods if __name__ == "__main__": arr = [10, 20, 30, 40] n = len(arr) print("Array before deletion") for i in range(n): print(arr[i], end=" ") # Reduce the array size by 1 n -= 1 print("\nArray after deletion") for i in range(n): print(arr[i], end=" ")
+
+// C# program to delete an element from the end // of an array using custom methods using System; class GfG { static void Main() { int[] arr = { 10, 20, 30, 40 }; int n = arr.Length; Console.WriteLine("Array before deletion"); for (int i = 0; i < n; i++) Console.Write(arr[i] + " "); // Reduce the array size by 1 n--; Console.WriteLine("\nArray after deletion"); for (int i = 0; i < n; i++) Console.Write(arr[i] + " "); } }
+
+// JavaScript program to delete an element from the end // of an array using custom methods let arr = [ 10, 20, 30, 40 ]; let n = arr.length; console.log("Array before deletion"); for (let i = 0; i < n; i++) { console.log(arr[i]); } // Reduce the array size by 1 n--; console.log("\nArray after deletion"); for (let i = 0; i < n; i++) { console.log(arr[i]); }

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Quiz - RAG Interface{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/quiz.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="quiz-container">
+        {% set active_page = 'quiz' %}
+        {% set page_class = 'quiz' %}
+        {% set page_title = 'Course Quiz' %}
+        {% include 'includes/header.html' %}
+        
+        <div class="quiz-body">
+            <div class="quiz-main">
+                <div class="quiz-controls">
+                    <div class="topic-input-group">
+                        <label for="topic-input">Topic (optional):</label>
+                        <input type="text" 
+                               id="topic-input" 
+                               placeholder="Enter a topic to focus the question on..."
+                               autocomplete="off">
+                    </div>
+                    <button id="generate-btn" class="btn-primary" onclick="generateQuestion()">
+                        Generate Question
+                    </button>
+                </div>
+                
+                <div class="quiz-content" id="quiz-content">
+                    <div class="welcome-message">
+                        <p>Click "Generate Question" to start a quiz based on your course material.</p>
+                        <p>You can optionally specify a topic to focus the question on.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        let currentQuestion = '';
+        let currentContext = '';
+    </script>
+    <script src="{{ url_for('static', filename='css/quiz.js') }}"></script>
+{% endblock %}

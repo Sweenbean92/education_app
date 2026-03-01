@@ -1,0 +1,192 @@
+URL: https://www.geeksforgeeks.org/dsa/advanced-data-structures
+Title: Advanced Data Structures - GeeksforGeeks
+================================================================================
+
+
+Self Balancing BSTs:
+====================
+
+
+
+Disjoint Set:
+=============
+
+
+
+Trie:
+=====
+
+
+
+Segment Tree:
+=============
+
+
+
+Binary Indexed Tree:
+====================
+
+
+
+Suffix Array and Suffix Tree
+============================
+
+
+
+K-Dimensional Tree:
+===================
+
+
+
+Some other Data Structure:
+==========================
+
+
+
+Advanced Lists:
+===============
+
+
+
+n-ary Tree:
+===========
+
+
+
+Explore
+=======
+
+
+Advanced Data Structures refer to complex and specialized arrangements of data that enable efficient storage, retrieval, and manipulation of information in computer science and programming. These structures go beyond basic data types like arrays and lists, offering sophisticated ways to organize and manage data for optimal performance in various algorithms and applications.
+
+AVL Tree:Introduction to AVL TreeInsertion in AVL TreeDeletion in an AVL TreeAVL with duplicate keys
+
+Splay Tree:Introduction to Splay tree data structureSearching in Splay TreeInsertion in Splay Tree
+
+B-Tree:Introduction of B-TreeInsert Operation in B-TreeDelete Operation in B-Tree
+
+Red-Black Tree:Introduction to Red-Black TreeInsertion in Red-Black TreeDeletion in Red-Black Tree
+
+Scape Goat Tree and Treap:ScapeGoat Tree | (Introduction and Insertion)Treap (A Randomized Binary Search Tree)Implementation of Search, Insert and Delete in Treap
+
+Disjoint Set Union on Trees
+
+Union By Rank and Path Compression in Union-Find Algorithm
+
+Disjoint Set Data Structure Problems
+
+Insert and Search
+
+Pattern Searching using a Trie of all Suffixes
+
+Longest Common Prefix
+
+Implement a Phone Directory
+
+Weighted Prefix Search
+
+Palindrome pair in an array of words (or strings)
+
+How to Implement Reverse DNS Look Up Cache?
+
+Introduction
+
+Range minimum query
+
+Lazy Propagation
+
+Persistent Segment Tree
+
+Range Minimum Query (Square Root Decomposition and Sparse Table)
+
+Min-Max Range queries in array
+
+LCA in a binary tree using RMQ
+
+Introduction to Heavy Light Decomposition
+
+Reconstructing Segment Tree
+
+Longest Common Extension / LCE using Segment Tree
+
+Binary Indexed Tree or Fenwick Tree
+
+Two Dimensional Binary Indexed Tree or Fenwick Tree
+
+Binary Indexed Tree : Range Updates and Point Queries
+
+Binary Indexed Tree : Range Update and Range Queries
+
+proto van Emde Boas Trees | Background and Introduction
+
+Suffix Array Introduction
+
+Suffix Tree Introduction
+
+Ukkonen’s Suffix Tree Construction – Part 1
+
+Generalized Suffix Tree
+
+Suffix Tree Application 1 – Substring Check
+
+Search and Insertion in K Dimensional tree
+
+Find minimum in K Dimensional Tree
+
+Deletion in K Dimensional Tree
+
+Palindromic Tree | Introduction & Implementation
+
+Ternary Search Tree
+
+Interval Tree
+
+BK-Tree | Introduction & Implementation
+
+Cartesian Tree
+
+Gomory-Hu Tree
+
+Persistent Data Structure
+
+Generic Linked List in C
+
+Memory efficient Doubly Linked List
+
+XOR Linked List | Set 1
+
+XOR Linked List | Set 2
+
+Self-Organizing List
+
+Unrolled Linked List
+
+Generic Trees (N-ary Tree)
+
+Mirror of n-ary Tree
+
+Diameter of an N-ary tree
+
+Depth of an N-Ary tree
+
+Height of n-ary tree if parent array is given
+
+Number of ways to traverse an N-ary tree
+
+Number of siblings of a given Node in n-ary Tree
+
+Next Larger element in n-ary tree
+
+Serialize and Deserialize an N-ary Tree
+
+DFS for a n-ary tree (acyclic graph) represented as adjacency list
+
+Quick Links:
+
+Trie Practice Problems
+
+Segment Tree Practice Problems
+
+Recommended:
+
+Learn Data Structure and Algorithms | DSA Tutorial

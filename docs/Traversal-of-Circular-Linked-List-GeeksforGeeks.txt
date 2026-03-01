@@ -1,0 +1,66 @@
+URL: https://www.geeksforgeeks.org/dsa/traversal-of-circular-linked-list
+Title: Traversal of Circular Linked List - GeeksforGeeks
+================================================================================
+
+
+[Expected Approach - 1] Using Recursion - O(n) Time and O(n) Space:
+===================================================================
+
+
+
+[Expected Approach - 2] Using Iterative Method - O(n) Time and O(1) Space:
+==========================================================================
+
+
+
+Explore
+=======
+
+
+Given a circular linked list, the task is to print all the elements of this circular linked list.
+
+Input: Output: 1 2 3 4 5 6Input: Output: 2 4 6 8 10 12
+
+Table of Content
+
+[Expected Approach - 1] Using Recursion - O(n) Time and O(n) Space
+
+[Expected Approach - 2] Using Iterative Method - O(n) Time and O(1) Space
+
+To idea is to traverse a circular linked list recursively, we will start by printing the value of the current node. Then, recursively call the function to handle the next node. If the next node is the same as the head node, indicating that a full cycle has been completed, we will end the recursion call.
+
+Below is the implementation of above approach:
+
+// C++ program to traverse a circular // linked list. #include <iostream> using namespace std; class Node { public: int data; Node *next; Node(int x) { data = x; next = nullptr; } }; void printList(Node *curr, Node *head) { // return if list is empty if (head == nullptr) return; cout << curr->data << " "; if (curr->next == head) return; printList(curr->next, head); } int main() { // Create a hard-coded linked list // 11 -> 2 -> 56 -> 12 Node *head = new Node(11); head->next = new Node(2); head->next->next = new Node(56); head->next->next->next = new Node(12); head->next->next->next->next = head; printList(head, head); return 0; }
+
+// C program to traverse a circular // linked list. #include <stdio.h> #include <stdlib.h> struct Node { int data; struct Node* next; }; void printList(struct Node* curr, struct Node* head) { // return if list is empty if (head == NULL) return; printf("%d ", curr->data); if (curr->next == head) return; printList(curr->next, head); } struct Node* createNode(int data) { struct Node* new_node = (struct Node*)malloc(sizeof(struct Node)); new_node->data = data; new_node->next = NULL; return new_node; } int main() { // Create a hard-coded linked list // 11 -> 2 -> 56 -> 12 struct Node* head = createNode(11); head->next = createNode(2); head->next->next = createNode(56); head->next->next->next = createNode(12); head->next->next->next->next = head; printList(head, head); return 0; }
+
+// Java program to traverse a circular // linked list. class Node { int data; Node next; Node(int data) { this.data = data; this.next = null; } } public class GfG { static void printList(Node curr, Node head) { // return if list is empty if (head == null) return; System.out.print(curr.data + " "); if (curr.next == head) return; printList(curr.next, head); } public static void main(String[] args) { // Create a hard-coded linked list // 11 -> 2 -> 56 -> 12 Node head = new Node(11); head.next = new Node(2); head.next.next = new Node(56); head.next.next.next = new Node(12); head.next.next.next.next = head; printList(head, head); } }
+
+# Python program to traverse a circular # linked list. class Node: def __init__(self, data): self.data = data self.next = None def print_list(curr, head): # return if list is empty if head is None: return print(curr.data, end=" ") if (curr.next == head): return print_list(curr.next, head) if __name__ == "__main__": # Create a hard-coded linked list # 11 -> 2 -> 56 -> 12 head = Node(11) head.next = Node(2) head.next.next = Node(56) head.next.next.next = Node(12) head.next.next.next.next = head print_list(head, head)
+
+// C# program to traverse a circular // linked list. using System; class Node { public int data; public Node next; public Node(int newData) { data = newData; next = null; } } class GfG { static void PrintList(Node curr, Node head) { // return if list is empty if (head == null) return; Console.Write(curr.data + " "); if (curr.next == head) return; PrintList(curr.next, head); } static void Main(string[] args) { // Create a hard-coded linked list // 11 -> 2 -> 56 -> 12 Node head = new Node(11); head.next = new Node(2); head.next.next = new Node(56); head.next.next.next = new Node(12); head.next.next.next.next = head; PrintList(head, head); } }
+
+// JavaScript program to traverse a circular // linked list class Node { constructor(data) { this.data = data; this.next = null; } } function printList(curr, head) { // return if list is empty if (head === null) return; console.log(curr.data); if (curr.next == head) return; printList(curr.next, head); } // Create a hard-coded linked list // 11 -> 2 -> 56 -> 12 let head = new Node(11); head.next = new Node(2); head.next.next = new Node(56); head.next.next.next = new Node(12); head.next.next.next.next = head; printList(head, head);
+
+Time Complexity: O(n), where n is the number of nodes in circular Linked List.Auxiliary Space: O(n)
+
+To idea is to traverse a circular linked list iteratively, starting at the head node and repeatedly printing the value of the current node while moving to its next node. Continue this process until we return back to the head node, indicating that the full cycle of the circular linked list has been completed.
+
+// C++ program to traverse a circular // linked list. #include <iostream> using namespace std; class Node { public: int data; Node *next; Node(int x) { data = x; next = nullptr; } }; void printList(Node *head) { // return if list is empty if (head == nullptr) return; Node *curr = head; do { cout << curr->data << " "; curr = curr->next; } while (curr != head); cout << endl; } int main() { // Create a hard-coded linked list // 11 -> 2 -> 56 -> 12 Node *head = new Node(11); head->next = new Node(2); head->next->next = new Node(56); head->next->next->next = new Node(12); head->next->next->next->next = head; printList(head); return 0; }
+
+// C program to traverse a circular // linked list. #include <stdio.h> #include <stdlib.h> struct Node { int data; struct Node* next; }; void printList(struct Node* head) { // return if list is empty if (head == NULL) return; struct Node* curr = head; do { printf("%d ", curr->data); curr = curr->next; } while (curr != head); printf("\n"); } struct Node* createNode(int data) { struct Node* new_node = (struct Node*)malloc(sizeof(struct Node)); new_node->data = data; new_node->next = NULL; return new_node; } int main() { // Create a hard-coded linked list // 11 -> 2 -> 56 -> 12 struct Node* head = createNode(11); head->next = createNode(2); head->next->next = createNode(56); head->next->next->next = createNode(12); head->next->next->next->next = head; printList(head); return 0; }
+
+// Java program to traverse a circular // linked list. class Node { int data; Node next; Node(int data) { this.data = data; this.next = null; } } public class GfG { static void printList(Node head) { // return if list is empty if (head == null) return; Node curr = head; do { System.out.print(curr.data + " "); curr = curr.next; } while (curr != head); System.out.println(); } public static void main(String[] args) { // Create a hard-coded linked list // 11 -> 2 -> 56 -> 12 Node head = new Node(11); head.next = new Node(2); head.next.next = new Node(56); head.next.next.next = new Node(12); head.next.next.next.next = head; printList(head); } }
+
+# Python program to traverse a circular # linked list. class Node: def __init__(self, data): self.data = data self.next = None def print_list(head): # return if list is empty if head is None: return curr = head while True: print(curr.data, end=" ") curr = curr.next if curr == head: break print() if __name__ == "__main__": # Create a hard-coded linked list # 11 -> 2 -> 56 -> 12 head = Node(11) head.next = Node(2) head.next.next = Node(56) head.next.next.next = Node(12) head.next.next.next.next = head print_list(head)
+
+// C# program to traverse a circular // linked list. using System; class Node { public int data; public Node next; public Node(int newData) { data = newData; next = null; } } class GfG { static void PrintList(Node head) { // return if list is empty if (head == null) return; Node curr = head; do { Console.Write(curr.data + " "); curr = curr.next; } while (curr != head); Console.WriteLine(); } static void Main(string[] args) { // Create a hard-coded linked list //11 -> 2 -> 56 -> 12 Node head = new Node(11); head.next = new Node(2); head.next.next = new Node(56); head.next.next.next = new Node(12); head.next.next.next.next = head; PrintList(head); } }
+
+// JavaScript program to traverse a circular // linked list class Node { constructor(data) { this.data = data; this.next = null; } } function printList(head) { // return if list is empty if (head === null) return; let curr = head; do { console.log(curr.data + " "); curr = curr.next; } while (curr !== head); console.log(); } // Create a hard-coded linked list // 11 -> 2 -> 56 -> 12 let head = new Node(11); head.next = new Node(2); head.next.next = new Node(56); head.next.next.next = new Node(12); head.next.next.next.next = head; printList(head);
+
+Time Complexity: O(n), where n is the number of nodes in circular Linked List.Auxiliary Space: O(1)
+
+Related articles:
+
+Circular Linked List Introduction and Applications

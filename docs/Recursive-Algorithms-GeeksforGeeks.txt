@@ -1,0 +1,201 @@
+URL: https://www.geeksforgeeks.org/dsa/recursion-algorithms
+Title: Recursive Algorithms - GeeksforGeeks
+================================================================================
+
+
+Basics
+======
+
+
+
+In Different Languages
+======================
+
+
+
+Easy Problems
+=============
+
+
+
+Medium Problems
+===============
+
+
+
+Hard Problems
+=============
+
+
+
+Practice Sets on Recursion
+==========================
+
+
+
+What is a Recursive Algorithm?
+==============================
+
+
+
+Types of Recursion
+==================
+
+
+
+When to Use Recursion?
+======================
+
+
+
+Examples of Recursion
+=====================
+
+
+
+Applications of Recursion Algorithms:
+=====================================
+
+
+
+Explore
+=======
+
+
+Recursion is technique used in computer science to solve big problems by breaking them into smaller, similar problems. The process in which a function calls itself directly or indirectly is called recursion and the corresponding function is called a recursive function. Using a recursive algorithm, certain problems can be solved quite easily.
+
+Introduction
+
+What is Tail Recursion
+
+Tail Recursion Elimination
+
+Recursion in Python
+
+Recursion in Java
+
+Recursion in C#
+
+Recursion in JavaScript
+
+Print 1 to n
+
+Print n to 1
+
+Sum of array
+
+Reverse a string
+
+Decimal to binary
+
+Sum of digit
+
+Array Min and Max
+
+Palindrome Check
+
+Mean of Array
+
+Adjacent duplicates
+
+Coin Change
+
+Binary to Gray
+
+Longest palindromic substring
+
+Tower of Hanoi
+
+Compute nCr
+
+Permutations
+
+Possible paths in matrix
+
+Combinations of Parentheses
+
+Sort a Queue
+
+Sort a Stack
+
+Palindromic Partitions
+
+Scrambled Strings
+
+Word Break Problem
+
+N Queen Problem
+
+Sudoku Solver
+
+Knight's Tour
+
+Recursive Practice Problems with Solutions
+
+Practice Questions for Recursion | Set 1
+
+Practice Questions for Recursion | Set 2
+
+Practice Questions for Recursion | Set 3
+
+Practice Questions for Recursion | Set 4
+
+Practice Questions for Recursion | Set 5
+
+Practice Questions for Recursion | Set 6
+
+Practice Questions for Recursion | Set 7
+
+Practice questions for Linked List and Recursion
+
+Quiz based on Recursion:
+
+Top MCQs on Recursion Algorithm with Answers
+
+A recursive algorithm is an algorithm that uses recursion to solve a problem. Recursive algorithms typically have two parts:
+
+Base case: Which is a condition that stops the recursion.
+
+Recursive case: Which is a call to the function itself with a smaller version of the problem.
+
+There are several different recursion types and terms. These include:
+
+Direct recursion: This is typified by the factorial implementation where the methods call itself.
+
+In-Direct recursion: This happens where one method, say method A, calls another method B, which then calls method A. This involves two or more methods that eventually create a circular call sequence.
+
+Head recursion: The recursive call is made at the beginning of the method.
+
+Tail recursion: The recursive call is the last statement.
+
+Recursion is a powerful technique that can be used to solve a wide variety of problems. However, it is important to use recursion carefully, as it can lead to stack overflows if not used properly.
+
+Recursion should be used when:
+
+The problem can be broken down into smaller subproblems that can be solved recursively.
+
+The base case is easy to identify.
+
+The recursive calls are tail recursive.
+
+Here are some common examples of recursion:
+
+Example 1: Factorial: The factorial of a number n is the product of all the integers from 1 to n. The factorial of n can be defined recursively as:
+
+factorial(n) = n * factorial(n-1)
+
+Example 2: Fibonacci sequence: The Fibonacci sequence is a sequence of numbers where each number is the sum of the two preceding numbers. The Fibonacci sequence can be defined recursively as:
+
+fib(n) = fib(n-1) + fib(n-2)
+
+Here are some common applications of recursion:
+
+Tree and Graph Traversal: Depth-first search (DFS) and breadth-first search (BFS)
+
+Dynamic Programming: Solving optimization problems by breaking them into smaller subproblems
+
+Divide-and-Conquer: Solving problems by dividing them into smaller parts, solving each part recursively, and combining the results
+
+Backtracking: Exploring all possible solutions to a problem by recursively trying different options
+
+Combinatorics: Counting or generating all possible combinations or permutations of a set

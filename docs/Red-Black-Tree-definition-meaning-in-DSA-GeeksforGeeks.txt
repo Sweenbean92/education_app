@@ -1,0 +1,73 @@
+URL: https://www.geeksforgeeks.org/dsa/red-black-tree-definition-meaning-in-dsa
+Title: Red-Black Tree definition & meaning in DSA - GeeksforGeeks
+================================================================================
+
+
+Characteristics of Red Black Tree:
+==================================
+
+
+
+Applications of Red Black Tree:
+===============================
+
+
+
+Advantages of Red Black Tree:
+=============================
+
+
+
+Disadvantages of Red Black Tree:
+================================
+
+
+
+What else can you read?
+=======================
+
+
+
+Explore
+=======
+
+
+A red-black tree is a self-balancing binary search tree in which each node of the tree has an color, which can either be red or black.
+
+The root node is always black and each node can be either black or red.
+
+Every leaf node of the red-black tree is black.
+
+The children of red nodes are black.
+
+The number of black nodes will be the same for every simple path from the root to the descendant leaf node.
+
+Red-black trees are commonly used to implement ordered data structures like sets and maps.
+
+Red Black Trees are used in implementing the graph algorithms such as Prim’s minimum spanning tree algorithm and Dijkstra’s shortest path algorithm.
+
+Red-black trees are used in memory allocation algorithms to manage memory blocks efficiently.
+
+It is also used in the K-mean clustering algorithm in machine learning for reducing time complexity.
+
+To learn more about the applications of the red-black tree, refer to this article.
+
+The mechanism to maintain balance is relatively easy to understand.
+
+It performs operations like insertion, deletion, and searching in logarithmic time.
+
+It reduces the number of height comparisons and memory accesses needed hence improving performance.
+
+It has a more complicated implementation than standard binary search trees.
+
+Insertion and deletion operations may require complex restructuring of the tree.
+
+It is not as efficient as hash tables for small data sets.
+
+Insertion in Red-Black Tree
+
+Deletion in Red-Black Tree
+
+Left-Leaning Red Black Tree (Insertion)
+
+Red Black Tree vs AVL Tree

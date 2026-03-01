@@ -1,0 +1,122 @@
+URL: https://www.geeksforgeeks.org/dsa/minimum-number-platforms-required-railwaybus-station
+Title: Minimum Platforms Required - GeeksforGeeks
+================================================================================
+
+
+[Naive Approach] Using Two Nested Loops - O(n2) time and O(1) space
+===================================================================
+
+
+
+[Better Approach] Using MinHeap - O(n log(n)) Time and O(n) Space
+=================================================================
+
+
+
+[Expected Approach 1] Using Sorting and Two Pointers - O(n log(n)) Time and O(1) Space
+======================================================================================
+
+
+
+[Expected Approach 2] Using Sweep line algorithm
+================================================
+
+
+
+Explore
+=======
+
+
+Given two arrays arr[] and dep[], that represent the arrival and departure time of i-th train respectively. Find the minimum number of platforms required so that no train has to wait. If the departure time of one train is the same as the arrival time of another train, both trains cannot use the same platform at that time.
+
+Note: Time intervals are in the 24-hour format (HHMM), where the first two characters represent hour (between 00 to 23) and the last two characters represent minutes (this will be <= 59 and >= 0). Leading zeros for hours less than 10 are optional (e.g., 0900 is the same as 900).
+
+Input: arr[] = [1000, 935, 1100], dep[] = [1200, 1240, 1130]Output: 3Explanation: We need 3 platforms for the arrival of these trains because all three trains have overlapping time.Input: arr[] = [900, 1235, 1100], dep[] = [1000, 1240, 1200]Output: 1Explanation: Only 1 platform is required for all the three trains because the departure time of each train is less then arrival time of next train.
+
+Table of Content
+
+[Naive Approach] Using Two Nested Loops - O(n2) time and O(1) space
+
+[Better Approach] Using MinHeap - O(n log(n)) Time and O(n) Space
+
+[Expected Approach 1] Using Sorting and Two Pointers - O(n log(n)) Time and O(1) Space
+
+[Expected Approach 2] Using Sweep line algorithm
+
+The idea is to iterate through each train and for that train, check how many other trains have overlapping timings with it - where current train's arrival time falls between the other train's arrival and departure times. We keep track of this count for each train and continuously update our answer with the maximum count found.
+
+#include <iostream> #include <vector> #include <algorithm> using namespace std; int minPlatform(vector<int>& arr, vector<int>& dep) { int n = arr.size(); int res = 0; for (int i = 0; i < n; i++) { // Initially one platform is needed int cnt = 1; for (int j = 0; j < n; j++) { if (i != j) // Increment cnt if trains have overlapping // time. if (arr[i] >= arr[j] && dep[j] >= arr[i]) { cnt++; } } res = max(cnt, res); } return res; } int main() { vector<int> arr = {1000, 935, 1100}; vector<int> dep = {1200, 1240, 1130}; cout << minPlatform(arr, dep) << endl; return 0; }
+
+class GfG { public static int minPlatform(int[] arr, int[] dep) { int n = arr.length; int res = 0; for (int i = 0; i < n; i++) { // Initially one platform is needed int cnt = 1; for (int j = 0; j < n; j++) { if (i != j) // Increment cnt if trains have overlapping // time. if (arr[i] >= arr[j] && dep[j] >= arr[i]) { cnt++; } } res = Math.max(cnt, res); } return res; } public static void main(String[] args) { int[] arr = {1000, 935, 1100}; int[] dep = {1200, 1240, 1130}; System.out.println(minPlatform(arr, dep)); } }
+
+def minPlatform(arr, dep): n = len(arr) res = 0 for i in range(n): # Initially one platform is needed cnt = 1 for j in range(n): if i != j: # Increment cnt if trains have overlapping # time. if arr[i] >= arr[j] and dep[j] >= arr[i]: cnt += 1 res = max(cnt, res) return res if __name__ == "__main__": arr = [1000, 935, 1100] dep = [1200, 1240, 1130] print(minPlatform(arr, dep))
+
+using System; class GfG { static int minPlatform(int[] arr, int[] dep) { int n = arr.Length; int res = 0; for (int i = 0; i < n; i++) { // Initially one platform is needed int cnt = 1; for (int j = 0; j < n; j++) { if (i != j) // Increment cnt if trains have overlapping // time. if (arr[i] >= arr[j] && dep[j] >= arr[i]) { cnt++; } } res = Math.Max(cnt, res); } return res; } static void Main() { int[] arr = {1000, 935, 1100}; int[] dep = {1200, 1240, 1130}; Console.WriteLine(minPlatform(arr, dep)); } }
+
+function minPlatform(arr, dep) { let n = arr.length; let res = 0; for (let i = 0; i < n; i++) { // Initially one platform is needed let cnt = 1; for (let j = 0; j < n; j++) { if (i !== j) // Increment cnt if trains have overlapping // time. if (arr[i] >= arr[j] && dep[j] >= arr[i]) { cnt++; } } res = Math.max(cnt, res); } return res; } // Driver Code let arr = [1000, 935, 1100]; let dep = [1200, 1240, 1130]; console.log(minPlatform(arr, dep));
+
+The idea is that each arriving train either reuses a platform freed by a departed train or requires a new one if none are free. To track this, we sort the trains by arrival time and use a min-heap to store departure times of trains currently on platforms. Before placing a new train, we remove all trains that have already departed. The heap size then shows how many platforms are in use, and the maximum size reached during the process is the minimum number of platforms required.
+
+#include <iostream> #include <vector> #include <queue> #include <algorithm> using namespace std; int minPlatform(vector<int>& arr, vector<int>& dep) { int n = arr.size(); vector<pair<int,int>> v(n); for (int i = 0; i < n; i++) { v[i] = {arr[i], dep[i]}; } // sort by arrival time sort(v.begin(), v.end()); priority_queue<int, vector<int>, greater<int>> pq; int ans = 0; for (int i = 0; i < n; i++) { // free platforms for trains that have departed while (!pq.empty() && pq.top() < v[i].first) { pq.pop(); } // add current train's departure pq.push(v[i].second); // track maximum platforms used ans = max(ans, (int)pq.size()); } return ans; } int main() { vector<int> arr = {900, 940, 950, 1100, 1500, 1800}; vector<int> dep = {910, 1200, 1120, 1130, 1900, 2000}; cout << minPlatform(arr, dep); return 0; }
+
+import java.util.Comparator; import java.util.Arrays; import java.util.PriorityQueue; public class GfG { public static int minPlatform(int[] arr, int[] dep) { int n = arr.length; int[][] v = new int[n][2]; for (int i = 0; i < n; i++) { v[i][0] = arr[i]; v[i][1] = dep[i]; } // sort by arrival time Arrays.sort(v, Comparator.comparingInt(a -> a[0])); PriorityQueue<Integer> pq = new PriorityQueue<>(); int ans = 0; for (int i = 0; i < n; i++) { // free platforms for trains that have departed while (!pq.isEmpty() && pq.peek() < v[i][0]) { pq.poll(); } // add current train's departure pq.add(v[i][1]); // track maximum platforms used ans = Math.max(ans, pq.size()); } return ans; } public static void main(String[] args) { int[] arr = {900, 940, 950, 1100, 1500, 1800}; int[] dep = {910, 1200, 1120, 1130, 1900, 2000}; System.out.println(minPlatform(arr, dep)); } }
+
+import heapq def minPlatform(arr, dep): n = len(arr) v = sorted(zip(arr, dep)) pq = [] ans = 0 for i in range(n): # free platforms for trains that have departed while pq and pq[0] < v[i][0]: heapq.heappop(pq) # add current train's departure heapq.heappush(pq, v[i][1]) # track maximum platforms used ans = max(ans, len(pq)) return ans if __name__ == '__main__': arr = [900, 940, 950, 1100, 1500, 1800] dep = [910, 1200, 1120, 1130, 1900, 2000] print(minPlatform(arr, dep))
+
+using System; using System.Collections.Generic; // MinHeap implementation class MinHeap { private List<int> heap = new List<int>(); public int Count => heap.Count; public int Peek() { if (heap.Count == 0) throw new InvalidOperationException(); return heap[0]; } public void Push(int val) { heap.Add(val); HeapifyUp(heap.Count - 1); } public int Pop() { if (heap.Count == 0) throw new InvalidOperationException(); int top = heap[0]; heap[0] = heap[heap.Count - 1]; heap.RemoveAt(heap.Count - 1); if (heap.Count > 0) HeapifyDown(0); return top; } private void HeapifyUp(int idx) { while (idx > 0) { int parent = (idx - 1) / 2; if (heap[parent] <= heap[idx]) break; Swap(parent, idx); idx = parent; } } private void HeapifyDown(int idx) { int n = heap.Count; while (true) { int left = 2 * idx + 1; int right = 2 * idx + 2; int smallest = idx; if (left < n && heap[left] < heap[smallest]) smallest = left; if (right < n && heap[right] < heap[smallest]) smallest = right; if (smallest == idx) break; Swap(idx, smallest); idx = smallest; } } private void Swap(int i, int j) { int temp = heap[i]; heap[i] = heap[j]; heap[j] = temp; } } public class GfG { public static int minPlatform(int[] arr, int[] dep) { int n = arr.Length; var trains = new List<Tuple<int, int>>(); for (int i = 0; i < n; i++) trains.Add(new Tuple<int, int>(arr[i], dep[i])); // sort by arrival time trains.Sort((a, b) => a.Item1.CompareTo(b.Item1)); MinHeap minHeap = new MinHeap(); int ans = 0; for (int i = 0; i < n; i++) { // free platforms for trains that have departed while (minHeap.Count > 0 && minHeap.Peek() < trains[i].Item1) { minHeap.Pop(); } // add current train's departure minHeap.Push(trains[i].Item2); // track maximum platforms used ans = Math.Max(ans, minHeap.Count); } return ans; } public static void Main() { int[] arr = { 900, 940, 950, 1100, 1500, 1800 }; int[] dep = { 910, 1200, 1120, 1130, 1900, 2000 }; Console.WriteLine(minPlatform(arr, dep)); } }
+
+// MinHeap class class MinHeap { constructor() { this.heap = []; } get size() { return this.heap.length; } peek() { return this.heap[0]; } push(val) { this.heap.push(val); this.heapifyUp(this.heap.length - 1); } pop() { if (this.heap.length === 0) return null; let top = this.heap[0]; let last = this.heap.pop(); if (this.heap.length > 0) { this.heap[0] = last; this.heapifyDown(0); } return top; } heapifyUp(idx) { while (idx > 0) { let parent = Math.floor((idx - 1) / 2); if (this.heap[parent] <= this.heap[idx]) break; [this.heap[parent], this.heap[idx]] = [this.heap[idx], this.heap[parent]]; idx = parent; } } heapifyDown(idx) { let n = this.heap.length; while (true) { let left = 2 * idx + 1; let right = 2 * idx + 2; let smallest = idx; if (left < n && this.heap[left] < this.heap[smallest]) smallest = left; if (right < n && this.heap[right] < this.heap[smallest]) smallest = right; if (smallest === idx) break; [this.heap[smallest], this.heap[idx]] = [this.heap[idx], this.heap[smallest]]; idx = smallest; } } } function minPlatform(arr, dep) { let n = arr.length; let v = arr.map((time, index) => [time, dep[index]]); // sort by arrival time v.sort((a, b) => a[0] - b[0]); let pq = new MinHeap(); let ans = 0; for (let i = 0; i < n; i++) { // free platforms for trains that have departed while (pq.size > 0 && pq.peek() < v[i][0]) { pq.pop(); } // add current train's departure pq.push(v[i][1]); // track maximum platforms used ans = Math.max(ans, pq.size); } return ans; } // Example usage let arr = [900, 940, 950, 1100, 1500, 1800]; let dep = [910, 1200, 1120, 1130, 1900, 2000]; console.log(minPlatform(arr, dep));
+
+The idea is to sort arrivals and departures independently and use two pointers: i for arrivals and j for departures. Traverse both arrays. If the next train arrives before or at the next departure, we need one more platform (arr[i] <= dep[j]). Otherwise, one train has departed before the next arrival, so we free a platform. Keep updating the maximum number of platforms required.
+
+Why Individual Sorting Works?
+
+Normally, we might think pairing each arrival with its departure is required. But here, we only care about when platforms are occupied, not about exact train .
+
+By sorting arrivals → we always process trains in order of when they come.
+
+By sorting departures → we always free platforms in order of when they leave.
+
+So, at every step we just compare the next arrival and next departure:
+
+#include <iostream> #include <vector> #include <algorithm> using namespace std; int minPlatform(vector<int> &arr, vector<int>& dep) { int n = arr.size(); int res = 0; sort(arr.begin(), arr.end()); sort(dep.begin(), dep.end()); int j = 0; int cnt = 0; // Check for each train for (int i=0; i<n; i++) { // Decrement count if other // trains have left while (j<n && dep[j]<arr[i]) { cnt--; j++; } // one platform for current train cnt++; res = max(res, cnt); } return res; } int main() { vector<int> arr = {900, 940, 950, 1100, 1500, 1800}; vector<int> dep = {910, 1200, 1120, 1130, 1900, 2000}; cout << minPlatform(arr, dep); return 0; }
+
+import java.util.Arrays; class Main { static int minPlatform(int[] arr, int[] dep) { int n = arr.length; int res = 0; Arrays.sort(arr); Arrays.sort(dep); int j = 0; int cnt = 0; // Check for each train for (int i = 0; i < n; i++) { // Decrement count if other // trains have left while (j < n && dep[j] < arr[i]) { cnt--; j++; } // one platform for current train cnt++; res = Math.max(res, cnt); } return res; } public static void main(String[] args) { int[] arr = {900, 940, 950, 1100, 1500, 1800}; int[] dep = {910, 1200, 1120, 1130, 1900, 2000}; System.out.println(minPlatform(arr, dep)); } }
+
+def minPlatform(arr, dep): n = len(arr) res = 0 arr.sort() dep.sort() j = 0; cnt = 0; # Check for each train for i in range(n): # Decrement count if other # trains have left while j < n and dep[j] < arr[i]: cnt -= 1 j += 1 # one platform for current train cnt += 1 res = max(res, cnt) return res if __name__ == "__main__": arr = [900, 940, 950, 1100, 1500, 1800] dep = [910, 1200, 1120, 1130, 1900, 2000] print(minPlatform(arr, dep))
+
+using System; class GfG { static int minPlatform(int[] arr, int[] dep) { int n = arr.Length; int res = 0; Array.Sort(arr); Array.Sort(dep); int j = 0; int cnt = 0; // Check for each train for (int i = 0; i < n; i++) { // Decrement count if other // trains have left while (j < n && dep[j] < arr[i]) { cnt--; j++; } // one platform for current train cnt++; res = Math.Max(res, cnt); } return res; } static void Main(string[] args) { int[] arr = {900, 940, 950, 1100, 1500, 1800}; int[] dep = {910, 1200, 1120, 1130, 1900, 2000}; Console.WriteLine(minPlatform(arr, dep)); } }
+
+function minPlatform(arr, dep) { let n = arr.length; let res = 0; arr.sort((a, b) => a - b); dep.sort((a, b) => a - b); let j = 0; let cnt = 0; // Check for each train for (let i = 0; i < n; i++) { // Decrement count if other // trains have left while (j < n && dep[j] < arr[i]) { cnt--; j++; } // one platform for current train cnt++; res = Math.max(res, cnt); } return res; } // Driver Code let arr = [900, 940, 950, 1100, 1500, 1800]; let dep = [910, 1200, 1120, 1130, 1900, 2000]; console.log(minPlatform(arr, dep));
+
+The Sweep Line Algorithm is an efficient technique for solving interval-based problems.
+
+It works by treating each train's arrival and departure times as events on a timeline. By processing these events in time order, we can track how many trains are at the station at any moment, which directly gives the number of platforms needed at that time. The maximum overlap of trains during this process determines the minimum number of platforms required.
+
+Step by Step implementation:
+
+Create an array v[] of size greater than the maximum departure time. This array will help track the number of platforms needed at each time.
+
+Mark arrivals and departures:
+
+For each arrival time, increment v[arrival_time] by 1, indicating that a platform is needed.
+
+For each departure time, decrement v[departure_time + 1] by 1, indicating that a platform is freed as the train has left.
+
+Iterate through v[] and compute the cumulative sum.
+
+The running sum keeps track of the number of trains present at any given time.
+
+The maximum value encountered represents the minimum number of platforms required.
+
+#include <iostream> #include <vector> using namespace std; int minPlatform(vector<int> &arr, vector<int>& dep) { int n = arr.size(); int res = 0; // Find the max Departure time int maxDep = dep[0]; for (int i = 1; i < n; i++) { maxDep = max(maxDep, dep[i]); } vector<int> v(maxDep + 2, 0); // Increment the count at the arrival time and decrement // at the departure time for (int i = 0; i < n; i++) { v[arr[i]]++; v[dep[i] + 1]--; } int count = 0; // Iterate over the vector and keep track of the maximum // sum seen so far for (int i = 0; i <= maxDep + 1; i++) { count += v[i]; res = max(res, count); } return res; } int main() { vector<int> arr = {900, 940, 950, 1100, 1500, 1800}; vector<int> dep = {910, 1200, 1120, 1130, 1900, 2000}; cout << minPlatform(arr, dep); return 0; }
+
+import java.util.Arrays; class GfG { static int minPlatform(int[] arr, int[] dep) { int n = arr.length; int res = 0; // Find the max Departure time int maxDep = dep[0]; for (int i = 1; i < n; i++) { maxDep = Math.max(maxDep, dep[i]); } int[] v = new int[maxDep + 2]; // Increment the count at the arrival time and decrement // at the departure time for (int i = 0; i < n; i++) { v[arr[i]]++; v[dep[i] + 1]--; } int count = 0; // Iterate over the array and keep track of the maximum // sum seen so far for (int i = 0; i <= maxDep + 1; i++) { count += v[i]; res = Math.max(res, count); } return res; } public static void main(String[] args) { int[] arr = {900, 940, 950, 1100, 1500, 1800}; int[] dep = {910, 1200, 1120, 1130, 1900, 2000}; System.out.println(minPlatform(arr, dep)); } }
+
+def minPlatform(arr, dep): n = len(arr) res = 0 # Find the max Departure time maxDep = max(dep) v = [0] * (maxDep + 2) # Increment the count at the arrival time and decrement # at the departure time for i in range(n): v[arr[i]] += 1 v[dep[i] + 1] -= 1 count = 0 # Iterate over the list and keep track of the maximum # sum seen so far for i in range(maxDep + 2): count += v[i] res = max(res, count) return res if __name__ == "__main__": arr = [900, 940, 950, 1100, 1500, 1800] dep = [910, 1200, 1120, 1130, 1900, 2000] print(minPlatform(arr, dep))
+
+using System; class GfG { static int minPlatform(int[] arr, int[] dep) { int n = arr.Length; int res = 0; // Find the max Departure time int maxDep = dep[0]; for (int i = 1; i < n; i++) { maxDep = Math.Max(maxDep, dep[i]); } int[] v = new int[maxDep + 2]; // Increment the count at the arrival time and decrement // at the departure time for (int i = 0; i < n; i++) { v[arr[i]]++; v[dep[i] + 1]--; } int count = 0; // Iterate over the array and keep track of the maximum // sum seen so far for (int i = 0; i <= maxDep + 1; i++) { count += v[i]; res = Math.Max(res, count); } return res; } static void Main(string[] args) { int[] arr = {900, 940, 950, 1100, 1500, 1800}; int[] dep = {910, 1200, 1120, 1130, 1900, 2000}; Console.WriteLine(minPlatform(arr, dep)); } }
+
+function minPlatform(arr, dep) { let n = arr.length; let res = 0; // Find the max Departure time let maxDep = Math.max(...dep); let v = new Array(maxDep + 2).fill(0); // Increment the count at the arrival time and decrement // at the departure time for (let i = 0; i < n; i++) { v[arr[i]]++; v[dep[i] + 1]--; } let count = 0; // Iterate over the array and keep track of the maximum // sum seen so far for (let i = 0; i <= maxDep + 1; i++) { count += v[i]; res = Math.max(res, count); } return res; } // Driver Code let arr = [900, 940, 950, 1100, 1500, 1800]; let dep = [910, 1200, 1120, 1130, 1900, 2000]; console.log(minPlatform(arr, dep));
+
+Time Complexity: O(n + k), where n is the number of trains and k is the maximum value present in the arrays. Auxiliary space: O(k), where k is the maximum value present in both the arrays.

@@ -1,0 +1,104 @@
+URL: https://www.geeksforgeeks.org/dsa/top-50-problems-on-heap-data-structure-asked-in-interviews
+Title: Heap Coding Questions asked in Interviews - GeeksforGeeks
+================================================================================
+
+
+Easy Problems
+=============
+
+
+
+Medium Problems
+===============
+
+
+
+Hard Problems
+=============
+
+
+
+Related Articles
+================
+
+
+
+Explore
+=======
+
+
+A Heap is a special Tree-based Data Structure in which the tree is a complete binary tree. Generally, heaps are of two types: Max-Heap and Min-Heap. To know more about this Data Structure in-depth refer to the Tutorial on Heap Data-Structure.
+
+Kth Smallest Element
+
+Minimum product of k in an array
+
+Sort an Almost Sorted Array
+
+Min sum of two numbers from Digits
+
+Sum between k1’th and k2’th smallest
+
+K Closest Points to the Origin
+
+Top K Frequent
+
+Rearrange characters
+
+Convert min Heap to max Heap
+
+Check if a Binary Tree is a Min Heap
+
+kth smallest element in a row-column sorted matrix
+
+Connect n ropes with min cost
+
+Merge two binary max heaps
+
+Find k closest numbers
+
+K’th largest in a stream
+
+k numbers with most occurrences in array
+
+Game with String
+
+Maximize The Array
+
+Min sum of squares of counts after removing k
+
+Maximum sum of Two Non-Overlapping Intervals
+
+K-th Largest Sum Subarray
+
+Room with Maximum Meetings
+
+BST to Max Heap
+
+Merge k sorted arrays
+
+Merge k Sorted Lists
+
+Median of a stream
+
+Smallest range in K lists
+
+Huffman Encoding
+
+Minimum cost to connect all cities
+
+Single-Source Shortest Paths – Dijkstra’s Algorithm
+
+Sliding Window Maximum
+
+K maximum sum combinations from two arrays.
+
+DSA Tutorial
+
+Problems on Stack for Interviews
+
+Dynamic Programming Coding Problems for Interviews
+
+Problems on Linked List for Interviews
+
+Problems on Queue for Interviews

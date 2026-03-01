@@ -1,0 +1,69 @@
+URL: https://www.geeksforgeeks.org/dsa/top-50-problems-on-queue-data-structure-asked-in-sde-interviews
+Title: Queue Coding Questions for SDE Interviews - GeeksforGeeks
+================================================================================
+
+
+Easy Problems
+=============
+
+
+
+Medium & Hard Problems
+======================
+
+
+
+Related Links:
+==============
+
+
+
+Explore
+=======
+
+
+A Queue is defined as a linear data structure that is open at both ends and the operations are performed in First In First Out (FIFO) order. The element which is first pushed into the order, the operation is first performed on that.
+
+Circular Array Implementation
+
+Linked List Implementation
+
+Flipping Bits with K-Window
+
+Interleave the first and second halves
+
+Check if a queue can be sorted
+
+Generate Binary Numbers
+
+Implement Stack using Queues
+
+Implement Stack using Two Queues
+
+Implement Queue using Two Stacks
+
+Implement a Queue using a Stack
+
+Reverse a queue using recursion
+
+Minimum steps to reach target by a Knight
+
+First negative integer in every window of size k
+
+Minimum time required to rot all oranges
+
+Shortest safe route in a path with landmines
+
+First circular tour that visits all petrol pumps
+
+Reverse First k of Queue
+
+First non-repeating in a Stream
+
+Snake and Ladder Problem
+
+Minimum Cost Path via given intermediates
+
+DSA Tutorial
+
+System Design Tutorial

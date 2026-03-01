@@ -1,0 +1,283 @@
+URL: https://www.geeksforgeeks.org/dsa/dsa-tutorial-learn-data-structures-and-algorithms
+Title: DSA Tutorial - GeeksforGeeks
+================================================================================
+
+
+1. Logic Building
+=================
+
+
+
+2. Learn about Complexities
+===========================
+
+
+
+3. Array
+========
+
+
+
+4. Searching Algorithms
+=======================
+
+
+
+5. Sorting Algorithm
+====================
+
+
+
+6. Hashing
+==========
+
+
+
+7. Two Pointer Technique
+========================
+
+
+
+8. Window Sliding Technique
+===========================
+
+
+
+9. Prefix Sum Technique
+=======================
+
+
+
+10. String
+==========
+
+
+
+11. Recursion
+=============
+
+
+
+12. Matrix/Grid
+===============
+
+
+
+13. Linked List
+===============
+
+
+
+14. Stack
+=========
+
+
+
+15. Queue
+=========
+
+
+
+16. Deque
+=========
+
+
+
+17. Tree
+========
+
+
+
+18. Heap
+========
+
+
+
+19. Graph
+=========
+
+
+
+20. Greedy Algorithm
+====================
+
+
+
+21. Dynamic Programming
+=======================
+
+
+
+22. Advanced Data Structure and Algorithms
+==========================================
+
+
+
+23. Other Algorithms
+====================
+
+
+
+Explore
+=======
+
+
+DSA stands for Data Structures and Algorithms. Data structures manage how data is stored and accessed. Algorithms focus on processing this data. Examples of data structures are Array, Linked List, Tree and Heap, and examples of algorithms are Binary Search, Quick Sort and Merge Sort.
+
+Foundation for almost every software like GPS, Search Engines, AI ChatBots, Gaming Apps, Databases, Web Applications, etc
+
+Top Companies like Google, Microsoft, Amazon, Apple, Meta and many other heavily focus on DSA in interviews.
+
+Learning DSA boosts your problem-solving abilities and make you a stronger programmer.
+
+Before beginning the DSA journey, it is recommended to learn at-least one programming language (C++, Java, Python, JavaScript or any other language of your choice).
+
+Below are the recommended step by step topics to learn complete DSA.
+
+Once you have learned basics of a programming language, it is recommended that you learn basic logic building
+
+Logic Building Guide
+
+Quiz on Logic Building
+
+To analyze algorithms, we mainly measure order of growth of time or space taken in terms of input size. We do this in the worst case scenario in most of the cases. Please refer the below links for a clear understanding of these concepts.
+
+Complexity Analysis Guide
+
+Quiz on Complexity Analysis
+
+Array is a linear data structure where elements are allocated contiguous memory, allowing for constant-time access.
+
+Array Guide
+
+Searching algorithms are used to locate specific data within a large set of data. It helps find a target value within the data. There are various types of searching algorithms, each with its own approach and efficiency.
+
+Searching Guide
+
+Quiz on Searching
+
+Sorting algorithms are used to arrange the elements of a list in a specific order, such as numerical or alphabetical. It organizes the items in a systematic way, making it easier to search for and access specific elements.
+
+Sorting Guide
+
+Quiz on Sorting
+
+Hashing is a technique that generates a fixed-size output (hash value) from an input of variable size using mathematical formulas called hash functions. Hashing is commonly used in data structures for efficient searching, insertion and deletion.
+
+Hashing Guide
+
+Quiz on Hashing
+
+In Two Pointer Technique, we typically use two index variables from two corners of an array. We use the two pointer technique for searching a required point or value in an array.
+
+Quiz on Two Pointer Technique
+
+In Window Sliding Technique, we use the result of previous subarray to quickly compute the result of current.
+
+Quiz on Sliding Window
+
+In Prefix Sum Technique, we compute prefix sums of an array to quickly find results for a subarray.
+
+Quiz on Prefix Sum
+
+A sequence of characters, typically immutable and have limited set of elements (lower case or all English alphabets).
+
+Strings Guide
+
+Quiz on Strings
+
+A programming technique where a function calls itself within its own definition. It is usually used to solve problems that can be broken down into smaller instances of the same problem.
+
+Recursion Guide
+
+Quiz on Recursion
+
+A two-dimensional array of elements, arranged in rows and columns. It is represented as a rectangular grid, with each element at the intersection of a row and column.
+
+Matrix Guide
+
+Quiz on Matrix/Grid.
+
+A linear data structure that stores data in nodes, which are connected by pointers. Unlike arrays, nodes of linked lists are not stored in contiguous memory locations and can only be accessed sequentially, starting from the head of list.
+
+Linked List Guide
+
+Quiz on Linked List
+
+A linear data structure that follows the Last In, First Out (LIFO) principle. Stacks play an important role in managing function calls, memory, and are widely used in algorithms like stock span problem, next greater element and largest area in a histogram.
+
+Stack Guide
+
+Quiz on Stack
+
+Queue is a linear data structure that follows the First In, First Out (FIFO) principle. Queues play an important role in managing tasks or data in order, scheduling and message handling systems.
+
+Queue Guide
+
+Quiz on Queue
+
+A Deque or double-ended queue is a data structure that allows elements to be added or removed from both ends efficiently.
+
+Deque Guide
+
+Quiz on Deque
+
+A non-linear, hierarchical data structure consisting of nodes connected by edges, with a top node called the root and nodes having child nodes. It is widely used in file systems, databases, decision-making algorithms, etc.
+
+Quiz on Tree
+
+A complete binary tree that satisfies the heap property. Heaps are usually used to implement priority queues, where the smallest or largest element is always at the root of the tree.
+
+Quiz on Heap
+
+A non-linear data structure consisting of a finite set of vertices(or nodes) and a set of edges(or links)that connect a pair of nodes. Graphs are widely used to represent relationships between entities.
+
+Graph Guide
+
+Quiz on Graph
+
+Greedy Algorithm builds up the solution one piece at a time and chooses the next piece which gives the most obvious and immediate benefit i.e., which is the most optimal choice at that moment. So the problems where choosing locally optimal also leads to the global solutions are best fit for Greedy.
+
+Greedy Algorithms Guide
+
+Quiz on Greedy
+
+Dynamic Programming is a method used to solve complex problems by breaking them down into simpler subproblems. By solving each subproblem only once and storing the results, it avoids redundant computations, leading to more efficient solutions for a wide range of problems.
+
+Dynamic Programming Guide
+
+Advanced Data Structures like Trie, Segment Tree, Red-Black Tree and Binary Indexed Tree offer significant performance improvements for specific problem domains. They provide efficient solutions for tasks like fast prefix searches, range queries, dynamic updates, and maintaining balanced data structures, which are crucial for handling large datasets and real-time processing.
+
+Practice Advanced Data Structures
+
+Bitwise Algorithms: Operate on individual bits of numbers.
+
+Bitwise Algorithms Guide
+
+Quiz on Bit Magic
+
+Backtracking Algorithm : Follow Recursion with the option to revert and traces back if the solution from current point is not feasible.
+
+Backtracking Guide
+
+Quiz on Backtracking
+
+Divide and conquer: A strategy to solve problems by dividing them into smaller subproblems, solving those subproblems, and combining the solutions to obtain the final solution.
+
+Divide and Conquer Guide
+
+Quiz on Divide and Conquer
+
+Branch and Bound : Used in combinatorial optimization problems to systematically search for the best solution. It works by dividing the problem into smaller subproblems, or branches, and then eliminating certain branches based on bounds on the optimal solution. This process continues until the best solution is found or all branches have been explored.
+
+Branch and Bound Algorithm
+
+Geometric algorithms are a set of algorithms that solve problems related to shapes, points, lines and polygons.
+
+Geometric Algorithms
+
+Practice Geometric Algorithms
+
+Randomized algorithms are algorithms that use randomness to solve problems. They make use of random input to achieve their goals, often leading to simpler and more efficient solutions. These algorithms may not product same result but are particularly useful in situations when a probabilistic approach is acceptable.
+
+Randomized Algorithms

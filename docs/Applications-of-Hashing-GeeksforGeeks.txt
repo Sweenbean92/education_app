@@ -1,0 +1,94 @@
+URL: https://www.geeksforgeeks.org/dsa/applications-of-hashing
+Title: Applications of Hashing - GeeksforGeeks
+================================================================================
+
+
+Explore
+=======
+
+
+In this article, we will be discussing of applications of hashing.
+
+Hashing provides constant time search, insert and delete operations on average. This is why hashing is one of the most used data structure, example problems are, distinct elements, counting frequencies of items, finding duplicates, etc.
+
+Database indexing: Hashing is used to index and retrieve data efficiently in databases and other data storage systems.
+
+Dictionaries : To implement a dictionary so that we can quickly search a word
+
+Password storage: Hashing is used to store passwords securely by applying a hash function to the password and storing the hashed result, rather than the plain text password.
+
+Network Routing: Determining the best path for data packets
+
+Bloom Filters : Bloom filter is a space optimized and probabilistic version of hashing and has huge applications like spam filtering, recommendations.
+
+Cryptography: Hashing is used in cryptography to generate digital signatures, message authentication codes (MACs), and key derivation functions.
+
+Load balancing: Hashing is used in load-balancing algorithms, such as consistent hashing, to distribute requests to servers in a network.
+
+Blockchain: Hashing is used in blockchain technology, such as the proof-of-work algorithm, to secure the integrity and consensus of the blockchain.
+
+Image processing: Hashing is used in image processing applications, such as perceptual hashing, to detect and prevent image duplicates and modifications.
+
+File comparison: Hashing is used in file comparison algorithms, such as the MD5 and SHA-1 hash functions, to compare and verify the integrity of files.
+
+Fraud detection: Hashing is used in fraud detection and cybersecurity applications, such as intrusion detection and antivirus software, to detect and prevent malicious activities.
+
+Caching: Storing frequently accessed data for faster retrieval. For example browser caches, we can use URL as keys and find the local storage of the URL.
+
+Symbol Tables: Mapping identifiers to their values in programming languages
+
+Associative Arrays: Associative arrays are nothing but hash tables only. Commonly SQL library functions allow you retrieve data as associative arrays so that the retrieved data in RAM can be quickly searched for a key.There are many other applications of hashing, including modern-day cryptography hash functions. Some of these applications are listed below:
+
+Message Digest
+
+Password Verification
+
+Data Structures(Programming Languages)
+
+Compiler Operation
+
+Rabin-Karp Algorithm
+
+Linking File name and path together
+
+Game Boards
+
+Let us see them one by one in detail:
+
+Message Digest:
+
+This is an application of cryptographic Hash Functions. Cryptographic hash functions are the functions which produce an output from which reaching the input is close to impossible. This property of hash functions is called irreversibility.
+
+Let's take an Example:
+
+Suppose you have to store your files on any of the cloud services available. You have to be sure that the files that you store are not tampered by any third party. You do it by computing "hash" of that file using a Cryptographic hash algorithm. One of the common cryptographic hash algorithms is SHA 256. The hash thus computed has a maximum size of 32 bytes. So a computing the hash of large number of files will not be a problem. You save these hashes on your local machine.Now, when you download the files, you compute the hash again. Then you match it with the previous hash computed. Therefore, you know whether your files were tampered or not. If anybody tamper with the file, the hash value of the file will definitely change. Tampering the file without changing the hash is nearly impossible.
+
+Password Verification: Cryptographic hash functions are very commonly used in password verification.
+
+Let's understand this using an Example:
+
+When you use any online website which requires a user login, you enter your E-mail and password to authenticate that the account you are trying to use belongs to you. When the password is entered, a hash of the password is computed which is then sent to the server for verification of the password. The passwords stored on the server are actually computed hash values of the original passwords. This is done to ensure that when the password is sent from client to server, no sniffing is there.
+
+Data Structures(Programming Languages):
+
+Various programming languages have hash table based Data Structures. The basic idea is to create a key-value pair where key is supposed to be a unique value, whereas value can be same for different keys. This implementation is seen in unordered_set & unordered_map in C++, HashSet & HashMap in java, dict in python, map in JavaScript etc.
+
+Compiler Operation:
+
+The keywords of a programming language are processed differently than other identifiers. To differentiate between the keywords of a programming language(if, else, for, return etc.) and other identifiers and to successfully compile the program, the compiler stores all these keywords in a set which is implemented using a hash table.
+
+Rabin-Karp Algorithm:
+
+One of the most famous applications of hashing is the Rabin-Karp algorithm. This is basically a string-searching algorithm which uses hashing to find any one set of patterns in a string. A practical application of this algorithm is detecting plagiarism. To know more about Rabin-Karp also go through Searching for Patterns | Set 3 (Rabin-Karp Algorithm).
+
+Linking File name and path together:
+
+When moving through files on our local system, we observe two very crucial components of a file i.e. file_name and file_path. In order to store the correspondence between file_name and file_path the system uses a map(file_name, file_path)which is implemented using a hash table.
+
+The central problem of storage in the graphics storage of objects. For this, data is organized by hashing. It is also used to make a grid of appropriate size. We store the grid in 1D array as we do in case of sparse matrices. All the points stored in one cell will be stored in the same place. If the three points will store in the same entry, it will contain three points. here hash function is used to map the cell grid to the memory location. The key advantage of this method of storage is fast execution of search operation.
+
+Related articles:
+
+Hashing vs BST
+
+Hashing vs Trie

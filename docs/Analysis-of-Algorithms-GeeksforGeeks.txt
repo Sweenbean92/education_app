@@ -1,0 +1,74 @@
+URL: https://www.geeksforgeeks.org/dsa/analysis-of-algorithms
+Title: Analysis of Algorithms - GeeksforGeeks
+================================================================================
+
+
+Basics
+======
+
+
+
+Asymptotic Notations
+====================
+
+
+
+Analysis Examples
+=================
+
+
+
+Some Advance topics
+===================
+
+
+
+Explore
+=======
+
+
+Analysis of Algorithms is a fundamental aspect of computer science that involves evaluating performance of algorithms and programs. Efficiency is measured in terms of time and space.
+
+Why is Analysis Important?
+
+Order of Growth
+
+Asymptotic Analysis
+
+Worst, Average and Best Cases
+
+Big-O Notation
+
+Theta - Θ Notation
+
+Big – Ω (Big- Omega) Notation
+
+Time Complexity
+
+Space Complexity
+
+Big O vs, Big Omega vs Theta
+
+Examples of Big-O analysis
+
+Practice Questions on Time Complexity Analysis
+
+Quiz on Time Complexity Analysis
+
+Analyzing Loops
+
+Analyzing Recursive Functions
+
+Amortized Analysis
+
+P, NP, CoNP, NP hard and NP complete
+
+Proof that Clique Decision problem is NP-Complete
+
+Proof that Independent Set in Graph theory is NP Complete
+
+Prove that a problem consisting of Clique and Independent Set is NP Complete
+
+Prove that Dense Subgraph is NP Complete by Generalisation
+
+Prove that Sparse Graph is NP-Complete

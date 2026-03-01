@@ -1,0 +1,126 @@
+URL: https://www.geeksforgeeks.org/dsa/top-problems-on-bit-manipulation-for-interviews
+Title: Bit Manipulation Coding Questions for Interviews - GeeksforGeeks
+================================================================================
+
+
+Easy Problems
+=============
+
+
+
+Medium Problems
+===============
+
+
+
+Hard Problems
+=============
+
+
+
+Related Links
+=============
+
+
+
+Explore
+=======
+
+
+Common bitwise operators like AND, OR, XOR, and NOT allow you to manipulate individual bits within integers, providing a powerful toolkit for solving problems such as detecting duplicates, counting set bits, or performing arithmetic operations efficiently. Whether it's finding the missing number in a sequence or optimizing space in data structures, bit manipulation techniques can significantly improve your problem-solving approach in coding interviews.
+
+Binary Representation
+
+Turn off the rightmost set bit
+
+Check if K-th Bit Set
+
+Set the K-th Bit
+
+Modulus division by 2's Power
+
+Odd Occurring Number
+
+Power of two
+
+The only set bit
+
+Add Bit Strings
+
+Check for Integer Overflow
+
+XOR without using XOR
+
+Check for Equal
+
+Check for opposite signs
+
+Swap Two Numbers
+
+Russian Peasant
+
+Most Significant Set Bit
+
+Rightmost Set Bit
+
+Count Set Bits
+
+Rotate Bits
+
+Smallest of Three
+
+Minimum without branching
+
+Smallest power of 2 greater than or equal to n
+
+Program to find parity
+
+Check if binary is palindrome
+
+Generate n-bit Gray Codes
+
+Check for Sparse
+
+Euclid when % and / are costly
+
+Square without using *, / and pow()
+
+Cyclic Redundancy Check and Modulo-2 Division
+
+Set Bits in a Range
+
+Check for Bleak
+
+Gray to Binary and Vice Versa
+
+Next higher with same set bits
+
+Karatsuba Algorithm for fast Multiplication
+
+Max Subarray XOR
+
+Longest Sequence of 1’s in Binary with One Flip
+
+Closest Smaller and greater with same set bits
+
+Bitmasking and Dynamic Programming
+
+Compute the Parity
+
+XOR Encryption by Shifting Plaintext
+
+Count pairs with at least one digit common
+
+Floating to Binary
+
+Booth’s Multiplication Algorithm
+
+Pairs with Pandigital Concatenation
+
+n-th number whose binary is a palindrome
+
+Two non-repeating in an array of repeating
+
+DSA Tutorial
+
+System Design Tutorial

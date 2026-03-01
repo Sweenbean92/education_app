@@ -1,0 +1,102 @@
+URL: https://www.geeksforgeeks.org/dsa/deque-set-1-introduction-applications
+Title: Deque Data Structure - GeeksforGeeks
+================================================================================
+
+
+Implementations in Different Languages
+======================================
+
+
+
+Basics
+======
+
+
+
+Easy Problems
+=============
+
+
+
+Medium Problems
+===============
+
+
+
+Explore
+=======
+
+
+Deque or Double Ended Queue is a generalized version of Queue data structure that allows insert and delete at both ends. Below is an example program of deque in different languages.
+
+Deque can act as both Stack and Queue
+
+It is useful in many problems where we need to have a subset of all operations also like insert/remove at front and insert/remove at the end.
+
+It is typically implemented either using a doubly linked list or circular array.
+
+deque in C++
+
+Deque in Java
+
+Deque in Python
+
+Deque in JavaScript
+
+Below are example programs in different languages.
+
+#include <iostream> #include <deque> using namespace std; int main() { deque<int> dq; dq.push_back(10); dq.push_back(20); dq.push_front(30); // Print deque elements for (int x : dq) cout << x << " "; cout << endl; // Pop from front and back dq.pop_front(); dq.pop_back(); // Print deque elements after pop for (int x : dq) cout << x << " "; return 0; }
+
+import java.util.ArrayDeque; import java.util.Deque; public class Main { public static void main(String[] args) { Deque<Integer> dq = new ArrayDeque<>(); dq.addLast(10); dq.addLast(20); dq.addFirst(30); // Print deque elements for (int x : dq) System.out.print(x + " "); System.out.println(); // Pop from front and back dq.removeFirst(); dq.removeLast(); // Print deque elements after pop for (int x : dq) System.out.print(x + " "); } }
+
+from collections import deque dq = deque() dq.append(10) dq.append(20) dq.appendleft(30) # Print deque elements print(' '.join(map(str, dq))) # Pop from front and back dq.popleft() dq.pop() # Print deque elements after pop print(' '.join(map(str, dq)))
+
+using System; using System.Collections.Generic; class Program { static void Main() { Deque<int> dq = new Deque<int>(); dq.AddLast(10); dq.AddLast(20); dq.AddFirst(30); // Print deque elements foreach (int x in dq) Console.Write(x + " "); Console.WriteLine(); // Pop from front and back dq.RemoveFirst(); dq.RemoveLast(); // Print deque elements after pop foreach (int x in dq) Console.Write(x + " "); } } public class Deque<T> { private LinkedList<T> list = new LinkedList<T>(); public void AddFirst(T value) { list.AddFirst(value); } public void AddLast(T value) { list.AddLast(value); } public void RemoveFirst() { list.RemoveFirst(); } public void RemoveLast() { list.RemoveLast(); } public IEnumerator<T> GetEnumerator() { return list.GetEnumerator(); } }
+
+Array Implementation of Deque
+
+Linked List Implementation of Deque
+
+Minimize Maximum Difference Between Adjacent
+
+Substring with Maximum Frequency
+
+Prefixes as Suffixes of a String
+
+Level order traversal in spiral form
+
+String after processing backspace characters
+
+Generate a Sequence by inserting positions
+
+Lexicographically largest permutation
+
+Check if Strings Can Be Made Equal
+
+Rearrange Linked List to Alternate First and Last
+
+Implement Stack and Queue using Deque
+
+Generate Bitonic Sequence
+
+Rearrange Array Elements
+
+Longest Subarray with Absolute Difference ≤ X
+
+Reverse a Linked List in groups
+
+Max Sum Subsequence with K Distant Elements
+
+Nth term of given recurrence relation
+
+Max Subarray Length with K Increments
+
+Largest String after Deleting K Characters
+
+Segregate even and odd nodes in a Linked List
+
+Generate Permutation with Unique Adjacent Differences
+
+Min Deques to Sort Array
+
+Min Number by Applying + and * Operations

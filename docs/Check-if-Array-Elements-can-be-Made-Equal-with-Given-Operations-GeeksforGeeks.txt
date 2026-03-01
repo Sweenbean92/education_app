@@ -1,0 +1,48 @@
+URL: https://www.geeksforgeeks.org/dsa/find-whether-possible-make-array-elements-using-one-external-number
+Title: Check if Array Elements can be Made Equal with Given Operations - GeeksforGeeks
+================================================================================
+
+
+Explore
+=======
+
+
+Given an array arr[] consisting of N integers and following are the three operations that can be performed using any external number X.
+
+Add X to an array element once.
+
+Subtract X from an array element once.
+
+Perform no operation on the array element.
+
+Note : Only one operation can be performed on a number and only once.
+
+The task is to check whether there exists a number X, such that if the above operations are performed with the number X, the array elements become equal. If the number exists, print "Yes". Otherwise, print "No".
+
+Input: arr[] = {2, 3, 3, 4, 2}Output: Yes Explanation:Consider the value of X as 1 and increment the array element arr[0](= 2) and arr[4](= 2) by 1, and decrement arr[3](= 4) by 1 modifies the array to {3, 3, 3, 3, 3}.Therefore, print Yes with the value X as 1.Input: arr[] = {4, 3, 2, 1}Output: No
+
+The given problem can be solved based on the following observations:
+
+If all numbers are equal, the answer is "YES".
+
+If there are two distinct numbers in the array, the answer is "YES", as every distinct number can be converted to another integer by either adding the difference to smaller numbers or subtracting the difference from the larger numbers.
+
+If there are three distinct numbers A < B < C, then all array elements can be made equal by incrementing all the As by B - A and decrementing all the Cs by C - A only when (B - A) = (C - B) or B equals (C + A) / 2.
+
+If there are more than 3 distinct numbers in the array, the answer is "NO", because of the property of the addition.
+
+The idea is to use a hash set to store all unique elements of the array, then check the above conditions on the unique elements stored in the hash.
+
+#include <bits/stdc++.h> using namespace std; // Returns true if we can equalize arr using some x bool canEqualise(vector<int>& arr) { // Collect all unique elements using unordered_set unordered_set<int> s(arr.begin(), arr.end()); // If there is only one or two unique // values if (s.size() == 1 || s.size() == 2) return true; // If three unique elements, check if they // form an arithmetic sequence else if (s.size() == 3) { // Sort to get min, mid, max vector<int> unq(s.begin(), s.end()); sort(unq.begin(), unq.end()); int mn = unq[0]; int md = unq[1]; int mx = unq[2]; // Check if the differences are equal // to form an arithmetic sequence if ((mx - md) == (md - mn)) { return true; } } // More than three unique elements: cannot equalize return false; } // Driver code int main() { vector<int> arr = {55, 52, 52, 49, 52}; if (canEqualise(arr)) cout << "YES" << endl; else cout << "NO" << endl; }
+
+import java.util.*; // Returns true if we can equalize arr using some x public class Main { public static boolean canEqualise(int[] arr) { // Collect all unique elements using HashSet Set<Integer> s = new HashSet<>(); for (int num : arr) { s.add(num); } // If there is only one or two unique values if (s.size() == 1 || s.size() == 2) return true; // If three unique elements, check if they // form an arithmetic sequence else if (s.size() == 3) { // Sort to get min, mid, max List<Integer> unq = new ArrayList<>(s); Collections.sort(unq); int mn = unq.get(0); int md = unq.get(1); int mx = unq.get(2); // Check if the differences are equal // to form an arithmetic sequence if ((mx - md) == (md - mn)) { return true; } } // More than three unique elements: cannot equalize return false; } // Driver code public static void main(String[] args) { int[] arr = {55, 52, 52, 49, 52}; if (canEqualise(arr)) System.out.println("YES"); else System.out.println("NO"); } }
+
+def canEqualise(arr): # Collect all unique elements using set s = set(arr) # If there is only one or two unique values if len(s) == 1 or len(s) == 2: return True # If three unique elements, check if they # form an arithmetic sequence elif len(s) == 3: # Sort to get min, mid, max unq = sorted(s) mn = unq[0] md = unq[1] mx = unq[2] # Check if the differences are equal # to form an arithmetic sequence if (mx - md) == (md - mn): return True # More than three unique elements: # cannot equalize return False # Driver code arr = [55, 52, 52, 49, 52] if canEqualise(arr): print("YES") else: print("NO")
+
+// Returns true if we can equalize arr using some x using System; using System.Collections.Generic; using System.Linq; class Program { public static bool CanEqualise(List<int> arr) { // Collect all unique elements using HashSet HashSet<int> s = new HashSet<int>(arr); // If there is only one or two unique values if (s.Count == 1 || s.Count == 2) return true; // If three unique elements, check if they form an arithmetic sequence else if (s.Count == 3) { // Sort to get min, mid, max int[] unq = s.ToArray(); Array.Sort(unq); int mn = unq[0]; int md = unq[1]; int mx = unq[2]; // Check if the differences are equal to form an arithmetic sequence if ((mx - md) == (md - mn)) { return true; } } // More than three unique elements: cannot equalize return false; } // Driver code static void Main() { List<int> arr = new List<int> { 55, 52, 52, 49, 52 }; if (CanEqualise(arr)) Console.WriteLine("YES"); else Console.WriteLine("NO"); } }
+
+// Returns true if we can equalize arr using some x function canEqualise(arr) { // Collect all unique elements using Set const s = new Set(arr); // If there is only one or two unique values if (s.size === 1 || s.size === 2) return true; // If three unique elements, check if they form an arithmetic sequence else if (s.size === 3) { // Sort to get min, mid, max const unq = Array.from(s).sort((a, b) => a - b); const mn = unq[0]; const md = unq[1]; const mx = unq[2]; // Check if the differences are equal to form an arithmetic sequence if ((mx - md) === (md - mn)) { return true; } } // More than three unique elements: cannot equalize return false; } // Driver code const arr = [55, 52, 52, 49, 52]; if (canEqualise(arr)) console.log('YES'); else console.log('NO');
+
+Time Complexity : O(n)Auxiliary Space : O(n)
+
+Further Optimization : Since we care about only 3 distinct elements, we can avoid the use of hash table and use three variables. Hence we can solve this problem in O(n) Time and O(1) Space. Please refer Check it is possible to make array elements same using one external number for details

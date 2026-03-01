@@ -1,0 +1,56 @@
+URL: https://www.geeksforgeeks.org/dsa/construct-linked-list-2d-matrix
+Title: Construct a linked list from 2D matrix - GeeksforGeeks
+================================================================================
+
+
+[Expected Approach - 1] Recursive Approach - O(n^2) Time and O(n^2) Space
+=========================================================================
+
+
+
+[Expected Approach - 2] Iterative Approach - O(n^2) Time and O(n^2) Space
+=========================================================================
+
+
+
+Explore
+=======
+
+
+Given a Matrix mat of n*n size, the task is to construct a 2D linked list representation of the given matrix. Example:
+
+Input : mat = [[1 2 3] [4 5 6] [7 8 9]]Output : Input : mat = [[23 28] [23 28]]Output :
+
+Table of Content
+
+[Expected Approach - 1] Recursive Approach - O(n^2) Time and O(n^2) Space
+
+[Expected Approach - 2] Iterative Approach - O(n^2) Time and O(n^2) Space
+
+To recursively construct a linked matrix from a 2D matrix, start at the (0, 0) position of the given matrix and create a node for each matrix element. Each node’s right pointer links to the next element in the same row, while its down pointer connects to the element directly below in the column. If the current position is out of bounds, return NULL to end recursive call. This process continues recursively, creating and linking nodes until the entire matrix is transformed into a linked matrix with appropriate horizontal and vertical connections.
+
+Follow the steps below to solve the problem:
+
+First, create a variable of Node type, which will store the value and the addresses of its right and bottom nodes corresponding to a cell in the matrix.
+
+Recursively do the following steps for any cell in the matrix:If the cell is out of bounds, return null.Create a new Node with the value from the matrix for the current cell.Recursively construct the right node for the next cell in the row.Recursively construct the down node for the next cell in the column.
+
+Finally return the root Node.
+
+Below is the implementation of the above approach:
+
+// C++ to implement linked matrix // from a 2D matrix recursively #include <bits/stdc++.h> using namespace std; class Node { public: int data; Node *right, *down; Node(int x) { data = x; right = down = nullptr; } }; // Function to recursively construct the linked matrix // from a given 2D vector Node* constructUtil(vector<vector<int>>& mat, int i, int j) { // Base case: if we are out of bounds, return NULL if (i >= mat.size() || j >= mat[0].size()) { return nullptr; } // Create a new Node with the current matrix value Node* curr = new Node(mat[i][j]); // Recursively construct the right and down pointers curr->right = constructUtil(mat, i, j + 1); curr->down = constructUtil(mat, i + 1, j); // Return the constructed Node return curr; } // Function to construct the linked matrix given a 2D vector Node* constructLinkedMatrix(vector<vector<int>>& mat) { // Call the utility function starting // from the top-left corner of the matrix return constructUtil(mat, 0, 0); } void printList(Node *head) { Node *currRow = head; while (currRow != nullptr) { Node *currCol = currRow; while (currCol != nullptr) { cout << currCol->data << " "; currCol = currCol->right; } cout << endl; currRow = currRow->down; } } int main() { vector<vector<int>> mat = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } }; Node* head = constructLinkedMatrix(mat); printList(head); return 0; }
+
+// Java to implement linked matrix // from a 2D matrix recursively import java.util.ArrayList; class Node { int data; Node right, down; Node(int data) { this.data = data; this.right = null; this.down = null; } } class GfG { // Function to recursively construct the linked // matrix from a given 2D array static Node constructUtil(int[][] arr, int i, int j) { // Base case: if we are out of bounds, return null if (i >= arr.length || j >= arr[0].length) { return null; } // Create a new Node with the current // matrix value Node curr = new Node(arr[i][j]); // Recursively construct the right // and down pointers curr.right = constructUtil(arr, i, j + 1); curr.down = constructUtil(arr, i + 1, j); // Return the constructed Node return curr; } // Function to construct the linked // matrix given a 2D array static Node construct(int arr[][]) { // Call the utility function starting from the // top-left corner of the matrix return constructUtil(arr, 0, 0); } static void printList(Node head) { Node currRow = head; while (currRow != null) { Node currCol = currRow; while (currCol != null) { System.out.print(currCol.data + " "); currCol = currCol.right; } System.out.println(); currRow = currRow.down; } } public static void main(String[] args) { int arr[][] = { {1, 2, 3}, {4, 5, 6}, {7, 8, 9} }; Node head = construct(arr); printList(head); } }
+
+# Python to implement linked matrix # from a 2D matrix recursively class Node: def __init__(self, data): self.data = data self.right = None self.down = None def constructUtil(mat, i, j): # Base case: if we are out of bounds, return None if i >= len(mat) or j >= len(mat[0]): return None # Create a new Node with the current matrix value curr = Node(mat[i][j]) # Recursively construct the right and down pointers curr.right = constructUtil(mat, i, j + 1) curr.down = constructUtil(mat, i + 1, j) # Return the constructed Node return curr def constructLinkedMatrix(mat): # Call the utility function starting # from the top-left corner of the matrix return constructUtil(mat, 0, 0) def printList(head): currRow = head while currRow: currCol = currRow while currCol: print(currCol.data, end=" ") currCol = currCol.right print() currRow = currRow.down if __name__ == "__main__": mat = [ [1, 2, 3], [4, 5, 6], [7, 8, 9] ] head = constructLinkedMatrix(mat) printList(head)
+
+// C# to implement linked matrix // from a 2D matrix recursively using System; using System.Collections.Generic; class Node { public int data; public Node right, down; public Node(int x) { data = x; right = down = null; } } class GfG { // Recursive utility function to construct // the linked matrix from a 2D List static Node ConstructUtil(List<List<int>> arr, int i, int j) { // Base case: if we are out of bounds, return null if (i >= arr.Count || j >= arr[0].Count) return null; // Create a new Node with the current list value Node curr = new Node(arr[i][j]); // Recursively construct the right and // down pointers curr.right = ConstructUtil(arr, i, j + 1); curr.down = ConstructUtil(arr, i + 1, j); // Return the constructed Node return curr; } // Function to construct the linked matrix // from a List of Lists static Node Construct(List<List<int>> arr) { // Call the utility function starting // from the top-left corner return ConstructUtil(arr, 0, 0); } static void PrintList(Node head) { Node currRow = head; while (currRow != null) { Node currCol = currRow; while (currCol != null) { Console.Write(currCol.data + " "); currCol = currCol.right; } Console.WriteLine(); currRow = currRow.down; } } static void Main(string[] args) { List<List<int>> arr = new List<List<int>> { new List<int> { 1, 2, 3 }, new List<int> { 4, 5, 6 }, new List<int> { 7, 8, 9 } }; Node head = Construct(arr); PrintList(head); } }
+
+// Javascript to implement linked matrix // from a 2D matrix recursively class Node { constructor(data) { this.data = data; this.right = null; this.down = null; } } // Recursive utility function to construct // the linked matrix function constructUtil(arr, i, j) { // Base case: if out of bounds, return null if (i >= arr.length || j >= arr[0].length) { return null; } // Create a new Node with the current array value const curr = new Node(arr[i][j]); // Recursively construct the right and down pointers curr.right = constructUtil(arr, i, j + 1); curr.down = constructUtil(arr, i + 1, j); // Return the constructed Node return curr; } // Function to construct the linked matrix from a 2D array function constructLinkedMatrix(arr) { // Start from the top-left corner return constructUtil(arr, 0, 0); } function printList(head) { let currRow = head; while (currRow !== null) { let currCol = currRow; while (currCol !== null) { console.log(currCol.data + " "); currCol = currCol.right; } console.log(); currRow = currRow.down; } } const arr = [ [1, 2, 3], [4, 5, 6], [7, 8, 9] ]; const head = constructLinkedMatrix(arr); printList(head);
+
+1 2 3 4 5 6 7 8 9
+
+Time complexity: O(n^2), since each element in the 2D matrix is visited once to create the corresponding node in the linked structure. Auxiliary space: O(n^2), due to the storage needed for each node in the linked matrix.
+
+The approach involves creating m linked lists, where m represents the number of rows in a given 2D matrix. Each node in these linked lists stores a reference to its right neighbor. The head pointers of each linked list are maintained in an array. After constructing the linked lists, we traverse through them and for each i-th and (i+1)-th list, we establish the down pointers of each node in i-th list to point to the corresponding node in (i+1)-th list. Please refer to Construct a linked list from 2D matrix (Iterative Approach) for implementation.

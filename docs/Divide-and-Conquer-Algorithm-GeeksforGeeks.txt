@@ -1,0 +1,90 @@
+URL: https://www.geeksforgeeks.org/dsa/divide-and-conquer
+Title: Divide and Conquer Algorithm - GeeksforGeeks
+================================================================================
+
+
+Basics
+======
+
+
+
+Standard Algorithms
+===================
+
+
+
+Practice problems
+=================
+
+
+
+Practice Standard Algorithms
+============================
+
+
+
+Explore
+=======
+
+
+Divide and Conquer algorithm is a problem-solving strategy that involves.
+
+Divide : Break the given problem into smaller non-overlapping problems.
+
+Conquer : Solve Smaller Problems
+
+Combine : Use the Solutions of Smaller Problems to find the overall result.
+
+Examples of Divide and Conquer are Merge Sort, Quick Sort, Binary Search and Closest Pair of Points.
+
+There is no need of explicit combine step in some algorithms like Binary Search and Quick Sort. Although in Merge Sort, the combine step is the main step.
+
+The divide step can be trivial in some algorithms (like in Merge Sort and Binary Search, we simply divide in two equal halves). The divide step can be complex in some algorithms like Quick Sort.
+
+The following image shows working of Divide and Conquer to sort an array using Merge Sort.
+
+Introduction
+
+Master Theorem
+
+Calculate pow(x, n)
+
+Karatsuba algorithm for fast multiplication
+
+Strassen’s Matrix Multiplication
+
+Convex Hull (Simple Divide and Conquer Algorithm)
+
+Quickhull Algorithm for Convex Hull
+
+Square root of an integer
+
+Max and min using minimum comparisons
+
+Frequency in a limited range array
+
+Tiling Problem
+
+Count Inversions
+
+The Skyline Problem
+
+Search in a Row and Column-wise Sorted Grid
+
+Allocate minimum number of pages
+
+Modular Exponentiation
+
+Binary Search Based Problems
+
+Merge Sort Based Problems
+
+Quick Sort Based Problems
+
+Quick Links :
+
+Learn Data Structure and Algorithms | DSA Tutorial
+
+‘Practice Problems’ on Divide and Conquer
+
+‘Quizzes’ on Divide and Conquer

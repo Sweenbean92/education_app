@@ -1,0 +1,91 @@
+URL: https://www.geeksforgeeks.org/dsa/sort-even-placed-elements-increasing-odd-placed-decreasing-order
+Title: Sort even-placed in increasing and odd-placed in decreasing order - GeeksforGeeks
+================================================================================
+
+
+[Naive Approach] - O(n Log n) Time and O(n) Space
+=================================================
+
+
+
+[Expected Approach - 1] - O(n Log n) Time and O(1) Space
+========================================================
+
+
+
+[Expected Approach - 2] - O(n Log n) Time and O(1) Space
+========================================================
+
+
+
+Explore
+=======
+
+
+We are given an array of n distinct numbers. The task is to sort all even-placed numbers in increasing and odd-placed numbers in decreasing order. The modified array should contain all sorted even-placed numbers followed by reverse sorted odd-placed numbers.
+
+Note that the first element is considered as even placed because of its index 0.
+
+Input: arr[] = {0, 1, 2, 3, 4, 5, 6, 7}Output: arr[] = {0, 2, 4, 6, 7, 5, 3, 1}Explanation:Even-place elements : 0, 2, 4, 6Odd-place elements : 1, 3, 5, 7Even-place elements in increasing order : 0, 2, 4, 6Odd-Place elements in decreasing order : 7, 5, 3, 1Input: arr[] = {3, 1, 2, 4, 5, 9, 13, 14, 12}Output: {2, 3, 5, 12, 13, 14, 9, 4, 1}Explanation:Even-place elements : 3, 2, 5, 13, 12Odd-place elements : 1, 4, 9, 14Even-place elements in increasing order : 2, 3, 5, 12, 13Odd-Place elements in decreasing order : 14, 9, 4, 1
+
+The idea is simple. We create two auxiliary arrays evenArr[] and oddArr[] respectively. We traverse input array and put all even-placed elements in evenArr[] and odd placed elements in oddArr[]. Then we sort evenArr[] in ascending and oddArr[] in descending order. Finally, copy evenArr[] and oddArr[] to get the required result.
+
+// Program to separately sort even-placed and odd // placed numbers and place them together in sorted // array. #include <bits/stdc++.h> using namespace std; void bitonicGenerator(vector<int>& arr) { // create evenArr[] and oddArr[] vector<int> evenArr; vector<int> oddArr; // Put elements in oddArr[] and evenArr[] as // per their position for (int i = 0; i < arr.size(); i++) { if (!(i % 2)) evenArr.push_back(arr[i]); else oddArr.push_back(arr[i]); } // sort evenArr[] in ascending order // sort oddArr[] in descending order sort(evenArr.begin(), evenArr.end()); sort(oddArr.begin(), oddArr.end(), greater<int>()); int i = 0; for (int j = 0; j < evenArr.size(); j++) arr[i++] = evenArr[j]; for (int j = 0; j < oddArr.size(); j++) arr[i++] = oddArr[j]; } // Driver Program int main() { vector<int> arr = { 1, 5, 8, 9, 6, 7, 3, 4, 2, 0 }; bitonicGenerator(arr); for (int i = 0; i < arr.size(); i++) cout << arr[i] << " "; return 0; }
+
+// Program to separately sort even-placed and odd // placed numbers and place them together in sorted // array. import java.util.*; public class Main { public static void bitonicGenerator(int[] arr) { // create evenArr[] and oddArr[] List<Integer> evenArr = new ArrayList<>(); List<Integer> oddArr = new ArrayList<>(); // Put elements in oddArr[] and evenArr[] as // per their position for (int i = 0; i < arr.length; i++) { if (i % 2 == 0) evenArr.add(arr[i]); else oddArr.add(arr[i]); } // sort evenArr[] in ascending order // sort oddArr[] in descending order Collections.sort(evenArr); Collections.sort(oddArr, Collections.reverseOrder()); int i = 0; for (int num : evenArr) arr[i++] = num; for (int num : oddArr) arr[i++] = num; } public static void main(String[] args) { int[] arr = { 1, 5, 8, 9, 6, 7, 3, 4, 2, 0 }; bitonicGenerator(arr); for (int num : arr) System.out.print(num + " "); } }
+
+# Program to separately sort even-placed and odd # placed numbers and place them together in sorted # array. def bitonic_generator(arr): # create evenArr[] and oddArr[] evenArr = [] oddArr = [] # Put elements in oddArr[] and evenArr[] as # per their position for i in range(len(arr)): if i % 2 == 0: evenArr.append(arr[i]) else: oddArr.append(arr[i]) # sort evenArr[] in ascending order # sort oddArr[] in descending order evenArr.sort() oddArr.sort(reverse=True) i = 0 for num in evenArr: arr[i] = num i += 1 for num in oddArr: arr[i] = num i += 1 # Driver Program arr = [1, 5, 8, 9, 6, 7, 3, 4, 2, 0] bitonic_generator(arr) print(' '.join(map(str, arr)))
+
+// Program to separately sort even-placed and odd // placed numbers and place them together in sorted // array. using System; using System.Collections.Generic; using System.Linq; class Program { static void BitonicGenerator(int[] arr) { // create evenArr[] and oddArr[] List<int> evenArr = new List<int>(); List<int> oddArr = new List<int>(); // Put elements in oddArr[] and evenArr[] as // per their position for (int i = 0; i < arr.Length; i++) { if (i % 2 == 0) evenArr.Add(arr[i]); else oddArr.Add(arr[i]); } // sort evenArr[] in ascending order // sort oddArr[] in descending order evenArr.Sort(); oddArr.Sort((a, b) => b.CompareTo(a)); int index = 0; foreach (var num in evenArr) arr[index++] = num; foreach (var num in oddArr) arr[index++] = num; } static void Main() { int[] arr = { 1, 5, 8, 9, 6, 7, 3, 4, 2, 0 }; BitonicGenerator(arr); Console.WriteLine(string.Join(" ", arr)); } }
+
+// Program to separately sort even-placed and odd // placed numbers and place them together in sorted // array. function bitonicGenerator(arr) { // create evenArr[] and oddArr[] const evenArr = []; const oddArr = []; // Put elements in oddArr[] and evenArr[] as // per their position for (let i = 0; i < arr.length; i++) { if (i % 2 === 0) evenArr.push(arr[i]); else oddArr.push(arr[i]); } // sort evenArr[] in ascending order // sort oddArr[] in descending order evenArr.sort((a, b) => a - b); oddArr.sort((a, b) => b - a); let i = 0; for (const num of evenArr) arr[i++] = num; for (const num of oddArr) arr[i++] = num; } // Driver Program const arr = [1, 5, 8, 9, 6, 7, 3, 4, 2, 0]; bitonicGenerator(arr); console.log(arr.join(' '));
+
+// Program to separately sort even-placed and odd // placed numbers and place them together in sorted // array. function bitonicGenerator(&$arr) { // create evenArr[] and oddArr[] $evenArr = []; $oddArr = []; // Put elements in oddArr[] and evenArr[] as // per their position foreach ($arr as $i => $value) { if ($i % 2 === 0) $evenArr[] = $value; else $oddArr[] = $value; } // sort evenArr[] in ascending order // sort oddArr[] in descending order sort($evenArr); rsort($oddArr); $i = 0; foreach ($evenArr as $num) { $arr[$i++] = $num; } foreach ($oddArr as $num) { $arr[$i++] = $num; } } // Driver Program $arr = [1, 5, 8, 9, 6, 7, 3, 4, 2, 0]; bitonicGenerator($arr); echo implode(' ', $arr);
+
+1 2 3 6 8 9 7 5 4 0
+
+The problem can also be solved without the use of Auxiliary space. The idea is to swap the first half odd index positions with the second half even index positions and then sort the first half array in increasing order and the second half array in decreasing order.
+
+#include <bits/stdc++.h> using namespace std; void bitonicGenerator(vector<int>& arr) { // first odd index int i = 1; // last index int n = arr.size(); int j = n - 1; // if last index is odd if (j % 2 != 0) // decrement j to even index j--; // swapping till half of array while (i < j) { swap(arr[i], arr[j]); i += 2; j -= 2; } // Sort first half in increasing sort(arr.begin(), arr.begin() + (n + 1) / 2); // Sort second half in decreasing sort(arr.begin() + (n + 1) / 2, arr.end(), greater<int>()); } // Driver Program int main() { vector<int> arr = { 1, 5, 8, 9, 6, 7, 3, 4, 2, 0 }; bitonicGenerator(arr); for (int i = 0; i < arr.size(); i++) cout << arr[i] << " "; return 0; }
+
+import java.util.Arrays; class BitonicGenerator { public static void bitonicGenerator(int[] arr) { // first odd index int i = 1; // last index int n = arr.length; int j = n - 1; // if last index is odd if (j % 2 != 0) // decrement j to even index j--; // swapping till half of array while (i < j) { int temp = arr[i]; arr[i] = arr[j]; arr[j] = temp; i += 2; j -= 2; } // Sort first half in increasing order Arrays.sort(arr, 0, (n + 1) / 2); // Sort second half in decreasing order Arrays.sort(arr, (n + 1) / 2, n); reverse(arr, (n + 1) / 2, n); } private static void reverse(int[] arr, int start, int end) { end--; while (start < end) { int temp = arr[start]; arr[start] = arr[end]; arr[end] = temp; start++; end--; } } // Driver Program public static void main(String[] args) { int[] arr = {1, 5, 8, 9, 6, 7, 3, 4, 2, 0}; bitonicGenerator(arr); for (int num : arr) { System.out.print(num + " "); } } }
+
+def bitonic_generator(arr): # first odd index i = 1 # last index n = len(arr) j = n - 1 # if last index is odd if j % 2 != 0: # decrement j to even index j -= 1 # swapping till half of array while i < j: arr[i], arr[j] = arr[j], arr[i] i += 2 j -= 2 # Sort first half in increasing arr[:(n + 1) // 2] = sorted(arr[:(n + 1) // 2]) # Sort second half in decreasing arr[(n + 1) // 2:] = sorted(arr[(n + 1) // 2:], reverse=True) # Driver Program arr = [1, 5, 8, 9, 6, 7, 3, 4, 2, 0] bitonic_generator(arr) print(' '.join(map(str, arr)))
+
+// Function to generate a bitonic sequence using System; using System.Collections.Generic; using System.Linq; class Program { static void BitonicGenerator(List<int> arr) { // first odd index int i = 1; // last index int n = arr.Count; int j = n - 1; // if last index is odd if (j % 2 != 0) // decrement j to even index j--; // swapping till half of array while (i < j) { int temp = arr[i]; arr[i] = arr[j]; arr[j] = temp; i += 2; j -= 2; } // Sort first half in increasing arr.Sort(0, (n + 1) / 2); // Sort second half in decreasing arr.Sort((n + 1) / 2, n - (n + 1) / 2, Comparer<int>.Create((x, y) => y.CompareTo(x))); } // Driver Program static void Main() { List<int> arr = new List<int> { 1, 5, 8, 9, 6, 7, 3, 4, 2, 0 }; BitonicGenerator(arr); Console.WriteLine(string.Join(" ", arr)); } }
+
+// Function to generate a bitonic sequence function bitonicGenerator(arr) { // first odd index let i = 1; // last index let n = arr.length; let j = n - 1; // if last index is odd if (j % 2 !== 0) // decrement j to even index j--; // swapping till half of array while (i < j) { [arr[i], arr[j]] = [arr[j], arr[i]]; i += 2; j -= 2; } // Sort first half in increasing arr.sort((a, b) => a - b); // Sort second half in decreasing arr.slice((n + 1) / 2).sort((a, b) => b - a); } // Driver Program let arr = [1, 5, 8, 9, 6, 7, 3, 4, 2, 0]; bitonicGenerator(arr); console.log(arr.join(' '));
+
+Note : The above Python and JS codes seem to require extra space. Let us know in comments about your thoughts and any alternate implementations.
+
+Another efficient approach to solve the problem in O(1) auxiliary space is by Using negative multiplication.
+
+The steps involved are as follows:
+
+Multiply all the elements at even placed index by -1.
+
+Sort the whole array. In this way, we can get all even placed index in the starting as they are negative numbers now.
+
+Now revert the sign of these elements.
+
+After this reverse the first half of the array which contains an even placed number to make it in increasing order.
+
+And then reverse the rest half of the array to make odd placed numbers in decreasing order.
+
+Note: This method is only applicable if all the elements in the array are non-negative.
+
+An illustrative example of the above approach:
+
+Let given array: arr[] = {0, 1, 2, 3, 4, 5, 6, 7}Array after multiplying by -1 to even placed elements: arr[] = {0, 1, -2, 3, -4, 5, -6, 7}Array after sorting: arr[] = {-6, -4, -2, 0, 1, 3, 5, 7}Array after reverting negative values: arr[] = {6, 4, 2, 0, 1, 3, 5, 7}After reversing the first half of array: arr[] = {0, 2, 4, 6, 1, 3, 5, 7}After reversing the second half of array: arr[] = {0, 2, 4, 6, 7, 5, 3, 1}
+
+Below is the code for the above approach:
+
+#include <bits/stdc++.h> using namespace std; void bitonicGenerator(vector<int>& arr) { // Making all even placed index // element negative for (int i = 0; i < arr.size(); i++) { if (i % 2==0) arr[i] = -1 * arr[i]; } // Sorting the whole array sort(arr.begin(), arr.end()); // Finding the middle value of // the array int mid = (arr.size() - 1) / 2; // Reverting the changed sign for (int i = 0; i <= mid; i++) { arr[i] = -1 * arr[i]; } // Reverse first half of array reverse(arr.begin(), arr.begin() + mid + 1); // Reverse second half of array reverse(arr.begin() + mid + 1, arr.end()); } // Driver Program int main() { vector<int> arr = { 1, 5, 8, 9, 6, 7, 3, 4, 2, 0 }; bitonicGenerator(arr); for (int i = 0; i < arr.size(); i++) cout << arr[i] << " "; return 0; }
+
+import java.util.Arrays; import java.util.List; public class BitonicGenerator { public static void bitonicGenerator(List<Integer> arr) { // Making all even placed index // element negative for (int i = 0; i < arr.size(); i++) { if (i % 2 == 0) arr.set(i, -1 * arr.get(i)); } // Sorting the whole array Collections.sort(arr); // Finding the middle value of // the array int mid = (arr.size() - 1) / 2; // Reverting the changed sign for (int i = 0; i <= mid; i++) { arr.set(i, -1 * arr.get(i)); } // Reverse first half of array Collections.reverse(arr.subList(0, mid + 1)); // Reverse second half of array Collections.reverse(arr.subList(mid + 1, arr.size())); } // Driver Program public static void main(String[] args) { List<Integer> arr = Arrays.asList(1, 5, 8, 9, 6, 7, 3, 4, 2, 0); bitonicGenerator(arr); for (int i : arr) System.out.print(i + " "); } }
+
+def bitonic_generator(arr): # Making all even placed index # element negative for i in range(len(arr)): if i % 2 == 0: arr[i] = -1 * arr[i] # Sorting the whole array arr.sort() # Finding the middle value of # the array mid = (len(arr) - 1) // 2 # Reverting the changed sign for i in range(mid + 1): arr[i] = -1 * arr[i] # Reverse first half of array arr[:mid + 1] = reversed(arr[:mid + 1]) # Reverse second half of array arr[mid + 1:] = reversed(arr[mid + 1:]) # Driver Program arr = [1, 5, 8, 9, 6, 7, 3, 4, 2, 0] bitonic_generator(arr) print(' '.join(map(str, arr)))
+
+using System; using System.Collections.Generic; using System.Linq; class BitonicGenerator { public static void BitonicGeneratorMethod(List<int> arr) { // Making all even placed index // element negative for (int i = 0; i < arr.Count; i++) { if (i % 2 == 0) arr[i] = -1 * arr[i]; } // Sorting the whole array arr.Sort(); // Finding the middle value of // the array int mid = (arr.Count - 1) / 2; // Reverting the changed sign for (int i = 0; i <= mid; i++) { arr[i] = -1 * arr[i]; } // Reverse first half of array arr.Take(mid + 1).Reverse().ToList().CopyTo(arr); // Reverse second half of array arr.Skip(mid + 1).Reverse().ToList().CopyTo(arr, mid + 1); } // Driver Program public static void Main() { List<int> arr = new List<int> { 1, 5, 8, 9, 6, 7, 3, 4, 2, 0 }; BitonicGeneratorMethod(arr); Console.WriteLine(string.Join(" ", arr)); } }
+
+function bitonicGenerator(arr) { // Making all even placed index // element negative for (let i = 0; i < arr.length; i++) { if (i % 2 === 0) arr[i] = -1 * arr[i]; } // Sorting the whole array arr.sort((a, b) => a - b); // Finding the middle value of // the array const mid = Math.floor((arr.length - 1) / 2); // Reverting the changed sign for (let i = 0; i <= mid; i++) { arr[i] = -1 * arr[i]; } // Reverse first half of array arr.slice(0, mid + 1).reverse().forEach((val, index) => arr[index] = val); // Reverse second half of array arr.slice(mid + 1).reverse().forEach((val, index) => arr[mid + 1 + index] = val); } // Driver Program let arr = [1, 5, 8, 9, 6, 7, 3, 4, 2, 0]; bitonicGenerator(arr); console.log(arr.join(' '));

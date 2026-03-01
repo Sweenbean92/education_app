@@ -1,0 +1,11 @@
+<div class="performance-control" style="display: flex; align-items: center; gap: 10px;">
+    <label for="performance-select" style="color: #6FFFE9; font-size: 14px; white-space: nowrap;">Performance:</label>
+    <select id="performance-select" 
+            style="padding: 6px 12px; border-radius: 6px; background: #1C2541; color: #6FFFE9; border: 1px solid #5BC0BE; cursor: pointer; font-size: 14px;"
+            onchange="updatePerformance(this.value)">
+        <option value="low">Low (Fast)</option>
+        <option value="medium" selected>Medium (Balanced)</option>
+        <option value="high">High (Slower)</option>
+        <option value="ultra">Ultra (Slowest)</option>
+    </select>
+</div>

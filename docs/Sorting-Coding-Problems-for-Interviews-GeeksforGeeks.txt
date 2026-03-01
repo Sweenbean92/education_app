@@ -1,0 +1,118 @@
+URL: https://www.geeksforgeeks.org/dsa/top-sorting-interview-questions-and-problems
+Title: Sorting Coding Problems for Interviews - GeeksforGeeks
+================================================================================
+
+
+Easy Problems
+=============
+
+
+
+Medium Problems
+===============
+
+
+
+Hard Problems
+=============
+
+
+
+Related Articles:
+=================
+
+
+
+Explore
+=======
+
+
+Here is the collection of frequently asked coding questions on Sorting. Problems in this article are divided into three Levels so that readers can practice according to the difficulty level step by step
+
+Maximum Perimeter Triangle
+
+Maximize sum after K negations
+
+Sum of minimum absolute difference
+
+Sort in waveform
+
+Chocolate Distribution Problem
+
+Pair with the given difference
+
+Triplet Sum (3sum)
+
+Triplet with closest sum
+
+K most occurring elements
+
+Merge Overlapping Intervals
+
+Form the Largest Number
+
+Sort array of 0s, 1s and 2s
+
+K’th Smallest/Largest
+
+Inversion Count
+
+Minimum Platforms Required
+
+Maximum meetings in one room
+
+Case-specific Sorting of Strings
+
+Sort by Frequency
+
+Minimum Operations for Distinct
+
+Maximum intersections lines
+
+Maximum intervals overlapping
+
+Minimum Product sum of consecutive pairs
+
+Position of an element after stable sort
+
+Merge Sort for Doubly Linked List
+
+Segregate 0s and 1s in an array
+
+Sort even and odd numbers
+
+Minimum product of k integers
+
+Array Permutation with Pair Sums ≥ K
+
+Merge sorted arrays with O(1) extra space
+
+Count smaller elements on Right side
+
+Smallest Non-Representable Subset Sum
+
+Count Subarrays with median at least X
+
+Merge K sorted linked lists
+
+Smallest Difference Triplet from Three arrays
+
+Sort n numbers from 0 to n^2 – 1 in linear time
+
+Sort a 2D vector diagonally
+
+Print Binary Tree levels in sorted order
+
+Array Coding Problems for Interviews
+
+String Coding Problems for Interviews
+
+Tree Coding Problems for Interviews
+
+Graph Coding Problems for Interviews
+
+Dynamic Programming Coding Problems for Interviews
+
+Binary Search Tree Coding Problems for Interviews
+
+Searching Coding Problems for Interviews

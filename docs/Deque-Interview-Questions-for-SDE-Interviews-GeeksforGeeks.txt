@@ -1,0 +1,36 @@
+URL: https://www.geeksforgeeks.org/dsa/top-problems-on-deque-data-structure-asked-in-sde-interviews
+Title: Deque Interview Questions for SDE Interviews - GeeksforGeeks
+================================================================================
+
+
+Explore
+=======
+
+
+A Deque (Double-Ended Queue) is a flexible data structure that supports insertion and deletion from both ends in O(1) time. In SDE interviews, deques are frequently tested in problems involving efficient subarray computations, maintaining order constraints, and implementing caching mechanisms.
+
+Circular Array Implementation of Deque
+
+Implementation of Deque using doubly linked list
+
+Stack and Queue Implementation using Deque
+
+Reverse First K Elements of a Queue
+
+First Negative in Every Window of Size K
+
+Maximum of all subarrays of size K
+
+Sum of Min & Max in All Subarrays of Size K
+
+Maximum score possible
+
+Longest subarray with at most k difference
+
+Longest Subarray with Max Pair Difference ≤ X
+
+Minimize the Max difference between adjacent
+
+Bitonic Sequence from a given range
+
+Queue with Minimum

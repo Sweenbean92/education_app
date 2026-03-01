@@ -1,0 +1,54 @@
+URL: https://www.geeksforgeeks.org/dsa/number-rectangles-nm-grid
+Title: Number of rectangles in N*M grid - GeeksforGeeks
+================================================================================
+
+
+Explore
+=======
+
+
+We are given a N*M grid, print the number of rectangles in it.Examples:
+
+Input : N = 2, M = 2Output : 9There are 4 rectangles of size 1 x 1.There are 2 rectangles of size 1 x 2There are 2 rectangles of size 2 x 1There is one rectangle of size 2 x 2.Input : N = 5, M = 4Output : 150Input : N = 4, M = 3Output: 60
+
+Brute Force Approach :
+
+Iterate over all possible pairs of horizontal lines.Iterate over all possible pairs of vertical lines.count the number of rectangles that can be formed using these lines.
+
+Below is the code for the above approach :
+
+#include <bits/stdc++.h> using namespace std; int rectCount(int n, int m) { int count = 0; for(int i=1; i<=n; i++) // iterating over all possible pairs of horizontal lines { for(int j=1; j<=m; j++) // iterating over all possible pairs of vertical lines { count += (n-i+1)*(m-j+1); // counting the number of rectangles that can be formed using these lines } } return count; } /* driver code */ int main() { int n = 5, m = 4; cout << rectCount(n, m); return 0; }
+
+import java.util.Scanner; public class RectangleCount { public static int rectCount(int n, int m) { int count = 0; // Iterate over all possible pairs of horizontal lines for (int i = 1; i <= n; i++) { // Iterate over all possible pairs of vertical lines for (int j = 1; j <= m; j++) { // Count the number of rectangles that can be formed using these lines count += (n - i + 1) * (m - j + 1); } } return count; } public static void main(String[] args) { Scanner sc = new Scanner(System.in); int n = 5, m = 4; // Calculate and print the count of rectangles System.out.println("Count of Rectangles: " + rectCount(n, m)); } }
+
+def rect_count(n, m): count = 0 for i in range(1, n + 1): # iterating over all possible pairs of horizontal lines for j in range(1, m + 1): # iterating over all possible pairs of vertical lines count += (n - i + 1) * (m - j + 1) # counting the number of rectangles that can be formed using these lines return count # driver code def main(): n = 5 m = 4 print(rect_count(n, m)) if __name__ == "__main__": main()
+
+using System; class Program { static int RectCount(int n, int m) { int count = 0; for (int i = 1; i <= n; i++) // iterating over all possible pairs of horizontal lines { for (int j = 1; j <= m; j++) // iterating over all possible pairs of vertical lines { count += (n - i + 1) * (m - j + 1); // counting the number of rectangles that can be formed using these lines } } return count; } // driver code static void Main() { int n = 5, m = 4; Console.WriteLine(RectCount(n, m)); } }
+
+// Function to count the number of rectangles that can be formed function rectCount(n, m) { let count = 0; for (let i = 1; i <= n; i++) { // iterating over all possible pairs of horizontal lines for (let j = 1; j <= m; j++) { // iterating over all possible pairs of vertical lines count += (n - i + 1) * (m - j + 1); // counting the number of rectangles that can be formed using these lines } } return count; } // Driver code const n = 5; const m = 4; console.log(rectCount(n, m));
+
+Time Complexity : O(N^2)Space Complexity : O(1)
+
+We have discussed counting number of squares in a n x m grid,Let us derive a formula for number of rectangles.If the grid is 1x1, there is 1 rectangle. If the grid is 2x1, there will be 2 + 1 = 3 rectangles If it grid is 3x1, there will be 3 + 2 + 1 = 6 rectangles. we can say that for N*1 there will be N + (N-1) + (n-2) ... + 1 = (N)(N+1)/2 rectanglesIf we add one more column to N×1, firstly we will have as many rectangles in the 2nd column as the first, and then we have that same number of 2×M rectangles. So N×2 = 3 (N)(N+1)/2After deducing this we can say For N*M we'll have (M)(M+1)/2 (N)(N+1)/2 = M(M+1)(N)(N+1)/4So the formula for total rectangles will be M(M+1)(N)(N+1)/4
+
+Combinatorial Logic:
+
+N*M grid can be represented as (N+1) vertical lines and (M+1) horizontal lines.In a rectangle, we need two distinct horizontal and two distinct verticals.So going by the logic of Combinatorial Mathematics we can choose 2 vertical lines and 2 horizontal lines to form a rectangle. And total number of these combinations is the number of rectangles possible in the grid.
+
+Total Number of Rectangles in N*M grid: N+1C2 * M+1C2 = (N*(N+1)/2!)*(M*(M+1)/2!) = N*(N+1)*M*(M+1)/4
+
+// C++ program to count number of rectangles // in a n x m grid #include <bits/stdc++.h> using namespace std; int rectCount(int n, int m) { return (m * n * (n + 1) * (m + 1)) / 4; } /* driver code */ int main() { int n = 5, m = 4; cout << rectCount(n, m); return 0; }
+
+// JAVA Code to count number of // rectangles in N*M grid import java.util.*; class GFG { public static long rectCount(int n, int m) { return (m * n * (n + 1) * (m + 1)) / 4; } /* Driver program to test above function */ public static void main(String[] args) { int n = 5, m = 4; System.out.println(rectCount(n, m)); } } // This code is contributed by Arnav Kr. Mandal.
+
+# Python3 program to count number # of rectangles in a n x m grid def rectCount(n, m): return (m * n * (n + 1) * (m + 1)) // 4 # Driver code n, m = 5, 4 print(rectCount(n, m)) # This code is contributed by Anant Agarwal.
+
+// C# Code to count number of // rectangles in N*M grid using System; class GFG { public static long rectCount(int n, int m) { return (m * n * (n + 1) * (m + 1)) / 4; } // Driver program public static void Main() { int n = 5, m = 4; Console.WriteLine(rectCount(n, m)); } } // This code is contributed by Anant Agarwal.
+
+<script> // Javascript Code to count number // of rectangles in N*M grid function rectCount(n, m) { return parseInt((m * n * (n + 1) * (m + 1)) / 4, 10); } let n = 5, m = 4; document.write(rectCount(n, m)); </script>
+
+<?php // PHP program to count // number of rectangles // in a n x m grid function rectCount($n, $m) { return ($m * $n * ($n + 1) * ($m + 1)) / 4; } // Driver Code $n = 5; $m = 4; echo rectCount($n, $m); // This code is contributed // by ajit ?>
+
+Time complexity: O(1)Auxiliary Space: O(1), since no extra space has been taken.
+
+This article is contributed by Pranav.

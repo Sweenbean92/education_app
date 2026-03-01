@@ -1,0 +1,40 @@
+URL: https://www.geeksforgeeks.org/dsa/program-find-line-passing-2-points
+Title: Program to find line passing through 2 Points - GeeksforGeeks
+================================================================================
+
+
+Explore
+=======
+
+
+Given two points P and Q in the coordinate plane, find the equation of the line passing through both points.This kind of conversion is very useful in many geometric algorithms like intersection of lines, finding the circumcenter of a triangle, finding the incenter of a triangle and many more...
+
+Input : P(3, 2) Q(2, 6) Output : 4x + 1y = 14 Input : P(0, 1) Q(2, 4) Output : 3x + -2y = -2
+
+Let the given two points be P(x1, y1) and Q(x2, y2). Now, we find the equation of line formed by these points.Any line can be represented as, ax + by = c Let the two points satisfy the given line. So, we have, ax1 + by1 = c ax2 + by2 = c
+
+We can set the following values so that all the equations hold true,
+
+a = y2 - y1 b = x1 - x2 c = ax1 + by1
+
+These can be derived by first getting the slope directly and then finding the intercept of the line. OR these can also be derived cleverly by a simple observation as under:
+
+Derivation :
+
+ax1 + by1 = c ...(i) ax2 + by2 = c ...(ii) Equating (i) and (ii), ax1 + by1 = ax2 + by2 => a(x1 - x2) = b(y2 - y1) Thus, for equating LHS and RHS, we can simply have, a = (y2 - y1) AND b = (x1 - x2) so that we have, (y2 - y1)(x1 - x2) = (x1 - x2)(y2 - y1) AND Putting these values in (i), we get, c = ax1 + by1
+
+Thus, we now have the values of a, b, and c which means that we have the line in the coordinate plane.
+
+// C++ Implementation to find the line passing // through two points #include <iostream> using namespace std; // This pair is used to store the X and Y // coordinate of a point respectively #define pdd pair<double, double> // Function to find the line given two points void lineFromPoints(pdd P, pdd Q) { double a = Q.second - P.second; double b = P.first - Q.first; double c = a * (P.first) + b * (P.second); if (b < 0) { cout << "The line passing through points P and Q " "is: " << a << "x - " << b << "y = " << c << endl; } else { cout << "The line passing through points P and Q " "is: " << a << "x + " << b << "y = " << c << endl; } } // Driver code int main() { pdd P = make_pair(3, 2); pdd Q = make_pair(2, 6); lineFromPoints(P, Q); return 0; }
+
+// Java Implementation to find the line passing // through two points import java.io.*; public class GFG { // This pair is used to store the X and Y // coordinate of a point respectively static class Pair { int first, second; public Pair(int first, int second) { this.first = first; this.second = second; } } // Function to find the line given two points static void lineFromPoints(Pair P, Pair Q) { int a = Q.second - P.second; int b = P.first - Q.first; int c = a * (P.first) + b * (P.second); if (b < 0) { System.out.println( "The line passing through points P and Q is: " + a + "x - " + b + "y = " + c); } else { System.out.println( "The line passing through points P and Q is: " + a + "x + " + b + "y = " + c); } } // Driver code public static void main(String[] args) { Pair P = new Pair(3, 2); Pair Q = new Pair(2, 6); lineFromPoints(P, Q); } } // This code is contributed by Princi Singh
+
+# Python3 Implementation to find the line passing # through two points # This pair is used to store the X and Y # coordinate of a point respectively # define pdd pair<double, double> # Function to find the line given two points def lineFromPoints(P, Q): a = Q[1] - P[1] b = P[0] - Q[0] c = a*(P[0]) + b*(P[1]) if(b < 0): print("The line passing through points P and Q is:", a, "x - ", b, "y = ", c, "\n") else: print("The line passing through points P and Q is: ", a, "x + ", b, "y = ", c, "\n") # Driver code if __name__ == '__main__': P = [3, 2] Q = [2, 6] lineFromPoints(P, Q) # This code is contributed by ash264
+
+// C# Implementation to find the line passing // through two points using System; class GFG { // This pair is used to store the X and Y // coordinate of a point respectively public class Pair { public int first, second; public Pair(int first, int second) { this.first = first; this.second = second; } } // Function to find the line given two points static void lineFromPoints(Pair P, Pair Q) { int a = Q.second - P.second; int b = P.first - Q.first; int c = a * (P.first) + b * (P.second); if (b < 0) { Console.WriteLine( "The line passing through points P and Q is: " + a + "x - " + b + "y = " + c); } else { Console.WriteLine( "The line passing through points P and Q is: " + a + "x + " + b + "y = " + c); } } // Driver code public static void Main(String[] args) { Pair P = new Pair(3, 2); Pair Q = new Pair(2, 6); lineFromPoints(P, Q); } } // This code has been contributed by 29AjayKumar
+
+<script> // Javascript implementation to find the // line passing through two points // Function to find the line given two points function lineFromPoints(P, Q) { var a = Q[1] - P[1] var b = P[0] - Q[0] var c = a*(P[0]) + b*(P[1]) if (b < 0) document.write("The line passing through " + "points P and Q is: " + a + "x - " + b + "y = " + c + "<br>") else document.write("The line passing through " + "points P and Q is: "+ a + "x + " + b + "y = " + c + "<br>") } // Driver code var P = [ 3, 2 ] var Q = [ 2, 6 ] lineFromPoints(P, Q) // This code is contributed by akshitsaxenaa09 </script>
+
+The line passing through points P and Q is: 4x + 1y = 14
+
+Time Complexity: O(1)Auxiliary Space: O(1), since no extra space has been taken.

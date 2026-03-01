@@ -1,0 +1,73 @@
+URL: https://www.geeksforgeeks.org/dsa/ternary-search-tree-meaning-definition-in-dsa
+Title: Ternary Search Tree meaning & definition in DSA - GeeksforGeeks
+================================================================================
+
+
+Characteristics of Ternary Search Tree:
+=======================================
+
+
+
+Applications of Ternary Search Tree:
+====================================
+
+
+
+Advantages of Ternary Search Tree:
+==================================
+
+
+
+Disadvantages of Ternary Search Tree:
+=====================================
+
+
+
+What else can you read?
+=======================
+
+
+
+Explore
+=======
+
+
+Ternary Search Tree is defined as a special trie data structure where the child nodes of a standard trie are ordered as a binary search tree where each node can have at most three children and the left, middle and right subtrees of a node contain values that are less than, equal or greater than the node.
+
+TST is a type of tree-based data structure that is used for searching and retrieval of key-value pairs where the keys are strings.
+
+Each node in TST has three children, a left child, a middle child and a right child.
+
+It is a powerful dictionary finding tool, meaning that they can also be used for exact string matching.
+
+Ternary search trees are ordered, meaning that they maintain a specific order among the stored values.
+
+Ternary search tree as a data structure offers a wide range of applications in terms of searching and retrieval of strings. Some of them are listed as follows:
+
+Spell Check: They can be used to store a large string base database like a dictionary which will be used to suggest corrections or the closest correct word for misspelled words later.
+
+Auto-Complete: As it is used for spell check by storing a large dictionary, it can also be used to complete partially entered words.
+
+Prefix Searching: It can also be used to search every word which has a particular prefix.
+
+Routing Table Search(IP address lookup): It can also store router tables in network routers. The TST can be used to quickly find the best matching route for a given IP address.
+
+Genome Sequence Analysis: It can store and search for DNA sequences, which can be used to compare sequences and identify similarities and differences.
+
+Fast Search: TST offers an average search time complexity of O(log N), which works best for applications that require fast string searching.
+
+Efficient use of memory: They use memory efficiently because they only store the characters of the keys in the nodes.
+
+Easy to implement and Modify: They are relatively easy to implement and maintain, making them a good choice for applications that require a simple and reliable data structure.
+
+Ordered and Flexible structure: it can be adapted to many different applications by adding additional fields to the nodes, such as values or pointers to other data structures.
+
+Complex implementation and may require balancing: Although they have a fast average search time complexity of O(log n), they can have worst-case scenarios with time complexity of O(n). This can happen if the tree becomes unbalanced, which can occur if the keys are inserted in a particular order.
+
+Limited scalability: TSTs are not always the best choice for all applications that involve string searching. In some cases, other data structures such as hash tables or tries may be more suitable, depending on the specific use case.
+
+Ternary Search Tree
+
+Introduction to Tree - Data Structure and Algorithm Tutorials
+
+Introduction to Trie - Data Structure and Algorithms Tutorials

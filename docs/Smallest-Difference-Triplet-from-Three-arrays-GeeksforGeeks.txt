@@ -1,0 +1,56 @@
+URL: https://www.geeksforgeeks.org/dsa/smallest-difference-triplet-from-three-arrays
+Title: Smallest Difference Triplet from Three arrays - GeeksforGeeks
+================================================================================
+
+
+[Naive Solution] - Consider Each Triplet - O(n^3) Time and O(1) Space
+=====================================================================
+
+
+
+[Efficient Solution] - Sorting and Three Pointer - O(n Log n) Time and O(1) Space
+=================================================================================
+
+
+
+Explore
+=======
+
+
+Three arrays of same size are given. Find a triplet such that maximum - minimum in that triplet is minimum of all the triplets. A triplet should be selected in a way such that it should have one number from each of the three given arrays.
+
+If there are 2 or more smallest difference triplets, then the one with the smallest sum of its elements should be displayed.
+
+Input : arr1[] = {5, 2, 8} arr2[] = {10, 7, 12} arr3[] = {9, 14, 6}Output : 7, 6, 5Input : arr1[] = {15, 12, 18, 9} arr2[] = {10, 17, 13, 8} arr3[] = {14, 16, 11, 5}Output : 11, 10, 9
+
+We consider each an every triplet using three nested loops and find the required smallest difference triplet out of them. Complexity of O(n3).
+
+#include <bits/stdc++.h> using namespace std; vector<int> findMinDiffTriplet(vector<int> &a, vector<int> &b, vector<int> &c) { int n = a.size(); vector<int> res(3); int minDiff = INT_MAX, minSum = INT_MAX; // Iterate over all possible triplets for (int i = 0; i < n; i++) { for (int j = 0; j < n; j++) { for (int k = 0; k < n; k++) { int mx = max({a[i], b[j], c[k]}); int mn = min({a[i], b[j], c[k]}); int diff = mx - mn; int sum = a[i] + b[j] + c[k]; // Update result if a better triplet is found if (diff < minDiff || (diff == minDiff && sum < minSum)) { minDiff = diff; minSum = sum; res = {a[i], b[j], c[k]}; } } } } return res; } int main() { vector<int> arr1 = {5, 2, 8}; vector<int> arr2 = {10, 7, 12}; vector<int> arr3 = {9, 14, 6}; vector<int> res = findMinDiffTriplet(arr1, arr2, arr3); cout << res[0] << ", " << res[1] << ", " << res[2] << endl; return 0; }
+
+import java.util.*; public class Main { public static int[] findMinDiffTriplet(int[] a, int[] b, int[] c) { int n = a.length; int[] res = new int[3]; int minDiff = Integer.MAX_VALUE, minSum = Integer.MAX_VALUE; // Iterate over all possible triplets for (int i = 0; i < n; i++) { for (int j = 0; j < n; j++) { for (int k = 0; k < n; k++) { int mx = Math.max(Math.max(a[i], b[j]), c[k]); int mn = Math.min(Math.min(a[i], b[j]), c[k]); int diff = mx - mn; int sum = a[i] + b[j] + c[k]; // Update result if a better triplet is found if (diff < minDiff || (diff == minDiff && sum < minSum)) { minDiff = diff; minSum = sum; res[0] = a[i]; res[1] = b[j]; res[2] = c[k]; } } } } return res; } public static void main(String[] args) { int[] arr1 = {5, 2, 8}; int[] arr2 = {10, 7, 12}; int[] arr3 = {9, 14, 6}; int[] res = findMinDiffTriplet(arr1, arr2, arr3); System.out.println(res[0] + ", " + res[1] + ", " + res[2]); } }
+
+def find_min_diff_triplet(a, b, c): n = len(a) res = [0, 0, 0] min_diff = float('inf') min_sum = float('inf') # Iterate over all possible triplets for i in range(n): for j in range(n): for k in range(n): mx = max(a[i], b[j], c[k]) mn = min(a[i], b[j], c[k]) diff = mx - mn sum_ = a[i] + b[j] + c[k] # Update result if a better triplet is found if diff < min_diff or (diff == min_diff and sum_ < min_sum): min_diff = diff min_sum = sum_ res = [a[i], b[j], c[k]] return res arr1 = [5, 2, 8] arr2 = [10, 7, 12] arr3 = [9, 14, 6] res = find_min_diff_triplet(arr1, arr2, arr3) print(res[0], ",", res[1], ",", res[2])
+
+using System; using System.Linq; class Program { static int[] FindMinDiffTriplet(int[] a, int[] b, int[] c) { int n = a.Length; int[] res = new int[3]; int minDiff = int.MaxValue, minSum = int.MaxValue; // Iterate over all possible triplets for (int i = 0; i < n; i++) { for (int j = 0; j < n; j++) { for (int k = 0; k < n; k++) { int mx = Math.Max(Math.Max(a[i], b[j]), c[k]); int mn = Math.Min(Math.Min(a[i], b[j]), c[k]); int diff = mx - mn; int sum = a[i] + b[j] + c[k]; // Update result if a better triplet is found if (diff < minDiff || (diff == minDiff && sum < minSum)) { minDiff = diff; minSum = sum; res[0] = a[i]; res[1] = b[j]; res[2] = c[k]; } } } } return res; } static void Main() { int[] arr1 = {5, 2, 8}; int[] arr2 = {10, 7, 12}; int[] arr3 = {9, 14, 6}; int[] res = FindMinDiffTriplet(arr1, arr2, arr3); Console.WriteLine(res[0] + ", " + res[1] + ", " + res[2]); } }
+
+function findMinDiffTriplet(a, b, c) { let n = a.length; let res = [0, 0, 0]; let minDiff = Infinity, minSum = Infinity; // Iterate over all possible triplets for (let i = 0; i < n; i++) { for (let j = 0; j < n; j++) { for (let k = 0; k < n; k++) { let mx = Math.max(a[i], b[j], c[k]); let mn = Math.min(a[i], b[j], c[k]); let diff = mx - mn; let sum = a[i] + b[j] + c[k]; // Update result if a better triplet is found if (diff < minDiff || (diff === minDiff && sum < minSum)) { minDiff = diff; minSum = sum; res = [a[i], b[j], c[k]]; } } } } return res; } let arr1 = [5, 2, 8]; let arr2 = [10, 7, 12]; let arr3 = [9, 14, 6]; let res = findMinDiffTriplet(arr1, arr2, arr3); console.log(res[0] + ", " + res[1] + ", " + res[2]);
+
+Sort the 3 arrays in non-decreasing order.
+
+Start three pointers from left most elements of three arrays.
+
+Now find min and max and calculate max-min from these three elements.
+
+Now increment pointer of minimum element’s array.
+
+Repeat steps 2, 3, 4, for the new set of pointers until any one pointer reaches to its end.
+
+#include <bits/stdc++.h> using namespace std; void smallestTriplet(vector<int>& a, vector<int>& b, vector<int>& c) { // Sort three arrays sort(a.begin(), a.end()); sort(b.begin(), b.end()); sort(c.begin(), c.end()); // Traverse three arrays from beginning int i = 0, j = 0, k = 0, diff = INT_MAX; int x, y, z; // Store result while (i < a.size() && j < b.size() && k < c.size()) { int lo = min({a[i], b[j], c[k]}); int hi = max({a[i], b[j], c[k]}); if (diff > hi - lo) { diff = hi - lo; x = hi, y = a[i] + b[j] + c[k] - (hi + lo), z = lo; } if (a[i] == lo) i++; else if (b[j] == lo) j++; else k++; } cout << x << ", " << y << ", " << z; } int main() { vector<int> a = {5, 2, 8}, b = {10, 7, 12}, c = {9, 14, 6}; smallestTriplet(a, b, c); }
+
+import java.util.Arrays; class Main { public static void smallestTriplet(int[] a, int[] b, int[] c) { // Sort three arrays Arrays.sort(a); Arrays.sort(b); Arrays.sort(c); // Traverse three arrays from beginning int i = 0, j = 0, k = 0, diff = Integer.MAX_VALUE; int x = 0, y = 0, z = 0; // Store result while (i < a.length && j < b.length && k < c.length) { int lo = Math.min(Math.min(a[i], b[j]), c[k]); int hi = Math.max(Math.max(a[i], b[j]), c[k]); if (diff > hi - lo) { diff = hi - lo; x = hi; y = a[i] + b[j] + c[k] - (hi + lo); z = lo; } if (a[i] == lo) i++; else if (b[j] == lo) j++; else k++; } System.out.println(x + ", " + y + ", " + z); } public static void main(String[] args) { int[] a = {5, 2, 8}; int[] b = {10, 7, 12}; int[] c = {9, 14, 6}; smallestTriplet(a, b, c); } }
+
+def smallest_triplet(a, b, c): # Sort three arrays a.sort() b.sort() c.sort() # Traverse three arrays from beginning i = j = k = 0 diff = float('inf') x = y = z = 0 # Store result while i < len(a) and j < len(b) and k < len(c): lo = min(a[i], b[j], c[k]) hi = max(a[i], b[j], c[k]) if diff > hi - lo: diff = hi - lo x = hi y = a[i] + b[j] + c[k] - (hi + lo) z = lo if a[i] == lo: i += 1 elif b[j] == lo: j += 1 else: k += 1 print(x, ",", y, ",", z) if __name__ == '__main__': a = [5, 2, 8] b = [10, 7, 12] c = [9, 14, 6] smallest_triplet(a, b, c)
+
+using System; using System.Collections.Generic; using System.Linq; class Program { static void SmallestTriplet(List<int> a, List<int> b, List<int> c) { // Sort three arrays a.Sort(); b.Sort(); c.Sort(); // Traverse three arrays from beginning int i = 0, j = 0, k = 0, diff = int.MaxValue; int x = 0, y = 0, z = 0; // Store result while (i < a.Count && j < b.Count && k < c.Count) { int lo = Math.Min(Math.Min(a[i], b[j]), c[k]); int hi = Math.Max(Math.Max(a[i], b[j]), c[k]); if (diff > hi - lo) { diff = hi - lo; x = hi; y = a[i] + b[j] + c[k] - (hi + lo); z = lo; } if (a[i] == lo) i++; else if (b[j] == lo) j++; else k++; } Console.WriteLine(x + ", " + y + ", " + z); } static void Main() { List<int> a = new List<int> { 5, 2, 8 }; List<int> b = new List<int> { 10, 7, 12 }; List<int> c = new List<int> { 9, 14, 6 }; SmallestTriplet(a, b, c); } }
+
+function smallestTriplet(a, b, c) { // Sort three arrays a.sort((x, y) => x - y); b.sort((x, y) => x - y); c.sort((x, y) => x - y); // Traverse three arrays from beginning let i = 0, j = 0, k = 0, diff = Infinity; let x, y, z; // Store result while (i < a.length && j < b.length && k < c.length) { let lo = Math.min(a[i], b[j], c[k]); let hi = Math.max(a[i], b[j], c[k]); if (diff > hi - lo) { diff = hi - lo; x = hi; y = a[i] + b[j] + c[k] - (hi + lo); z = lo; } if (a[i] === lo) i++; else if (b[j] === lo) j++; else k++; } console.log(x + ", " + y + ", " + z); } const a = [5, 2, 8]; const b = [10, 7, 12]; const c = [9, 14, 6]; smallestTriplet(a, b, c);

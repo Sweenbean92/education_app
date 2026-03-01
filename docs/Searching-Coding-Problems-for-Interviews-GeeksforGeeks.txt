@@ -1,0 +1,132 @@
+URL: https://www.geeksforgeeks.org/dsa/top-50-searching-coding-problems-for-interviews
+Title: Searching Coding Problems for Interviews - GeeksforGeeks
+================================================================================
+
+
+Easy Problems
+=============
+
+
+
+Medium Problems
+===============
+
+
+
+Hard Problems
+=============
+
+
+
+Related Articles
+================
+
+
+
+Explore
+=======
+
+
+Searching in Data Structures and Algorithms (DSA) is a fundamental operation that involves finding a specific element within a collection of data. The following searching problems are carefully selected based on interview experiences.
+
+Missing Number
+
+Second Largest
+
+Common in three Sorted
+
+Transition point in a binary
+
+Floor in a Sorted
+
+Pair with difference
+
+Square Root
+
+Rotation Count
+
+Matrix Sorted Search
+
+Bitonic Peak Search
+
+Search in Rotated Sorted
+
+Majority Element
+
+K’th Smallest/Largest in Unsorted
+
+Count Frequency in Sorted Array
+
+Peak Element
+
+Smallest Missing Positive
+
+All triplets with zero sum
+
+First & Last Positions in Sorted Array
+
+Two Repeating Elements
+
+Single in Sorted Array
+
+Two elements with sum closest to zero
+
+Count ≤ Elements from 2nd Array
+
+Smallest Number with n Factorial Zeros
+
+k-th smallest in given n ranges
+
+Minimum Repeats for Substring
+
+Remove Coins for ≤ K Difference
+
+Capacity To Ship Packages Within D Days
+
+Count Pairs with Sum > 0
+
+Farthest Smaller Element Right
+
+Ternary Search
+
+Distribute N candies among K people
+
+Smallest Difference Triplet from Three arrays
+
+Minimize Tower Equalization Cost
+
+Maximum Modulo Pair
+
+K-th Missing Positive
+
+Median of two Sorted Arrays
+
+Book Allocation Problem
+
+Painter's Partition
+
+Median in row wise sorted matrix
+
+Aggressive Cows
+
+Split Array to Minimize Max Sum
+
+Kth Smallest Number in Multiplication Table
+
+Count Numbers with Digit Sum Difference
+
+Minimum time to fulfil all orders
+
+Maximize Min Flower Height
+
+Array Coding Problems for Interviews
+
+String Coding Problems for Interviews
+
+Tree Coding Problems for Interviews
+
+Graph Coding Problems for Interviews
+
+Sorting Coding Problems for Interviews
+
+Dynamic Programming Coding Problems for Interviews

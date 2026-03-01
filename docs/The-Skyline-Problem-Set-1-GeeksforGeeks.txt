@@ -1,0 +1,95 @@
+URL: https://www.geeksforgeeks.org/dsa/the-skyline-problem-using-divide-and-conquer-algorithm
+Title: The Skyline Problem | Set-1 - GeeksforGeeks
+================================================================================
+
+
+Common Background For Solutions
+===============================
+
+
+
+Naive Sweep Line Algorithm - O(n^2) Time and O(n) Space
+=======================================================
+
+
+
+Using Sweep Line and Priority Queue - O(n Log n) Time and O(n) Space
+====================================================================
+
+
+
+Explore
+=======
+
+
+Given n rectangular buildings in a 2-dimensional city, compute the skyline of these buildings, eliminating hidden lines. The main task is to view buildings from a side and remove all sections that are not visible. All buildings share a common bottom and every building is represented by a triplet (left, right, ht)
+
+'left': is the x coordinate of the left side (or wall).
+
+'right': is x coordinate of right side
+
+'ht': is the height of the building.
+
+A skyline is a collection of rectangular strips. A rectangular strip is represented as a pair (left, ht) where left is x coordinate of the left side of the strip and ht is the height of the strip. I
+
+Input: build[][] = [[1, 5, 11 ], [2, 7, 6 ], [3, 9, 13 ], [ 12, 16, 7 ], [ 14, 25, 3 ], [ 19, 22, 18 ], [ 23, 29, 13 ], [ 24, 28, 4 ]]Output: [[1, 11 ], [ 3, 13 ], [ 9, 0 ], [ 12, 7 ], [ 16, 3 ], [ 19, 18 ], [ 22, 3 ], [ 23, 13 ], [ 29, 0 ]]Explanation: The skyline is formed based on the key-points (representing by “green” dots) eliminating hidden walls of the buildings. Note that no end point of the second building (2, 7, 6) is considered because it completely overlaps. Also, the points where the y coordinate changes are considered (Note that the top right of the third building (3, 9, 13) is not considered because it has same y coordinate.The Skyline ProblemInput: build[ ][ ] = [[1, 5, 11]]Output: [[ 1, 11 ], [ 5, 0 ]]
+
+Let us understand the problem better with the first example [[1, 5, 11 ], [2, 7, 6 ], [3, 9, 13 ], [ 12, 16, 7 ], [ 14, 25, 3 ], [ 19, 22, 18 ], [ 23, 29, 13 ], [ 24, 28, 4 ]]
+
+One thing is obvious, we build the skyline from left to right. Now we know the point [1, 11] is going to be in the output as it is the leftmost point.
+
+If we take a look at the right point of the first building which is [5, 11], we find that this point cannot be considered because there is a higher height building (third building in our input array [3, 9, 13[). So we ignore the right point.
+
+Now we see the second building, its both left and right are covered. Left is covered by first building and right is covered by third building because its height is smaller than both of its neighbors. So we ignore the second building completely.
+
+We process all the remaining building same way.
+
+Get all corner x coordinates of all buildings in an array say points[]. We are mainly going to have 2n points in this array as we have left and right for every building.
+
+Sort the points[] to simulate the sweep line from left to right.
+
+Now traverse through the sorted point[] and for every x point check which building has the maximum height at this point and add the maximum height to the skyline if the maximum height is different from the previously added height to the skyline.
+
+#include <iostream> #include <vector> #include <algorithm> using namespace std; vector<pair<int, int>> getSkyline(vector<vector<int>>& build) { vector<int> points; // Collect all left and right x-coordinates // of buildings for (auto& b : build) { points.push_back(b[0]); points.push_back(b[1]); } // Sort all critical points sort(points.begin(), points.end()); vector<pair<int, int>> res; int prev = 0; // Traverse through each point to // determine skyline height for (int x : points) { int maxH = 0; // Check which buildings cover the // current x and get the max height for (auto& b : build) { int l = b[0], r = b[1], h = b[2]; if (l <= x && x < r) { maxH = max(maxH, h); } } // Add to result if height has changed if (res.empty() || maxH != prev) { res.push_back({x, maxH}); prev = maxH; } } return res; } int main() { vector<vector<int>> build = { {2, 9, 10}, {3, 6, 15}, {5, 12, 12} }; vector<pair<int, int>> skyline = getSkyline(build); for (auto& p : skyline) { cout << "(" << p.first << ", " << p.second << ") "; } cout << endl; return 0; }
+
+import java.util.*; class Solution { public List<int[]> getSkyline(int[][] build) { List<Integer> points = new ArrayList<>(); // Collect all left and right x-coordinates // of buildings for (int[] b : build) { points.add(b[0]); points.add(b[1]); } // Sort all critical points Collections.sort(points); List<int[]> res = new ArrayList<>(); int prev = 0; // Traverse through each point to // determine skyline height for (int x : points) { int maxH = 0; // Check which buildings cover the // current x and get the max height for (int[] b : build) { int l = b[0], r = b[1], h = b[2]; if (l <= x && x < r) { maxH = Math.max(maxH, h); } } // Add to result if height has changed if (res.isEmpty() || maxH != prev) { res.add(new int[]{x, maxH}); prev = maxH; } } return res; } public static void main(String[] args) { int[][] build = { {2, 9, 10}, {3, 6, 15}, {5, 12, 12} }; Solution sol = new Solution(); List<int[]> skyline = sol.getSkyline(build); for (int[] p : skyline) { System.out.print("(" + p[0] + ", " + p[1] + ") "); } System.out.println(); } }
+
+def getSkyline(build): points = [] # Collect all left and right x-coordinates # of buildings for b in build: points.append(b[0]) points.append(b[1]) # Sort all critical points points.sort() res = [] prev = 0 # Traverse through each point to # determine skyline height for x in points: maxH = 0 # Check which buildings cover the # current x and get the max height for b in build: l, r, h = b if l <= x < r: maxH = max(maxH, h) # Add to result if height has changed if not res or maxH != prev: res.append((x, maxH)) prev = maxH return res if __name__ == '__main__': build = [ [2, 9, 10], [3, 6, 15], [5, 12, 12] ] skyline = getSkyline(build) for p in skyline: print(f'({p[0]}, {p[1]}) ', end='') print()
+
+using System; using System.Collections.Generic; class Solution { public IList<int[]> GetSkyline(int[][] build) { List<int> points = new List<int>(); // Collect all left and right x-coordinates // of buildings foreach (var b in build) { points.Add(b[0]); points.Add(b[1]); } // Sort all critical points points.Sort(); List<int[]> res = new List<int[]>(); int prev = 0; // Traverse through each point to // determine skyline height foreach (var x in points) { int maxH = 0; // Check which buildings cover the // current x and get the max height foreach (var b in build) { int l = b[0], r = b[1], h = b[2]; if (l <= x && x < r) { maxH = Math.Max(maxH, h); } } // Add to result if height has changed if (res.Count == 0 || maxH != prev) { res.Add(new int[] { x, maxH }); prev = maxH; } } return res; } public static void Main(string[] args) { int[][] build = { new int[] {2, 9, 10}, new int[] {3, 6, 15}, new int[] {5, 12, 12} }; Solution sol = new Solution(); var skyline = sol.GetSkyline(build); foreach (var p in skyline) { Console.Write("(" + p[0] + ", " + p[1] + ") "); } Console.WriteLine(); } }
+
+function getSkyline(build) { const points = []; // Collect all left and right x-coordinates // of buildings for (const b of build) { points.push(b[0]); points.push(b[1]); } // Sort all critical points points.sort((a, b) => a - b); const res = []; let prev = 0; // Traverse through each point to // determine skyline height for (const x of points) { let maxH = 0; // Check which buildings cover the // current x and get the max height for (const b of build) { const [l, r, h] = b; if (l <= x && x < r) { maxH = Math.max(maxH, h); } } // Add to result if height has changed if (res.length === 0 || maxH !== prev) { res.push([x, maxH]); prev = maxH; } } return res; } const build = [ [2, 9, 10], [3, 6, 15], [5, 12, 12] ]; const skyline = getSkyline(build); for (const p of skyline) { process.stdout.write(`(${p[0]}, ${p[1]}) `); } console.log();
+
+(2, 10) (3, 15) (6, 12) (12, 0)
+
+The problem can be approached using a sweep line algorithm with a priority queue (max-heap) to maintain the heights of the buildings as the sweep line moves from left to right. The idea is to again store all points, but this time we also store building indexes. We use priority queue to have all building point in it when we reach the next points, so that we can quickly find the maximum.
+
+Here’s a step-by-step explanation:
+
+Prepare Edges: For each building, store two edges (start and end) as a pair of coordinates: (x-coordinate, building index). This helps in processing all the building edges.
+
+Sort Edges: Sort the edges based on the x-coordinate. If two edges have the same x-coordinate, prioritize the left edges (start) over the right ones (end).
+
+Use Priority Queue: Traverse the sorted edges and maintain a priority queue that holds the current building heights (from the start edges) as well as their right endpoints.
+
+Process Each Edge: For each x-coordinate:Add building heights when encountering a start edge.Remove building heights when encountering an end edge (pop from the priority queue).The current maximum height in the priority queue represents the height at the current x-coordinate.
+
+Add to Skyline: If the current height is different from the previous height, record the x-coordinate and height as a new point in the skyline.
+
+Return Result: The result is the list of (x-coordinate, height) pairs representing the visible parts of the skyline.
+
+#include <iostream> #include <vector> #include <queue> #include <algorithm> using namespace std; vector<vector<int>> getSkyline(vector<vector<int>> &arr) { vector<pair<int, int>> e; priority_queue<pair<int, int>> pq; vector<vector<int>> skyline; int n = arr.size(); for (int i = 0; i < n; ++i) { e.push_back({arr[i][0], i}); // start e.push_back({arr[i][1], i}); // end } sort(e.begin(), e.end()); // Traverse sorted edges int i = 0; while (i < e.size()) { int curr_height; int curr_x = e[i].first; // Add all buildings starting or ending // at current x while (i < e.size() && e[i].first == curr_x) { int idx = e[i].second; // Push building height and end x if (arr[idx][0] == curr_x) pq.emplace(arr[idx][2], arr[idx][1]); ++i; } // Remove buildings that have ended while (!pq.empty() && pq.top().second <= curr_x) pq.pop(); curr_height = pq.empty() ? 0 : pq.top().first; if (skyline.empty() || skyline.back()[1] != curr_height) skyline.push_back({curr_x, curr_height}); } return skyline; } int main() { vector<vector<int>> arr = { {1, 5, 11}, {2, 7, 6}, {3, 9, 13}, {12, 16, 7}, {14, 25, 3}, {19, 22, 18}, {23, 29, 13}, {24, 28, 4} }; vector<vector<int>> result = getSkyline(arr); for (const auto &p : result) { cout << "[" << p[0] << ", " << p[1] << "] "; } cout << endl; return 0; }
+
+import java.util.*; public class Skyline { public static List<List<Integer>> getSkyline(int[][] arr, int n) { int idx = 0; List<int[]> e = new ArrayList<>(); PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> b[0] - a[0]); List<List<Integer>> skyline = new ArrayList<>(); for (int i = 0; i < n; i++) { e.add(new int[]{arr[i][0], i}); e.add(new int[]{arr[i][1], i}); } Collections.sort(e, (a, b) -> Integer.compare(a[0], b[0])); while (idx < e.size()) { int curr_height; int curr_x = e.get(idx)[0]; while (idx < e.size() && curr_x == e.get(idx)[0]) { int building_idx = e.get(idx)[1]; if (arr[building_idx][0] == curr_x) pq.add(new int[]{arr[building_idx][2], arr[building_idx][1]}); idx++; } while (!pq.isEmpty() && pq.peek()[1] <= curr_x) pq.poll(); curr_height = pq.isEmpty() ? 0 : pq.peek()[0]; if (skyline.isEmpty() || skyline.get(skyline.size() - 1).get(1) != curr_height) skyline.add(Arrays.asList(curr_x, curr_height)); } return skyline; } public static void main(String[] args) { int[][] arr = { {1, 5, 11}, {2, 7, 6}, {3, 9, 13}, {12, 16, 7}, {14, 25, 3}, {19, 22, 18}, {23, 29, 13}, {24, 28, 4} }; int n = 8; List<List<Integer>> result = getSkyline(arr, n); for (List<Integer> p : result) { System.out.print("[" + p.get(0) + ", " + p.get(1) + "] "); } System.out.println(); } }
+
+import heapq def getSkyline(arr, n): idx = 0 e = [] pq = [] skyline = [] for i in range(n): e.append((arr[i][0], i)) e.append((arr[i][1], i)) e.sort() while idx < len(e): curr_x = e[idx][0] while idx < len(e) and curr_x == e[idx][0]: building_idx = e[idx][1] if arr[building_idx][0] == curr_x: heapq.heappush(pq, (-arr[building_idx][2], arr[building_idx][1])) idx += 1 while pq and pq[0][1] <= curr_x: heapq.heappop(pq) curr_height = 0 if not pq else -pq[0][0] if not skyline or skyline[-1][1] != curr_height: skyline.append([curr_x, curr_height]) return skyline # Test arr = [[1, 5, 11], [2, 7, 6], [3, 9, 13], [12, 16, 7], [14, 25, 3], [19, 22, 18], [23, 29, 13], [24, 28, 4]] n = 8 result = getSkyline(arr, n) for p in result: print(f"[{p[0]}, {p[1]}]", end=" ") print()
+
+using System; using System.Collections.Generic; class Skyline { public static List<List<int>> GetSkyline(int[,] arr, int n) { int idx = 0; List<int[]> e = new List<int[]>(); SortedSet<int[]> pq = new SortedSet<int[]>(Comparer<int[]>.Create((a, b) => a[0].CompareTo(b[0]))); List<List<int>> skyline = new List<List<int>>(); for (int i = 0; i < n; i++) { e.Add(new int[] { arr[i, 0], i }); e.Add(new int[] { arr[i, 1], i }); } e.Sort((a, b) => a[0].CompareTo(b[0])); while (idx < e.Count) { int curr_x = e[idx][0]; while (idx < e.Count && curr_x == e[idx][0]) { int building_idx = e[idx][1]; if (arr[building_idx, 0] == curr_x) pq.Add(new int[] { arr[building_idx, 2], arr[building_idx, 1] }); // Add building height and end point idx++; } while (pq.Count > 0 && pq.Min[1] <= curr_x) pq.Remove(pq.Min); int curr_height = pq.Count == 0 ? 0 : pq.Min[0]; if (skyline.Count == 0 || skyline[skyline.Count - 1][1] != curr_height) skyline.Add(new List<int> { curr_x, curr_height }); } return skyline; } static void Main(string[] args) { int[,] arr = { { 1, 5, 11 }, { 2, 7, 6 }, { 3, 9, 13 }, { 12, 16, 7 }, { 14, 25, 3 }, { 19, 22, 18 }, { 23, 29, 13 }, { 24, 28, 4 } }; int n = 8; var result = GetSkyline(arr, n); foreach (var p in result) { Console.Write($"[{p[0]}, {p[1]}] "); } Console.WriteLine(); } }
+
+function getSkyline(arr, n) { let idx = 0; let e = []; let pq = []; let skyline = []; for (let i = 0; i < n; i++) { e.push([arr[i][0], i]); e.push([arr[i][1], i]); } e.sort((a, b) => a[0] - b[0]); while (idx < e.length) { let curr_x = e[idx][0]; while (idx < e.length && curr_x === e[idx][0]) { let building_idx = e[idx][1]; if (arr[building_idx][0] === curr_x) { pq.push([arr[building_idx][2], arr[building_idx][1]]); } idx++; } pq = pq.filter(item => item[1] > curr_x); let curr_height = pq.length === 0 ? 0 : pq[0][0]; if (skyline.length === 0 || skyline[skyline.length - 1][1] !== curr_height) { skyline.push([curr_x, curr_height]); } } return skyline; } let arr = [ [1, 5, 11], [2, 7, 6], [3, 9, 13], [12, 16, 7], [14, 25, 3], [19, 22, 18], [23, 29, 13], [24, 28, 4] ]; let n = 8; let result = getSkyline(arr, n); result.forEach(p => console.log(`[${p[0]}, ${p[1]}]`));
+
+[1, 11] [3, 13] [9, 0] [12, 7] [16, 3] [19, 18] [22, 3] [23, 13] [29, 0]
+
+Refer to the below article for solving the above problem using multiset
+
+The Skyline Problem | Set 2

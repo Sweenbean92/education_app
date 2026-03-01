@@ -1,0 +1,58 @@
+URL: https://www.geeksforgeeks.org/dsa/insert-element-at-the-beginning-of-an-array
+Title: Insert Element at the Beginning of an Array - GeeksforGeeks
+================================================================================
+
+
+[Approach 1] Using Built-In Methods
+===================================
+
+
+
+[Approach 2] Using Custom Method
+================================
+
+
+
+Explore
+=======
+
+
+Given an array of integers, the task is to insert an element at the beginning of the array.
+
+Input: arr[] = [10, 20, 30, 40], ele = 50Output: [50, 10, 20, 30, 40]Input: arr[] = [], ele = 20Output: [20]
+
+Table of Content
+
+[Approach 1] Using Built-In Methods
+
+[Approach 2] Using Custom Method
+
+We will use library methods like insert() in C++, Python and C#, add() in Java and unshift() in JavaScript.
+
+// C++ program to insert given element at the beginning // of an array #include <iostream> #include <vector> using namespace std; int main() { vector<int> arr = {10, 20, 30, 40}; int element = 50; cout << "Array before insertion\n"; for (int i = 0; i < arr.size(); i++) cout << arr[i] << " "; // Insert element at the beginning arr.insert(arr.begin(), element); cout << "\nArray after insertion\n"; for (int i = 0; i < arr.size(); i++) cout << arr[i] << " "; return 0; }
+
+// Java program to insert a given element at the beginning of an arraY import java.util.ArrayList; import java.util.Arrays; class GfG { public static void main(String[] args) { ArrayList<Integer> arr = new ArrayList<>(Arrays.asList(10, 20, 30, 40)); int element = 50; System.out.println("Array before insertion"); for (int i = 0; i < arr.size(); i++) System.out.print(arr.get(i) + " "); // Insert element at the beginning arr.add(0, element); System.out.println("\nArray after insertion"); for (int i = 0; i < arr.size(); i++) System.out.print(arr.get(i) + " "); } }
+
+# Python program to insert a given element at the beginning # of an array arr = [10, 20, 30, 40] element = 50 print("Array before insertion") for i in range(len(arr)): print(arr[i], end=" ") # Insert element at the beginning arr.insert(0, element) print("\nArray after insertion") for i in range(len(arr)): print(arr[i], end=" ")
+
+// C# program to insert a given element at the beginning // of an array using System; using System.Collections.Generic; class GfG { static void Main() { List<int> arr = new List<int> { 10, 20, 30, 40 }; int element = 50; Console.WriteLine("Array before insertion"); foreach (int num in arr) Console.Write(num + " "); // Insert element at the beginning arr.Insert(0, element); Console.WriteLine("\nArray after insertion"); foreach (int num in arr) Console.Write(num + " "); } }
+
+// JavaScript program to insert a given element at the beginning // of an array let arr = [10, 20, 30, 40]; let element = 50; console.log("Array before insertion"); console.log(arr.join(" ")); // Insert element at the beginning arr.unshift(element); console.log("Array after insertion"); console.log(arr.join(" "));
+
+Array before insertion 10 20 30 40 Array after insertion 50 10 20 30 40
+
+Time Complexity: O(n), where n is the size of the array.
+
+To insert an element at the beginning of an array, first shift all the elements of the array to the right by 1 index and after shifting insert the new element at 0th position.
+
+// C++ program to insert given element at the beginning // of an array #include <iostream> #include <vector> using namespace std; int main() { vector<int> arr = {10, 20, 30, 40, 0}; int n = 4; int element = 50; cout << "Array before insertion\n"; for (int i = 0; i < n; i++) cout << arr[i] << " "; // Shift all elements to the right for(int i = n - 1; i >= 0; i--) { arr[i + 1] = arr[i]; } // Insert new element at the beginning arr[0] = element; cout << "\nArray after insertion\n"; for (int i = 0; i <= n; i++) cout << arr[i] << " "; return 0; }
+
+// C program to insert given element at the beginning // of an array #include <stdio.h> int main() { int arr[6] = {10, 20, 30, 40, 0}; int n = 4; int element = 50; printf("Array before insertion:\n"); for (int i = 0; i < n; i++) { printf("%d ", arr[i]); } // Shift elements to the right for (int i = n - 1; i >= 0; i--) { arr[i + 1] = arr[i]; } // Insert the new element at the beginning arr[0] = element; printf("\nArray after insertion:\n"); for (int i = 0; i <= n; i++) { printf("%d ", arr[i]); } return 0; }
+
+// Java program to insert given element at the beginning // of an array import java.util.Arrays; class GfG { public static void main(String[] args) { int[] arr = {10, 20, 30, 40, 0}; int n = 4; int element = 50; System.out.println("Array before insertion"); for (int i = 0; i < n; i++) { System.out.print(arr[i] + " "); } // Shift all elements to the right for (int i = n - 1; i >= 0; i--) { arr[i + 1] = arr[i]; } // Insert new element at the beginning arr[0] = element; System.out.println("\nArray after insertion"); for (int i = 0; i <= n; i++) { System.out.print(arr[i] + " "); } } }
+
+# Python program to insert given element at the beginning # of an array arr = [10, 20, 30, 40, 0] n = 4 element = 50 print("Array before insertion") for i in range(n): print(arr[i], end=" ") # Shift all elements to the right for i in range(n - 1, -1, -1): arr[i + 1] = arr[i] # Insert new element at the beginning arr[0] = element print("\nArray after insertion") for i in range(n + 1): print(arr[i], end=" ")
+
+// C# program to insert given element at the beginning // of an array using System; class GfG { static void Main() { int[] arr = {10, 20, 30, 40, 0}; int n = 4; int element = 50; Console.WriteLine("Array before insertion"); for (int i = 0; i < n; i++) { Console.Write(arr[i] + " "); } // Shift all elements to the right for (int i = n - 1; i >= 0; i--) { arr[i + 1] = arr[i]; } // Insert new element at the beginning arr[0] = element; Console.WriteLine("\nArray after insertion"); for (int i = 0; i <= n; i++) { Console.Write(arr[i] + " "); } } }
+
+// JavaScript program to insert given element at the beginning // of an array let arr = [10, 20, 30, 40, 0]; let n = 4; let element = 50; console.log("Array before insertion"); console.log(arr.slice(0, n).join(" ")); // Shift all elements to the right for (let i = n - 1; i >= 0; i--) { arr[i + 1] = arr[i]; } // Insert new element at the beginning arr[0] = element; console.log("Array after insertion"); console.log(arr.join(" "));

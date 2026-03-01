@@ -1,0 +1,193 @@
+URL: https://www.geeksforgeeks.org/dsa/geometric-algorithms
+Title: Geometric Algorithms - GeeksforGeeks
+================================================================================
+
+
+Lines:
+======
+
+
+
+Triangle:
+=========
+
+
+
+Rectangle | Square | Circle:
+============================
+
+
+
+Quadrilateral:
+==============
+
+
+
+3D Objects:
+===========
+
+
+
+Polygon and Convex Hull:
+========================
+
+
+
+Standard Problems on Geometric Algorithm:
+=========================================
+
+
+
+Explore
+=======
+
+
+Geometric algorithms are a type of algorithm that deal with solving problems related to geometry.
+
+Solve problems involving, distances, intersections, arrangements, and transformations.
+
+Used in graphics, computer-aided design, robotics, and geographical information systems. medical imaging, and astronomy for spatial computation and analysis.
+
+Popular algorithms include Convex Hull, Closest Pair, Line Intersection, Point-in-Polygon, Sweep Line, Voronoi Diagram, Delaunay Triangulation, and Rotating Calipers.
+
+Mid-point of a line
+
+Section formula (Point that divides a line in given ratio)
+
+Slope of a line
+
+Line passing through 2 Points
+
+Intersection of Two Lines
+
+Find if any two segments intersect
+
+Count maximum points on same line
+
+Minimum lines to cover all points
+
+Check triangle is valid or not
+
+Check if a given point lies inside a triangle
+
+Area of a triangle
+
+Check if right triangle possible from given area and hypotenuse
+
+Count Integral points inside a Triangle
+
+All angles of a given triangle
+
+Circumcenter of a Triangle
+
+Triangles formed from a set of lines in Euclidean Plane
+
+Area of Circumcircle of an Equilateral Triangle
+
+Third side of triangle using law of cosines
+
+Check whether a given point lies inside a rectangle or not
+
+Program for Area And Perimeter Of Rectangle
+
+Find if two rectangles overlap
+
+How to check if given four points form a square
+
+Number of rectangles in N*M grid
+
+Program to find Circumference of a Circle
+
+Program to find area of a circle
+
+Check whether a point exists in circle sector or not
+
+Check if two given circles touch or intersect each other
+
+Program to find area of a Circular Segment
+
+Check if a line touches or intersects a circle
+
+Area of a Circumscribed Circle of a Square
+
+Find minimum radius such that atleast k point lie inside the circle
+
+Angular Sweep (Maximum points that can be enclosed in a circle of given radius)
+
+Number of parallelograms when n horizontal parallel lines intersect m vertical parallellines
+
+Program for Circumference of a Parallelogram
+
+Program to calculate area and perimeter of Trapezium
+
+Program to find area of a Trapezoid
+
+Find all possible coordinates of parallelogram
+
+Maximum area of quadrilateral
+
+Check whether four points make a parallelogram
+
+Find the Missing Point of Parallelogram
+
+Find the perimeter of a cylinder
+
+Program for Volume and Surface area of Frustum of Cone
+
+Program to calculate volume of Ellipsoid
+
+Program for volume of Pyramid
+
+Calculate volume and surface area of a cone
+
+Calculate Volume and Surface area Of Sphere
+
+Program for Volume and Surface Area of Cuboid
+
+Program for Volume and Surface Area of Cube
+
+Pythagorean Quadruple
+
+LS3/NS3 sphere generation algorithm and its implementation
+
+How to check if a given point lies inside or outside a polygon?
+
+Area of a polygon with given n ordered vertices
+
+Tangents between two Convex Polygons
+
+Find number of diagonals in n sided convex polygon
+
+Convex Hull using Jarvis’ Algorithm or Wrapping
+
+Quickhull Algorithm for Convex Hull
+
+Deleting points from Convex Hull
+
+Minimum area of a Polygon with three points given
+
+Finding the vertex, focus
+
+and directrix of a parabola
+
+Find Simple Closed Path for a given set of points
+
+Number of Integral Points between Two Points
+
+Optimum location of point to minimize total distance
+
+Find perimeter of shapes formed with 1s in binary matrix
+
+Draw geometric shapes on images using OpenCV
+
+Find if it’s possible to rotate the page by an angle or not
+
+Equable Shapes
+
+Quick Links :
+
+Learn Data Structure and Algorithms | DSA Tutorial
+
+‘Practice Problems’ on Geometric Algorithms
+
+Recent Articles on Geometric Algorithms

@@ -1,0 +1,135 @@
+URL: https://www.geeksforgeeks.org/dsa/top-50-binary-search-tree-coding-problems-for-interviews
+Title: Top 50 Binary Search Tree Coding Problems for Interviews - GeeksforGeeks
+================================================================================
+
+
+Binary Search Tree (BST) Coding Problems for Interviews: Level 1
+================================================================
+
+
+
+Binary Search Tree (BST) Coding Problems for Interviews: Level 2
+================================================================
+
+
+
+Binary Search Tree (BST) Coding Problems for Interviews: Level 3
+================================================================
+
+
+
+Explore
+=======
+
+
+Binary Search Trees (BST) are like organized lists that help find, add, and remove items quickly. In our article "Top 50 Binary Search Tree Coding Problems for Interviews", we have collected a list of 50 coding problems, these problems are designed to boost your problem-solving abilities and prepare you for interviews. By working on these problems, you can become better at using BSTs and excel in coding interviews. Join us on this learning journey and become a pro at solving Binary Search Tree problems!
+
+A program to check if a Binary Tree is BST or not
+
+Count BST nodes that lie in a given range
+
+Searching in Binary Search Tree (BST)
+
+Lowest Common Ancestor in a Binary Search Tree.
+
+K’th Largest Element in BST when modification to BST is not allowed
+
+Find the node with minimum value in a Binary Search Tree
+
+Inorder Successor in Binary Search Tree
+
+Find median of BST
+
+Binary Tree to Binary Search Tree Conversion
+
+Count pairs from two BSTs whose sum is equal to a given value x
+
+Inorder predecessor and successor for a given key in BST
+
+Check if a given Binary Tree is a Heap
+
+Find the closest element in Binary Search Tree
+
+Number of Unique BST with a given key | Dynamic Programming
+
+Check whether BST contains Dead End or not
+
+Print Common Nodes in Two Binary Search Trees
+
+Sorted Array to Balanced BST
+
+Find postorder traversal of BST from preorder traversal
+
+Balance a Binary Search Tree
+
+Find a pair with given sum in BST
+
+Check if a given array can represent Preorder Traversal of Binary Search Tree
+
+Add all greater values to every node in a given BST
+
+Replace every element with the least greater element on its right
+
+Sum of Descendant Nodes Below Target in Binary Search Tree
+
+Find the maximum sum leaf to root path in a Binary Tree
+
+Leaf nodes from Preorder of a Binary Search Tree
+
+Convert BST to Max Heap
+
+Transform a BST to greater sum tree
+
+Remove BST keys outside the given range
+
+Count of pairs violating BST property
+
+Maximum product of an increasing subsequence of size 3
+
+Pair with minimum absolute difference in BST
+
+Print Nodes in Top View of Binary Tree
+
+Deletion in Binary Search Tree (BST)
+
+Find the largest BST subtree in a given Binary Tree | Set 3
+
+K’th smallest element in BST using O(1) Extra Space
+
+Leaf nodes from Preorder of a Binary Search Tree (Using Recursion)
+
+Two nodes of a BST are swapped, correct the BST
+
+Find a pair with given sum in a Balanced BST
+
+Merge two BSTs with limited extra space
+
+Optimal Binary Search Tree | DP-24
+
+Insertion in an AVL Tree
+
+Sorted Linked List to Balanced BST
+
+Find the minimum Sub-tree with target sum in a Binary search tree
+
+Merge Two Balanced Binary Search Trees
+
+Inversion count in Array Using Self-Balancing BST
+
+Print BST keys in given Range | O(1) Space
+
+Maximum Unique Element in every subarray of size K
+
+Floor and Ceil from a BST
+
+Related Articles:
+
+Top 50 Array Coding Problems for Interviews
+
+Top 50 String Coding Problems for Interviews
+
+Top 50 Tree Coding Problems for Interviews
+
+Top 50 Graph Coding Problems for Interviews
+
+Top 50 Sorting Coding Problems for Interviews

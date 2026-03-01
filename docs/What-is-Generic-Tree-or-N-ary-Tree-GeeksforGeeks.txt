@@ -1,0 +1,172 @@
+URL: https://www.geeksforgeeks.org/dsa/what-is-generic-tree-or-n-ary-tree
+Title: What is Generic Tree or N-ary Tree? - GeeksforGeeks
+================================================================================
+
+
+What is a Generic Tree?
+=======================
+
+
+
+Key Features of a Generic Tree:
+===============================
+
+
+
+Example of a Generic Tree:
+==========================
+
+
+
+Applications of Generic Tree or N-ary Tree
+==========================================
+
+
+
+Learn Basics of Generic Tree or N-ary Tree
+==========================================
+
+
+
+Easy Problems on Generic Tree or N-ary Tree
+===========================================
+
+
+
+Medium Problems on Generic Tree or N-ary Tree
+=============================================
+
+
+
+Hard Problems on Generic Tree or N-ary Tree
+===========================================
+
+
+
+Explore
+=======
+
+
+Generic tree or an N-ary tree is a versatile data structure used to organize data hierarchically. Unlike binary trees that have at most two children per node, generic trees can have any number of child nodes. This flexibility makes them suitable for representing hierarchical data where each node can have several branches or children.
+
+A generic tree is a tree where each node can have zero or more children nodes. Unlike a binary tree, which has at most two children per node (left and right), a generic tree allows for multiple branches or children for each node.
+
+Nodes and Children: Every node in a generic tree can have any number of children nodes, including none (which makes it different from a binary tree).
+
+Hierarchical Structure: Nodes in a generic tree are arranged in a hierarchical order, with each node potentially having its own subtree (a smaller tree within the larger tree structure).
+
+Root and Leaf Nodes:Root Node: This is the topmost node of the tree, from which all other nodes descend.Leaf Nodes: These are nodes that do not have any children.
+
+Let’s consider an example to better understand a generic tree:
+
+Below are some application of generic tree:
+
+File Systems: Representing directories and files where directories can contain other directories or files.
+
+Organization Structures: Modeling hierarchical relationships in organizations where each node represents a person or a department.
+
+Compiler Design: Representing the structure of statements and expressions in programming languages.
+
+XML/HTML Parsing: Storing and traversing hierarchical data structures like XML or HTML documents.
+
+Generic Trees(N-array Trees)
+
+Depth of an N-Ary tree
+
+Number of nodes greater than a given value in n-ary tree
+
+General Tree Level Order Traversal
+
+DFS for a n-ary tree represented as adjacency list
+
+Height of n-ary tree if parent array is given
+
+Number of special nodes in an n-ary tree
+
+Preorder Traversal of N-ary Tree Without Recursion
+
+Print all leaf nodes of an n-ary tree using DFS
+
+Count the nodes in the given tree whose weight is even parity
+
+Difference between sums of odd level and even level nodes in an N-ary Tree
+
+Remove all leaf nodes from a Generic Tree or N-ary Tree
+
+Level Order Traversal of N-ary Tree
+
+Diameter of an N-ary tree
+
+Number of ways to traverse an N-ary tree
+
+Mirror of n-ary Tree
+
+Locking and Unlocking of Resources arranged in the form of n-ary Tree
+
+Height of a generic tree from parent array
+
+Next Larger element in n-ary tree
+
+Second Largest element in n-ary tree
+
+Left-Child Right-Sibling Representation of Tree
+
+Longest path in an undirected tree
+
+DP on Trees | Set-3 ( Diameter of N-ary Tree )
+
+Iterative Preorder Traversal of an N-ary Tree
+
+Immediate Smaller element in an N-ary Tree
+
+Iterative Postorder Traversal of N-ary Tree
+
+Maximum level sum in N-ary Tree
+
+Replace every node with depth in N-ary Generic Tree
+
+Count of subtrees from an N-ary tree consisting of single colored nodes
+
+Find if path length is even or odd between given Tree nodes for Q queries
+
+Maximize sum of path from the Root to a Leaf node in N-ary Tree
+
+Kth Smallest Element in an N-ary Tree
+
+Count of subtrees possible from an N-ary Tree
+
+Convert a Generic Tree(N-array Tree) to Binary Tree
+
+Check if given Generic N-ary Tree is Symmetric horizontally
+
+ZigZag Level Order Traversal of an N-ary Tree
+
+LCA for n-ary Tree | Constant Query O(1)
+
+Serialize and Deserialize an N-ary Tree
+
+Construct the full k-ary tree from its preorder traversal
+
+GCD from root to leaf path in an N-ary tree
+
+Level with maximum number of nodes using DFS in a N-ary tree
+
+Find distance of nodes from root in a tree for multiple queries
+
+Kth ancestor of all nodes in an N-ary tree using DFS
+
+Find node U containing all nodes from a set V at atmost distance 1 from the path from root to U
+
+Find the node at the center of an N-ary tree
+
+Maximum weighted edge in path between two nodes in an N-ary tree using binary lifting
+
+Minimum distance between two given nodes in an N-ary tree
+
+Minimum time required to color all edges of a Tree
+
+Construct a Complete N-ary Tree from given Postorder Traversal
+
+Number of leaf nodes in a perfect N-ary tree of height K
+
+Count of nodes in a given N-ary tree having distance to all leaf nodes equal in their subtree

@@ -1,0 +1,46 @@
+URL: https://www.geeksforgeeks.org/dsa/branch-and-bound-algorithm
+Title: Branch and Bound Algorithm - GeeksforGeeks
+================================================================================
+
+
+Basics
+======
+
+
+
+Standard Problems
+=================
+
+
+
+Explore
+=======
+
+
+The Branch and Bound Algorithm is a method used in combinatorial optimization problems to systematically search for the best solution. Branch and Bound is commonly used in problems like the traveling salesman and job scheduling.
+
+Introduction to Branch and Bound
+
+Difference between Backtracking and Branch-N-Bound
+
+Branch and Bound | Set 1 (Introduction with 0/1 Knapsack)
+
+Branch and Bound | Set 2 (Implementation of 0/1 Knapsack)
+
+0/1 Knapsack using Least Cost Branch and Bound
+
+Branch and Bound | Set 3 (8 puzzle Problem)
+
+Branch and Bound | Set 5 (N Queen Problem)
+
+Branch And Bound | Set 6 (Traveling Salesman Problem)
+
+Job Assignment Problem using Branch And Bound
+
+Travelling Salesman Problem (TSP) using Reduced Matrix Method
+
+Generate Binary Strings of length N using Branch and Bound
+
+Quick Links:
+
+Learn Data Structure and Algorithms | DSA Tutorial

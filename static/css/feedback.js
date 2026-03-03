@@ -102,25 +102,27 @@ async function getPerformance() {
             currentNumCtx = data.num_ctx;
             
             // Determine performance level based on values
-            const select = document.getElementById('performance-select');
-            if (select) {
-                if (data.max_tokens <= 512 && data.num_ctx <= 2048) {
-                    select.value = 'low';
-                    currentPerformanceLevel = 'low';
-                } else if (data.max_tokens <= 1024 && data.num_ctx <= 4096) {
-                    select.value = 'medium';
-                    currentPerformanceLevel = 'medium';
-                } else if (data.max_tokens <= 2048 && data.num_ctx <= 6144) {
-                    select.value = 'high';
-                    currentPerformanceLevel = 'high';
-                } else {
-                    select.value = 'ultra';
-                    currentPerformanceLevel = 'ultra';
-                }
+            if (data.max_tokens <= 512 && data.num_ctx <= 2048) {
+                currentPerformanceLevel = 'low';
+            } else if (data.max_tokens <= 1024 && data.num_ctx <= 4096) {
+                currentPerformanceLevel = 'medium';
+            } else if (data.max_tokens <= 2048 && data.num_ctx <= 6144) {
+                currentPerformanceLevel = 'high';
+            } else {
+                currentPerformanceLevel = 'ultra';
             }
         }
     } catch (error) {
         console.error('Error getting performance:', error);
+    }
+}
+
+// Initialize performance to high on page load
+async function initializePerformance() {
+    try {
+        await setPerformance('high');
+    } catch (error) {
+        console.error('Error initializing performance:', error);
     }
 }
 
@@ -134,34 +136,49 @@ async function loadQuestions() {
     
     try {
         questionsList.innerHTML = '<div class="loading-message">Loading questions...</div>';
+        console.log('Fetching questions from /get_feedback_questions...');
         const response = await fetch('/get_feedback_questions');
         
+        console.log('Response status:', response.status, response.statusText);
+        
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            const errorText = await response.text();
+            console.error('HTTP error response:', errorText);
+            throw new Error(`HTTP error! status: ${response.status} - ${errorText}`);
         }
         
         const data = await response.json();
         console.log('Questions loaded:', data);
+        console.log('Questions array:', data.questions);
+        console.log('Questions count:', data.questions ? data.questions.length : 0);
         
         if (data.questions && Array.isArray(data.questions)) {
             questions = data.questions;
+            console.log('Setting questions array, length:', questions.length);
             renderQuestionsList();
             updateProgress();
             
             // Auto-select first question if available
             if (questions.length > 0 && currentQuestionIndex < 0) {
+                console.log('Auto-selecting first question');
                 selectQuestion(0);
+            } else {
+                console.log('No questions to auto-select. Questions length:', questions.length, 'Current index:', currentQuestionIndex);
             }
         } else {
             console.error('Invalid questions data:', data);
+            console.error('Data type:', typeof data, 'Questions type:', typeof data.questions);
             questionsList.innerHTML = 
-                '<div class="error-message">Error: Invalid question data received</div>';
+                '<div class="error-message">Error: Invalid question data received. Expected array but got: ' + 
+                (data.questions ? typeof data.questions : 'undefined') + '</div>';
         }
     } catch (error) {
         console.error('Error loading questions:', error);
+        console.error('Error details:', error.message, error.stack);
         if (questionsList) {
             questionsList.innerHTML = 
-                '<div class="error-message">Error: Could not load questions. Please refresh the page.</div>';
+                '<div class="error-message">Error: Could not load questions. ' + 
+                error.message + '<br>Please check the browser console for details.</div>';
         }
     }
 }

@@ -741,10 +741,22 @@ FEEDBACK_QUESTIONS = [
 @app.route('/get_feedback_questions', methods=['GET'])
 def get_feedback_questions():
     """Get the list of consistent questions for feedback experimentation"""
-    return jsonify({
-        'questions': FEEDBACK_QUESTIONS,
-        'total': len(FEEDBACK_QUESTIONS)
-    })
+    try:
+        print(f"Getting feedback questions. Total questions: {len(FEEDBACK_QUESTIONS)}")
+        response_data = {
+            'questions': FEEDBACK_QUESTIONS,
+            'total': len(FEEDBACK_QUESTIONS)
+        }
+        print(f"Returning questions: {response_data}")
+        return jsonify(response_data)
+    except Exception as e:
+        import traceback
+        print(f"Error in get_feedback_questions: {traceback.format_exc()}")
+        return jsonify({
+            'error': str(e),
+            'questions': [],
+            'total': 0
+        }), 500
 
 @app.route('/submit_feedback_answer', methods=['POST'])
 def submit_feedback_answer():

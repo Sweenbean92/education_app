@@ -1,7 +1,7 @@
-// Performance control state
-let currentPerformanceLevel = 'medium'; // Default performance level
-let currentMaxTokens = 1024;
-let currentNumCtx = 4096;
+// Performance control state (default: high)
+let currentPerformanceLevel = 'high'; // Default performance level
+let currentMaxTokens = 2048;
+let currentNumCtx = 6144;
 let currentModel = 'smollm2:360m'; // Default model
 
 // Switch model
@@ -97,25 +97,27 @@ async function getPerformance() {
             currentNumCtx = data.num_ctx;
             
             // Determine performance level based on values
-            const select = document.getElementById('performance-select');
-            if (select) {
-                if (data.max_tokens <= 512 && data.num_ctx <= 2048) {
-                    select.value = 'low';
-                    currentPerformanceLevel = 'low';
-                } else if (data.max_tokens <= 1024 && data.num_ctx <= 4096) {
-                    select.value = 'medium';
-                    currentPerformanceLevel = 'medium';
-                } else if (data.max_tokens <= 2048 && data.num_ctx <= 6144) {
-                    select.value = 'high';
-                    currentPerformanceLevel = 'high';
-                } else {
-                    select.value = 'ultra';
-                    currentPerformanceLevel = 'ultra';
-                }
+            if (data.max_tokens <= 512 && data.num_ctx <= 2048) {
+                currentPerformanceLevel = 'low';
+            } else if (data.max_tokens <= 1024 && data.num_ctx <= 4096) {
+                currentPerformanceLevel = 'medium';
+            } else if (data.max_tokens <= 2048 && data.num_ctx <= 6144) {
+                currentPerformanceLevel = 'high';
+            } else {
+                currentPerformanceLevel = 'ultra';
             }
         }
     } catch (error) {
         console.error('Error getting performance:', error);
+    }
+}
+
+// Initialize performance to high on page load
+async function initializePerformance() {
+    try {
+        await setPerformance('high');
+    } catch (error) {
+        console.error('Error initializing performance:', error);
     }
 }
 
@@ -310,7 +312,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Initialize performance control and model on page load
-    getPerformance();
+    // Initialize performance to high and model on page load
+    initializePerformance();
     getModel();
 });

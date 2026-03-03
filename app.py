@@ -8,8 +8,8 @@ import time
 
 app = Flask(__name__)
 
-# Initialize RAG chain with SmollM2 model (default: temperature 0.1, max_tokens 2048, num_ctx 4096)
-rag_chain = RAGChain(model_name="smollm2:360m", temperature=0.1, max_tokens=2048, num_ctx=4096)
+# Initialize RAG chain with SmollM2 model (default: temperature 0.1, max_tokens 2048, num_ctx 6144 - high performance)
+rag_chain = RAGChain(model_name="smollm2:360m", temperature=0.1, max_tokens=2048, num_ctx=6144)
 
 def remove_repetitive_content(text, min_repeat_length=100):
     """
@@ -128,7 +128,7 @@ def index():
 def set_performance():
     """Set the performance level (affects speed and resource usage)"""
     data = request.json
-    performance_level = data.get('performance_level', 'medium')  # 'low', 'medium', 'high', 'ultra'
+    performance_level = data.get('performance_level', 'high')  # 'low', 'medium', 'high', 'ultra' (default: high)
     
     try:
         # Map performance levels to max_tokens and num_ctx

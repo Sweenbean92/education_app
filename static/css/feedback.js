@@ -3,10 +3,10 @@ let questions = [];
 let currentQuestionIndex = -1;
 let questionAnswers = {}; // Store answers and feedback for each question
 
-// Performance control state
-let currentPerformanceLevel = 'medium'; // Default performance level
-let currentMaxTokens = 1024;
-let currentNumCtx = 4096;
+// Performance control state (default: high)
+let currentPerformanceLevel = 'high'; // Default performance level
+let currentMaxTokens = 2048;
+let currentNumCtx = 6144;
 let currentModel = 'smollm2:360m'; // Default model
 
 // Switch model
@@ -426,8 +426,8 @@ function escapeHtml(text) {
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, initializing feedback page...');
     
-    // Initialize performance control and model on page load
-    getPerformance();
+    // Initialize performance to high and model on page load
+    initializePerformance();
     getModel();
     
     // Wait a bit to ensure DOM is fully ready, then load questions

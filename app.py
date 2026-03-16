@@ -761,7 +761,9 @@ def get_feedback_questions():
 @app.route('/submit_feedback_answer', methods=['POST'])
 def submit_feedback_answer():
     """Submit an answer for a feedback question and get model feedback"""
-    data = request.json
+    data = request.get_json(silent=True)
+    if not data:
+        return jsonify({'error': 'Invalid or missing JSON body'}), 400
     question_id = data.get('question_id', '').strip()
     question = data.get('question', '').strip()
     answer = data.get('answer', '').strip()
@@ -860,6 +862,10 @@ IMPORTANT INSTRUCTIONS:
 Provide your feedback now:"""
         
         response = rag_chain.ollama.invoke(evaluation_prompt)
+        # Ensure we have a string (invoke may return AIMessage)
+        response = getattr(response, 'content', response) or ''
+        if not isinstance(response, str):
+            response = str(response)
         
         # Parse the response - remove "EXPLANATION:" prefix if present
         feedback = response

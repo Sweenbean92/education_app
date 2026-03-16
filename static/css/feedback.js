@@ -354,7 +354,17 @@ async function submitAnswer() {
             })
         });
         
-        const data = await response.json();
+        const text = await response.text();
+        let data;
+        try {
+            data = text ? JSON.parse(text) : {};
+        } catch (e) {
+            console.error('Non-JSON response:', text.slice(0, 200));
+            feedbackSection.innerHTML = `<div class="error-message">Server returned an invalid response. Please try again.</div>`;
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit Answer';
+            return;
+        }
         
         if (response.ok) {
             // Store answer and feedback

@@ -360,7 +360,10 @@ async function submitAnswer() {
             data = text ? JSON.parse(text) : {};
         } catch (e) {
             console.error('Non-JSON response:', text.slice(0, 200));
-            feedbackSection.innerHTML = `<div class="error-message">Server returned an invalid response. Please try again.</div>`;
+            const is504 = response.status === 504 || (text && text.includes('504 Gateway Time-out'));
+            feedbackSection.innerHTML = is504
+                ? `<div class="error-message">Request timed out. The model is taking too long to respond. Try again, or ask your administrator to increase nginx proxy timeouts (e.g. proxy_read_timeout 300s) for this app.</div>`
+                : `<div class="error-message">Server returned an invalid response. Please try again.</div>`;
             submitBtn.disabled = false;
             submitBtn.textContent = 'Submit Answer';
             return;
@@ -378,7 +381,11 @@ async function submitAnswer() {
             renderQuestionsList(); // Update sidebar to show completed status
             updateProgress();
         } else {
-            feedbackSection.innerHTML = `<div class="error-message">Error: ${data.error || 'Failed to get feedback'}</div>`;
+            const is504 = response.status === 504;
+            const msg = is504
+                ? 'Request timed out. The model is taking too long. Try again, or ask your administrator to increase nginx proxy timeouts (e.g. proxy_read_timeout 300s).'
+                : (data.error || 'Failed to get feedback');
+            feedbackSection.innerHTML = `<div class="error-message">Error: ${msg}</div>`;
             submitBtn.disabled = false;
             submitBtn.textContent = 'Submit Answer';
         }
